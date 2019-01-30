@@ -29,7 +29,7 @@ export default class Login extends Component {
       this.setState({isLoading:true})
       SigIn(this.state.phone, this.state.pass)
       .then((res)=> {
-        console.log(res)
+        // console.log(res)
         this.setState({isLoading:false})
         this.props.navigation.navigate('bottomTabStack')
       })

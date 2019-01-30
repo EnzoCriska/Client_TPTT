@@ -27,6 +27,10 @@ export default class HomeScreen extends Component {
     
   }
 
+  onGoProfile(){
+    this.props.navigation.navigate('Info')
+  }
+
   onJoinNow(){
     console.log("Join now")
   }
@@ -49,6 +53,7 @@ export default class HomeScreen extends Component {
         <RenderHomeScreen
           hours = {hours}
           milliseconds = {milliseconds}
+          onGoProfile = {() => this.onGoProfile()}
           onJoinNow = {()=> this.onJoinNow()}
           onSystemRoom = {() => this.onSystemRoom()}
           onFriendsRoom = {() => this.onFriendsRoom()}

@@ -9,37 +9,59 @@ import HomeScreen from './HomeScreen.js';
 import Gift from './Gift/index.js';
 import News from './News/index.js';
 import Rank from './Rank/index.js'
+import Info from './Profile/Info/index.js';
 
 const GameStack = createStackNavigator({
-    HomeScreen:HomeScreen
+    HomeScreen:HomeScreen,
+    Info: Info
 },{
     headerMode: "none"
 })
+
+GameStack.navigationOptions = ({ navigation }) => {
+    let tabBarVisible = true;
+    var stack = navigation.state.routes
+
+    if (stack[stack.length -1].routeName != 'HomeScreen') {
+        tabBarVisible = false;
+    }
+    return {
+        tabBarVisible,
+    };
+};
 
 export const BottomTabStack = createBottomTabNavigator(
 {
     Home: {
         screen: GameStack,
-        navigationOptions: () => ({
-            tabBarIcon: <Image source={require('../../../Media/Home/home.png')} style={styles.inputIcon} />
+        navigationOptions: ({navigation}) => ({
+            tabBarIcon: ({focused}) => {
+                return focused ? <Image source={require('../../../Media/Home/BottomTabIcon/home1.png')} style={styles.inputIcon} /> : <Image source={require('../../../Media/Home/BottomTabIcon/home.png')} style={styles.inputIcon} />
+            }
         })
     },
     News:{
         screen: News,
         navigationOptions: () => ({
-            tabBarIcon: <Image source={require('../../../Media/Home/file.png')} style={styles.inputIcon} />
+            tabBarIcon: ({focused}) => {
+                return focused ? <Image source={require('../../../Media/Home/BottomTabIcon/file1.png')} style={styles.inputIcon} /> : <Image source={require('../../../Media/Home/BottomTabIcon/file.png')} style={styles.inputIcon} />
+            }
         })
     },
     Gift:{
         screen: Gift,
         navigationOptions: () => ({
-            tabBarIcon: <Image source={require('../../../Media/Home/gift.png')} style={styles.inputIcon} />
+            tabBarIcon: ({focused}) => {
+                return focused ? <Image source={require('../../../Media/Home/BottomTabIcon/gift.png')} style={styles.inputIcon} /> : <Image source={require('../../../Media/Home/BottomTabIcon/gift.png')} style={styles.inputIcon} />
+            }
         })
     },
     Rank:{
         screen: Rank,
         navigationOptions: () => ({
-            tabBarIcon: <Image source={require('../../../Media/Home/rank.png')} style={styles.inputIcon} />
+            tabBarIcon: ({focused}) => {
+                return focused ? <Image source={require('../../../Media/Home/BottomTabIcon/rank1.png')} style={styles.inputIcon} /> : <Image source={require('../../../Media/Home/BottomTabIcon/rank.png')} style={styles.inputIcon} />
+            }
         })
     },
 },
@@ -50,8 +72,25 @@ export const BottomTabStack = createBottomTabNavigator(
           },
     }
 }
-  ,)
+//   ,{
 
+
+//   defaultNavigationOptions: ({ navigation }) => ({
+      
+//     tabBarIcon: ({ focused, horizontal, tintColor }) => {
+//         const {routeName} = navigation.state
+//         var Icon = null
+//         if (routeName === 'Home') {
+//             console.log(">>>>>>>>> "+ focused)
+//             Icon = focused  ?    <Image source={require('../../../Media/Home/BottonTabIcon/home.png')} style={styles.inputIcon} />  
+//                             :    <Image source={require('../../../Media/Home/BottonTabIcon/home1.png')} style={styles.inputIcon} />
+//         }
+//         console.log(">>>>>>>>> "+ Icon)
+//         return Icon
+//     }
+// })
+// }
+)
 const styles = StyleSheet.create({
     inputIcon: {
         marginTop: 10,

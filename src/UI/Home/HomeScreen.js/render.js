@@ -6,6 +6,7 @@ import {
  export const RenderHomeScreen = ({
     hours = '',
     milliseconds = '',
+    onGoProfile = () => {},
     onJoinNow = () => {},
     onSystemRoom = () => {},
     onFriendsRoom = () => {},
@@ -19,17 +20,21 @@ import {
                 source= {require('../../../../Media/Home/HeaderBG.png')}
                 style={styles.headerContainer}>
                 <View style = {styles.leftHeader}>
-                    <ImageBackground
-                        source = {{uri:'https://2sao.vietnamnetjsc.vn/images/2017/10/03/10/09/huyen-trang-11.jpg'}}
-                        style = {styles.headerAvatar}
-                        imageStyle = {styles.imgBGAvatar}>
+                    <TouchableOpacity 
+                        onPress = {onGoProfile}
+                        style = {styles.headerAvatar}>
+                        <ImageBackground
+                            source = {{uri:'https://2sao.vietnamnetjsc.vn/images/2017/10/03/10/09/huyen-trang-11.jpg'}}
+                            style = {styles.headerAvatar}
+                            imageStyle = {styles.imgBGAvatar}>
 
-                        <Image
-                            source = {require('../../../../Media/Home/master-rank.png')}
-                            style = {styles.rankIcon}
-                        />
+                            <Image
+                                source = {require('../../../../Media/Home/master-rank.png')}
+                                style = {styles.rankIcon}
+                            />
 
-                    </ImageBackground>
+                        </ImageBackground>
+                    </TouchableOpacity>
 
                     <Text style={styles.textHeader}>Phạm Huyền Trang</Text>
                 </View>
@@ -192,13 +197,13 @@ import {
     headerAvatar:{
         width:60,
         height:60,
-        borderRadius: 50,
-        marginHorizontal: 10,
+        borderRadius: 30,
+        marginLeft: 10,
         justifyContent: 'flex-end',
         alignItems:'flex-end'
     },
     imgBGAvatar:{
-        borderRadius:50,
+        borderRadius:30,
         borderColor:'#fff',
         borderWidth: 0.5
     },
