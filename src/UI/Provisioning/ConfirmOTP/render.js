@@ -18,11 +18,11 @@ import {
             <View style={styles.content}>
                 <Image
                     style={styles.logoStyle}
-                    source={require('../../../../Media/LogoApp.png')}
+                    source={require('../../../../Media/Provisioning/LogoApp.png')}
                 />
                 <Text style = {styles.descripText}>Nhập mã xác thực được gửi về số ĐT của bạn</Text>
                 <ImageBackground
-                    source={require('../../../../Media/inputBackground.png')}
+                    source={require('../../../../Media/Provisioning/inputBackground.png')}
                     style={styles.textInput}>
                     <TextInput
                         style = {styles.input}

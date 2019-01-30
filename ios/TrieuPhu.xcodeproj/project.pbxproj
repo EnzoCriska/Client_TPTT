@@ -39,6 +39,8 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		2AD7E36BBFAF4EC3BBF0EB89 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A3F2E151D84173860DF260 /* libRNGestureHandler.a */; };
 		9BB7829D155D4B799025845A /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F62E7FAD744614AC058E71 /* libRNImagePicker.a */; };
+		8AB1B68BD6E04FAE8BAE4B1A /* Quartz.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAD85BA62C99444BB8B6AB77 /* Quartz.ttf */; };
+		7B64B2C061624C4D8426A2A4 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B402431B241940BBB1BFD1DB /* Roboto-Black.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -348,6 +350,8 @@
 		89A3F2E151D84173860DF260 /* libRNGestureHandler.a */ = {isa = PBXFileReference; name = "libRNGestureHandler.a"; path = "libRNGestureHandler.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		8F4742635BB045488690F9B6 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; name = "RNImagePicker.xcodeproj"; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		B6F62E7FAD744614AC058E71 /* libRNImagePicker.a */ = {isa = PBXFileReference; name = "libRNImagePicker.a"; path = "libRNImagePicker.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		BAD85BA62C99444BB8B6AB77 /* Quartz.ttf */ = {isa = PBXFileReference; name = "Quartz.ttf"; path = "../assets/fonts/Quartz.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B402431B241940BBB1BFD1DB /* Roboto-Black.ttf */ = {isa = PBXFileReference; name = "Roboto-Black.ttf"; path = "../assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -586,6 +590,7 @@
 				00E356EF1AD99517003FC87E /* TrieuPhuTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				0D6B6B2EB22E43F887F42A9C /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -611,6 +616,16 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		0D6B6B2EB22E43F887F42A9C /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				BAD85BA62C99444BB8B6AB77 /* Quartz.ttf */,
+				B402431B241940BBB1BFD1DB /* Roboto-Black.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -1058,6 +1073,8 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				8AB1B68BD6E04FAE8BAE4B1A /* Quartz.ttf in Resources */,
+				7B64B2C061624C4D8426A2A4 /* Roboto-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

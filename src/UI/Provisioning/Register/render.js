@@ -3,7 +3,7 @@ import {
     View, Text, TouchableOpacity, Image, ImageBackground, StyleSheet, TextInput
 } from 'react-native';
 
-const uriDefault = '../../../../Media/ImagePicker.png'
+const uriDefault = '../../../../Media/Provisioning/ImagePicker.png'
 
 export const RenderRegister = ({
     avatar = '',
@@ -38,10 +38,10 @@ export const RenderRegister = ({
             <Text style = {styles.textAva}>Cập nhật Avatar</Text>
 
             <ImageBackground
-                source={require('../../../../Media/inputBackground.png')}
+                source={require('../../../../Media/Provisioning/inputBackground.png')}
                 style = {styles.textInput}>
                     <Image
-                        source = {require('../../../../Media/user.png')}
+                        source = {require('../../../../Media/Provisioning/user.png')}
                         style = {styles.iconTextInput}
                     />
                     <TextInput
@@ -54,10 +54,10 @@ export const RenderRegister = ({
             </ImageBackground>
 
             <ImageBackground
-                source={require('../../../../Media/inputBackground.png')}
+                source={require('../../../../Media/Provisioning/inputBackground.png')}
                 style = {styles.textInput}>
                     <Image
-                        source = {require('../../../../Media/calendar.png')}
+                        source = {require('../../../../Media/Provisioning/calendar.png')}
                         style = {styles.iconTextInput}
                     />
                     <TextInput
@@ -71,10 +71,10 @@ export const RenderRegister = ({
             </ImageBackground>
 
             <ImageBackground
-                source={require('../../../../Media/inputBackground.png')}
+                source={require('../../../../Media/Provisioning/inputBackground.png')}
                 style = {styles.textInput}>
                     <Image
-                        source = {require('../../../../Media/lock.png')}
+                        source = {require('../../../../Media/Provisioning/lock.png')}
                         style = {styles.iconTextInput}
                     />
                     <TextInput

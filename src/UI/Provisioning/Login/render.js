@@ -28,17 +28,17 @@ export const RenderLogin =  ({
 
             <View style= {styles.LogoContainer}>
                 <Image
-                    source = {require('../../../../Media/LogoApp.png')}
+                    source = {require('../../../../Media/Provisioning/LogoApp.png')}
                     style={styles.logoStyle}
                 />
             </View>
 
             <View style = {styles.ActionContainer}>
                 <ImageBackground
-                    source = {require('../../../../Media/inputBackground.png')}
+                    source = {require('../../../../Media/Provisioning/inputBackground.png')}
                     style = {styles.textInput}>
                     <Image
-                        source = {require('../../../../Media/smartphone.png')}
+                        source = {require('../../../../Media/Provisioning/smartphone.png')}
                         style = {styles.iconTextInput}
                     />
                     <TextInput
@@ -53,10 +53,10 @@ export const RenderLogin =  ({
                 </ImageBackground>
                 
                 <ImageBackground
-                    source = {require('../../../../Media/inputBackground.png')}
+                    source = {require('../../../../Media/Provisioning/inputBackground.png')}
                     style = {styles.textInput}>
                     <Image
-                        source = {require('../../../../Media/lock.png')}
+                        source = {require('../../../../Media/Provisioning/lock.png')}
                         style = {styles.iconTextInput}
                     />
                     <TextInput
@@ -90,8 +90,12 @@ export const RenderLogin =  ({
                         style = {{flex:1}}
                         onPress = {onFBLogin}>
                         <ImageBackground 
-                            source={require('../../../../Media/FbLoginBtn.png')}
+                            source={require('../../../../Media/Provisioning/FbLoginBtn.png')}
                             style = {styles.other}>
+                            <Image
+                                source = {require('../../../../Media/Provisioning/fb.png')}
+                                style = {styles.iconOtherBtn}
+                            />
                             <Text style={styles.textOther}>FaceBook</Text>
                         </ImageBackground>
                     </TouchableOpacity>
@@ -100,7 +104,7 @@ export const RenderLogin =  ({
                         style = {{flex:1}}
                         onPress = {onRegister}>
                         <ImageBackground 
-                            source={require('../../../../Media/registerBtn.png')}
+                            source={require('../../../../Media/Provisioning/registerBtn.png')}
                             style = {styles.other}>
                             <Text style={styles.textOther}>Đăng ký</Text>
                         </ImageBackground>
@@ -181,17 +185,24 @@ const styles = StyleSheet.create({
     btnOtherLogin:{
         flexDirection:'row',
         width:'80%',
-        marginVertical:20
+        marginVertical:20,
     },
     other:{
         width:'100%',
         height:50,
+        flexDirection:'row',
         justifyContent:'center',
         alignItems:'center',
-        resizeMode:'center'
+        resizeMode:'center',
     },
     textOther:{
         color:'#fff',
         fontSize: 16,
+    },
+    iconOtherBtn:{
+        height:'90%',
+        width:30,
+        resizeMode:'center',
+        marginRight: 10,
     }
 })

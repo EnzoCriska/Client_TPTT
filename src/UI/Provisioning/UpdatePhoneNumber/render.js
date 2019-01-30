@@ -14,7 +14,7 @@ export const RenderUpdatePhoneNumber = ({
             style={styles.container}>
             <View style = {styles.LogoContainer}>
                 <Image
-                    source={require('../../../../Media/LogoApp.png')}
+                    source={require('../../../../Media/Provisioning/LogoApp.png')}
                     style={styles.logoStyle}
                 />
                 <Text style = {styles.descripText}>Cập nhật số điện thoại của bạn</Text>
@@ -22,10 +22,10 @@ export const RenderUpdatePhoneNumber = ({
             <View style={styles.body}>
                 
                 <ImageBackground
-                    source={require('../../../../Media/inputBackground.png')}
+                    source={require('../../../../Media/Provisioning/inputBackground.png')}
                     style = {styles.textInput}>
                     <Image
-                        source = {require('../../../../Media/smartphone.png')}
+                        source = {require('../../../../Media/Provisioning/smartphone.png')}
                         style = {styles.iconTextInput}
                     />
                     <TextInput

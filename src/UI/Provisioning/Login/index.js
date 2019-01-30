@@ -31,7 +31,7 @@ export default class Login extends Component {
       .then((res)=> {
         console.log(res)
         this.setState({isLoading:false})
-        
+        this.props.navigation.navigate('bottomTabStack')
       })
   }
 
