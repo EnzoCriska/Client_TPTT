@@ -9,9 +9,21 @@ export default class Info extends Component {
     };
   }
 
+  onGoBack(){
+    console.log("goBack")
+    this.props.navigation.goBack()
+  }
+
+  onGoEdit(){
+    console.log("Edit")
+  }
+
   render() {
     return (
-      <RenderInfo/>
+      <RenderInfo
+          onGoBack = {()=> this.onGoBack()}
+          onGoEdit = {() => this.onGoEdit()}
+      />
     );
   }
 }

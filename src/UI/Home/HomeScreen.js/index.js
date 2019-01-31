@@ -28,7 +28,7 @@ export default class HomeScreen extends Component {
   }
 
   onGoProfile(){
-    this.props.navigation.navigate('Info')
+    this.props.navigation.navigate('Profile')
   }
 
   onJoinNow(){

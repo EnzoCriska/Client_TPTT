@@ -7,13 +7,15 @@ import {
 } from 'react-navigation';
 import HomeScreen from './HomeScreen.js';
 import Gift from './Gift/index.js';
-import News from './News/index.js';
+
 import Rank from './Rank/index.js'
 import Info from './Profile/Info/index.js';
+import { StackNews } from './News/StackNews.js';
+import { StackProfile } from './Profile/StackProfile.js';
 
 const GameStack = createStackNavigator({
     HomeScreen:HomeScreen,
-    Info: Info
+    Profile: Info
 },{
     headerMode: "none"
 })
@@ -41,7 +43,7 @@ export const BottomTabStack = createBottomTabNavigator(
         })
     },
     News:{
-        screen: News,
+        screen: StackNews,
         navigationOptions: () => ({
             tabBarIcon: ({focused}) => {
                 return focused ? <Image source={require('../../../Media/Home/BottomTabIcon/file1.png')} style={styles.inputIcon} /> : <Image source={require('../../../Media/Home/BottomTabIcon/file.png')} style={styles.inputIcon} />
@@ -72,24 +74,6 @@ export const BottomTabStack = createBottomTabNavigator(
           },
     }
 }
-//   ,{
-
-
-//   defaultNavigationOptions: ({ navigation }) => ({
-      
-//     tabBarIcon: ({ focused, horizontal, tintColor }) => {
-//         const {routeName} = navigation.state
-//         var Icon = null
-//         if (routeName === 'Home') {
-//             console.log(">>>>>>>>> "+ focused)
-//             Icon = focused  ?    <Image source={require('../../../Media/Home/BottonTabIcon/home.png')} style={styles.inputIcon} />  
-//                             :    <Image source={require('../../../Media/Home/BottonTabIcon/home1.png')} style={styles.inputIcon} />
-//         }
-//         console.log(">>>>>>>>> "+ Icon)
-//         return Icon
-//     }
-// })
-// }
 )
 const styles = StyleSheet.create({
     inputIcon: {

@@ -71,7 +71,7 @@ import {
                             <Text style = {styles.timeCountDown}>{hours%10}</Text>
                         </View>
                         
-                        <Text style={styles.topCountDownTitle}>:</Text>
+                        <Image source = {require('../../../../Media/Home/asset1.png')} style = {{height:60,}} resizeMode="center"/>
 
                         <View style={styles.boxCountDown}>
                             <Text style = {styles.timeCountDown}>{milliseconds >= 10 ? Math.floor(milliseconds/10) : 0}</Text>
@@ -113,7 +113,7 @@ import {
                                         resizeMode = 'center'
                                     />
                                 </View>
-                                <View style = {{flex:2, alignItems:'center'}}>
+                                <View style = {{flex:3, alignItems:'center'}}>
                                     <Text style = {styles.topCountDownTitle}>Phòng hệ thống</Text>
                                 </View>
                                 <View style = {{flex:1}}>
@@ -138,7 +138,7 @@ import {
                                         resizeMode = 'center'
                                     />
                                 </View>
-                                <View style = {{flex:2, alignItems:'center'}}>
+                                <View style = {{flex:3, alignItems:'center'}}>
                                     <Text style = {styles.topCountDownTitle}>Phòng bạn bè</Text>
                                 </View>
                                 <View style = {{flex:1}}>
@@ -162,7 +162,7 @@ import {
                                         resizeMode = 'center'
                                     />
                                 </View>
-                                <View style = {{flex:2, alignItems:'center'}}>
+                                <View style = {{flex:3, alignItems:'center'}}>
                                     <Text style = {styles.topCountDownTitle}>Phòng Training</Text>
                                 </View>
                                 <View style = {{flex:1}}>
@@ -260,13 +260,14 @@ import {
     },
     bottomCountDown:{
         flex:2,
-        width:"100%",
+        width:"90%",
         justifyContent: 'center',
-        flexDirection:'row'
+        flexDirection:'row',
     },
     boxCountDown:{
-        width:60,
-        height:60,
+        // width:60,
+        flex:1,
+        height:60,  
         borderRadius:5,
         backgroundColor: '#01081E',
         borderColor:'#3A535B',
