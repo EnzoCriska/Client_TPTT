@@ -49,6 +49,7 @@ export default class ScrollNews extends Component {
 
   onToDetailNews(item){
     console.log("Detail")
+    this.props.navigation.navigate('Detail', item)
   }
 
   render() {

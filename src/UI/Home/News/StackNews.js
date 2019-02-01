@@ -7,10 +7,12 @@ import {
 import ScrollNews from './ScrollNews';
 import { StackProfile } from '../Profile/StackProfile';
 import Info from '../Profile/Info';
+import DetailNews from './DetailNews.js';
 
 
 export const StackNews = createStackNavigator({
     Scroll: ScrollNews,
+    Detail:DetailNews,
     __Profile: Info
 },{
     headerMode:'none'
