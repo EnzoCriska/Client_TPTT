@@ -2,7 +2,7 @@ import React from 'react';
 import { 
     View, Text, TouchableOpacity, Image, ImageBackground, StyleSheet
  } from 'react-native';
-import { styles } from '../../News/DetailNews.js/style';
+import { styles } from './style';
 
  export const RenderInfo = ({
     onGoBack = () => {},

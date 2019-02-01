@@ -2,7 +2,7 @@ import React from 'react';
 import {
     View, Text, TouchableOpacity, Image, ImageBackground, StyleSheet, TextInput
 } from 'react-native';
-import { styles } from '../ConfirmOTP/style';
+import { styles } from './style';
 
 const uriDefault = '../../../../Media/Provisioning/ImagePicker.png'
 

@@ -2,7 +2,7 @@ import React from 'react';
 import {
     View, Text, StyleSheet, TouchableOpacity, TextInput, Image, ImageBackground
 } from 'react-native';
-import { styles } from '../../Home/News/DetailNews.js/style';
+import { styles } from './style';
 
 export const RenderUpdatePhoneNumber = ({
     phone = '',

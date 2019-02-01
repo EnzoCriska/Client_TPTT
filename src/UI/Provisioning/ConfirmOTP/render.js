@@ -2,7 +2,7 @@ import React from 'react';
 import { 
     View, Text, TouchableOpacity, Image, ImageBackground, StyleSheet, TextInput
  } from 'react-native'
-import { styles } from '../../Home/News/ScrollNews/style';
+import { styles } from './style';
 
 
  export const RenderConfirmOTP = ({
