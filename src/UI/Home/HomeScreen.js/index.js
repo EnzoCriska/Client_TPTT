@@ -11,8 +11,8 @@ export default class HomeScreen extends Component {
 
   componentDidMount() {
     var date = new Date().getDate()    
-    startTime = new Date(2019, 0, date, 20, 0, 0)
-     
+    startTime = new Date(2019, 1, date, 20, 0, 0)
+     console.log(startTime)
     setInterval( () => {
         var time = new Date()
         var timeDiff = Math.abs(startTime - time);
@@ -49,6 +49,7 @@ export default class HomeScreen extends Component {
 
   render() {
     const { hours, milliseconds} = this.state
+    // console.log(hours, milliseconds)
     return (
         <RenderHomeScreen
           hours = {hours}

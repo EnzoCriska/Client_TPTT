@@ -12,6 +12,7 @@ import {
     onFriendsRoom = () => {},
     onTrainingRoom = () => {}
  }) => {
+     
      return(
          <ImageBackground
             source={require('../../../../Media/background.png')}

@@ -12,6 +12,7 @@ import Rank from './Rank/index.js'
 import Info from './Profile/Info/index.js';
 import { StackNews } from './News/StackNews.js';
 import { StackProfile } from './Profile/StackProfile.js';
+import { RankingStack } from './Rank/RankStack.js';
 
 const GameStack = createStackNavigator({
     HomeScreen:HomeScreen,
@@ -59,7 +60,7 @@ export const BottomTabStack = createBottomTabNavigator(
         })
     },
     Rank:{
-        screen: Rank,
+        screen: RankingStack,
         navigationOptions: () => ({
             tabBarIcon: ({focused}) => {
                 return focused ? <Image source={require('../../../Media/Home/BottomTabIcon/rank1.png')} style={styles.inputIcon} /> : <Image source={require('../../../Media/Home/BottomTabIcon/rank.png')} style={styles.inputIcon} />
