@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { RenderHomeScreen } from './render';
+import { Loading } from '../../../Util/LoadingScreen';
+import { JoinNowGame } from '../../../Network/API';
 
+import Global from '../../../Util/Global';
 export default class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: false
     };
   }
 
@@ -33,6 +37,13 @@ export default class HomeScreen extends Component {
 
   onJoinNow(){
     console.log("Join now")
+    this.setState({isLoading:true})
+    // Call API get System Room
+    JoinNowGame(Global.currentUser).then(res => {
+      this.setState({isLoading:false})
+      // Goto Wait Screen
+      this.props.navigation.navigate('WaitScreen')
+    })
   }
 
   onSystemRoom(){
@@ -48,8 +59,11 @@ export default class HomeScreen extends Component {
   }
 
   render() {
-    const { hours, milliseconds} = this.state
-    // console.log(hours, milliseconds)
+    const { isLoading, hours, milliseconds} = this.state
+
+    if(isLoading){
+      return (<Loading/>)
+    }
     return (
         <RenderHomeScreen
           hours = {hours}

@@ -92,21 +92,21 @@ export default class RankComponent extends Component {
   }
 
   showRankMonth(){
-    // Call API Get total Rank
+    // Call API Get Month Rank
     // Set state new data
     this.setState({thisRank:'Month'})
     this.hideMenu()
   }
 
   showRankWeek(){
-    // Call API Get total Rank
+    // Call API Get Week Rank
     // Set state new data
     this.setState({thisRank:'Week'})
     this.hideMenu()
   }
 
   showRankDay(){
-    // Call API Get total Rank
+    // Call API Get Day Rank
     // Set state new data
     this.setState({thisRank:'Day'})
     this.hideMenu()

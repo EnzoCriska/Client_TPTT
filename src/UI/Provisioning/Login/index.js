@@ -4,6 +4,8 @@ import { View, Text } from 'react-native';
 import {RenderLogin} from './render';
 import { Loading } from '../../../Util/LoadingScreen';
 import { SigIn } from '../../../Network/API';
+
+import Global from '../../../Util/Global';
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -30,6 +32,7 @@ export default class Login extends Component {
       SigIn(this.state.phone, this.state.pass)
       .then((res)=> {
         // console.log(res)
+        Global.currentUser = res
         this.setState({isLoading:false})
         this.props.navigation.navigate('bottomTabStack')
       })

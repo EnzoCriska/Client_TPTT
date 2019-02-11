@@ -13,9 +13,11 @@ import Info from './Profile/Info/index.js';
 import { StackNews } from './News/StackNews.js';
 import { StackProfile } from './Profile/StackProfile.js';
 import { RankingStack } from './Rank/RankStack.js';
+import WaitScreen from './Game/WaitScreen/index.js';
 
 const GameStack = createStackNavigator({
     HomeScreen:HomeScreen,
+    WaitScreen: WaitScreen,
     Profile: Info
 },{
     headerMode: "none"
