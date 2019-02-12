@@ -8,16 +8,17 @@ import {
 import HomeScreen from './HomeScreen.js';
 import Gift from './Gift/index.js';
 
-import Rank from './Rank/index.js'
 import Info from './Profile/Info/index.js';
 import { StackNews } from './News/StackNews.js';
 import { StackProfile } from './Profile/StackProfile.js';
 import { RankingStack } from './Rank/RankStack.js';
 import WaitScreen from './Game/WaitScreen/index.js';
+import GamePlay from './Game/Play/index.js';
 
 const GameStack = createStackNavigator({
     HomeScreen:HomeScreen,
     WaitScreen: WaitScreen,
+    GamePlay:GamePlay,
     Profile: Info
 },{
     headerMode: "none"

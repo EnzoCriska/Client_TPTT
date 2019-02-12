@@ -2,11 +2,11 @@
   import firebase from '@firebase/app'
   import '@firebase/database'
   var config = {
-    apiKey: "AIzaSyCpADloI73xKvcin6bBLqQn6EzU0QjGQFA",
-    authDomain: "tptt-6a1d0.firebaseapp.com",
-    databaseURL: "https://tptt-6a1d0.firebaseio.com",
-    projectId: "tptt-6a1d0",
+    apiKey: "AIzaSyBRczhUaJE2Rx1fjAb9DOerauQSgddZEOo",
+    authDomain: "client-tptt.firebaseapp.com",
+    databaseURL: "https://client-tptt.firebaseio.com",
+    projectId: "client-tptt",
     storageBucket: "",
-    messagingSenderId: "514696045294"
+    messagingSenderId: "2760121982"
   };
 export const firebaseApp =   firebase.initializeApp(config);

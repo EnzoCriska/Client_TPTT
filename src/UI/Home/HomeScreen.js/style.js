@@ -1,7 +1,7 @@
 import React from 'react'
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions} from 'react-native';
 
-
+const {width, height} = Dimensions.get('window')
 export const styles = StyleSheet.create({
     container:{
         flex:1
@@ -58,15 +58,46 @@ export const styles = StyleSheet.create({
        margin:3,
        resizeMode:'center'
    },
+   slideContainer:{
+       flex:2, 
+       marginBottom:10
+    },
+   slideView:{
+        width:'100%',
+   },
+   slideItemBG:{
+       height: '100%', 
+       width:'100%', 
+       justifyContent:'flex-end'
+    },
+    slideItemTitle:{
+        color:'#fff',
+        fontSize:18,
+        fontWeight:'bold',
+        marginLeft:10
+    },
+    descriptionItemSlide:{
+        color:'#fff',
+        fontSize:16,
+        marginLeft:10,
+        marginBottom:10
+    },
    bodyContainer:{
-       marginTop:10,
+       marginTop:5,
        alignItems:'center',
        width:'100%',
        flex:1
    },
+   countDownContainer:{
+       flex:2, 
+       width:'100%', 
+       justifyContent:'center', 
+       alignItems:'center',
+       marginTop:10
+    },
    countDownBG:{
        width:'80%',
-       height:200,
+       height:170,
        justifyContent: 'center',
        alignItems: 'center',
    },
@@ -90,7 +121,7 @@ export const styles = StyleSheet.create({
    boxCountDown:{
        // width:60,
        flex:1,
-       height:60,  
+       height:50,  
        borderRadius:5,
        backgroundColor: '#01081E',
        borderColor:'#3A535B',
@@ -110,11 +141,15 @@ export const styles = StyleSheet.create({
    },
    joinBtn:{
        width:'100%',
-       height:80,
+       height:60,
        justifyContent: 'center',
        alignItems: 'center',
        flexDirection:'row'
    },
+   playSelectionContainer:{
+       flex:3, 
+       marginTop:20
+    },
    Game:{
        width:'100%',
        flex:1,
@@ -122,10 +157,20 @@ export const styles = StyleSheet.create({
    },
    playRoomBtn:{
        width:"80%",
+       marginBottom:10
    },
    iconSelected:{
        width:30,
        height:30
-   }
+   },
+   iconSelectionContainer:{
+       flex:1, 
+       alignItems:'center', 
+       marginLeft:3,
+    },
+    textSelection:{
+        flex:3, 
+        alignItems:'center',
+    }
 
 })

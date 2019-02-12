@@ -10,7 +10,8 @@ export const RenderWaitGame = ({
     chatValue = '',
     chatList = [],
     onChangeChat = () => {},
-    sendMessage = () => {}
+    sendMessage = () => {},
+    goToBack = () => {}
 }) => {
     return (
         <ImageBackground
@@ -51,7 +52,7 @@ export const RenderWaitGame = ({
 
             <View style= {styles.bodyContainer}>
                 <View style = {styles.bottomHeaderContainer}>
-                    <TouchableOpacity onPress = {() => console.log('Back')}>
+                    <TouchableOpacity onPress = {() => goToBack()}>
                         <Image
                             source = {require('../../../../../Media/Profile/leftArrow.png')}
                             style = {styles.iconHeader}

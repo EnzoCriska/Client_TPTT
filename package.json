@@ -12,12 +12,16 @@
     "test": "jest"
   },
   "dependencies": {
+    "firebase": "^5.7.3",
     "react": "16.6.1",
     "react-native": "0.57.7",
+    "react-native-circular-progress": "^1.1.0",
     "react-native-elements": "^1.0.0",
     "react-native-gesture-handler": "^1.0.15",
     "react-native-image-picker": "^0.28.0",
     "react-native-material-menu": "^0.4.2",
+    "react-native-snap-carousel": "^3.7.5",
+    "react-native-svg": "^9.2.4",
     "react-native-vector-icons": "^6.2.0",
     "react-navigation": "^3.0.9"
   },

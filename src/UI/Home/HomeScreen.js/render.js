@@ -1,12 +1,14 @@
 import React from 'react'
 import { 
-    View, Text, TouchableOpacity, Image, ImageBackground, StyleSheet
+    View, Text, TouchableOpacity, Image, ImageBackground, Dimensions, StyleSheet
  } from 'react-native';
 import { styles } from './style';
-
+import Carousel from 'react-native-snap-carousel';
+const {width, height} = Dimensions.get('window')
  export const RenderHomeScreen = ({
     hours = '',
     milliseconds = '',
+    listSlide = [],
     onGoProfile = () => {},
     onJoinNow = () => {},
     onSystemRoom = () => {},
@@ -52,42 +54,65 @@ import { styles } from './style';
             </ImageBackground>
 
             <View style = {styles.bodyContainer}>
+                
+                <View style = {styles.slideContainer}>
+                    <View style= {styles.slideView}>
+                        <Carousel
+                            data={listSlide}
+                            sliderWidth={width}
+                            itemWidth={width-100}
+                            inactiveSlideOpacity={0.6}
+                            inactiveSlideScale={0.8}
+                            autoplay = {true}
+                            renderItem={({item, index}) => (
+                                <ImageBackground
+                                    source = {{uri:item.uriImage}}
+                                    style = {styles.slideItemBG}
+                                    imageStyle = {{borderRadius:5}}>
 
-                <ImageBackground
-                    source= {require('../../../../Media/Home/CountDownBG.png')}
-                    style = {styles.countDownBG}
-                    imageStyle = {{width:'100%'}}
-                    resizeMode = "stretch">
-
-                    <View style={styles.topCountDown}>
-                        <Text style = {styles.topCountDownTitle}>Game tiếp theo</Text>
+                                    <Text style = {styles.slideItemTitle}>{item.title}</Text>
+                                    <Text style = {styles.descriptionItemSlide}>{item.description}</Text>
+                                </ImageBackground>
+                            )}
+                        />
                     </View>
+                </View>
 
-                    <View style = {styles.bottomCountDown}>
+                <View style = {styles.countDownContainer}>
+                    <ImageBackground
+                        source= {require('../../../../Media/Home/CountDownBG.png')}
+                        style = {styles.countDownBG}
+                        imageStyle = {{width:'100%'}}
+                        resizeMode = "stretch">
 
-                        <View style={styles.boxCountDown}>
-                            <Text style = {styles.timeCountDown}>{hours>= 10 ? Math.floor(hours/10) : 0}</Text>
+                        <View style={styles.topCountDown}>
+                            <Text style = {styles.topCountDownTitle}>Game tiếp theo</Text>
                         </View>
 
-                        <View style={styles.boxCountDown}>
-                            <Text style = {styles.timeCountDown}>{hours%10}</Text>
+                        <View style = {styles.bottomCountDown}>
+
+                            <View style={styles.boxCountDown}>
+                                <Text style = {styles.timeCountDown}>{hours>= 10 ? Math.floor(hours/10) : 0}</Text>
+                            </View>
+
+                            <View style={styles.boxCountDown}>
+                                <Text style = {styles.timeCountDown}>{hours%10}</Text>
+                            </View>
+                            
+                            <Image source = {require('../../../../Media/Home/asset1.png')} style = {{height:60,}} resizeMode="center"/>
+
+                            <View style={styles.boxCountDown}>
+                                <Text style = {styles.timeCountDown}>{milliseconds >= 10 ? Math.floor(milliseconds/10) : 0}</Text>
+                            </View>
+
+                            <View style={styles.boxCountDown}>
+                                <Text style = {styles.timeCountDown}>{milliseconds % 10}</Text>
+                            </View>
+
                         </View>
                         
-                        <Image source = {require('../../../../Media/Home/asset1.png')} style = {{height:60,}} resizeMode="center"/>
-
-                        <View style={styles.boxCountDown}>
-                            <Text style = {styles.timeCountDown}>{milliseconds >= 10 ? Math.floor(milliseconds/10) : 0}</Text>
-                        </View>
-
-                        <View style={styles.boxCountDown}>
-                            <Text style = {styles.timeCountDown}>{milliseconds % 10}</Text>
-                        </View>
-
-                    </View>
-                    
-                </ImageBackground>
-
-                <TouchableOpacity 
+                    </ImageBackground>
+                    <TouchableOpacity 
                     onPress = {onJoinNow}
                     style = {styles.touchableJoinBtn}>
                         <ImageBackground
@@ -99,6 +124,9 @@ import { styles } from './style';
                         </ImageBackground>
                 </TouchableOpacity>
 
+                </View>
+
+                <View style = {styles.playSelectionContainer}>
                 <View style = {styles.Game}>
                     <TouchableOpacity 
                         onPress = {onSystemRoom}
@@ -108,14 +136,14 @@ import { styles } from './style';
                                 style = {styles.joinBtn}
                                 resizeMode = "center"
                             >
-                                <View style = {{flex:1, alignItems:'center'}}>
+                                <View style = {styles.iconSelectionContainer}>
                                     <Image
                                         source={require('../../../../Media/Home/opened-door-aperture.png')}
                                         style = {styles.iconSelected}
                                         resizeMode = 'center'
                                     />
                                 </View>
-                                <View style = {{flex:3, alignItems:'center'}}>
+                                <View style = {styles.textSelection}>
                                     <Text style = {styles.topCountDownTitle}>Phòng hệ thống</Text>
                                 </View>
                                 <View style = {{flex:1}}>
@@ -133,14 +161,14 @@ import { styles } from './style';
                                 style = {styles.joinBtn}
                                 resizeMode = "center"
                             >
-                                <View style = {{flex:1, alignItems:'center'}}>
+                                <View style = {styles.iconSelectionContainer}>
                                     <Image
                                         source={require('../../../../Media/Home/friends-talking.png')}
                                         style = {styles.iconSelected}
                                         resizeMode = 'center'
                                     />
                                 </View>
-                                <View style = {{flex:3, alignItems:'center'}}>
+                                <View style = {styles.textSelection}>
                                     <Text style = {styles.topCountDownTitle}>Phòng bạn bè</Text>
                                 </View>
                                 <View style = {{flex:1}}>
@@ -157,14 +185,14 @@ import { styles } from './style';
                                 style = {styles.joinBtn}
                                 resizeMode = "center"
                             >
-                                <View style = {{flex:1, alignItems:'center'}}>
+                                <View style = {styles.iconSelectionContainer}>
                                     <Image
                                         source={require('../../../../Media/Home/gamepad.png')}
                                         style = {styles.iconSelected}
                                         resizeMode = 'center'
                                     />
                                 </View>
-                                <View style = {{flex:3, alignItems:'center'}}>
+                                <View style = {styles.textSelection}>
                                     <Text style = {styles.topCountDownTitle}>Phòng Training</Text>
                                 </View>
                                 <View style = {{flex:1}}>
@@ -173,7 +201,7 @@ import { styles } from './style';
                             </ImageBackground>
                     </TouchableOpacity>
                 </View>
-
+                </View>
             </View>
 
          </ImageBackground>

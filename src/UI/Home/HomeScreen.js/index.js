@@ -9,7 +9,22 @@ export default class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: false
+      isLoading: false,
+      listSlide: [{
+        uriImage:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQheIi0r-k7dbFxbpD1-40LzbhZ2tdzpOWSelMhbfJb5W60j-Tj',
+        title: 'Supper Mario',
+        description:'supper league'
+      },{
+        uriImage:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSFF9TWtTDJ86p47eVym1tNS4kF1httkO52ic-ShOGGCm3iot-',
+        title: 'Supper Mario 2',
+        description:'supper league'
+      },{
+        uriImage:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq4uGjMj9L8vRacfMmIjU3YvQ7Vr3utRzbfrhrwdpQULjYL7cR',
+        title: 'Supper Mario 3',
+        description:'supper league'
+      },
+
+    ]
     };
   }
 
@@ -47,6 +62,7 @@ export default class HomeScreen extends Component {
   }
 
   onSystemRoom(){
+    this.props.navigation.navigate('GamePlay')
     console.log("System Room")
   }
 
@@ -59,7 +75,7 @@ export default class HomeScreen extends Component {
   }
 
   render() {
-    const { isLoading, hours, milliseconds} = this.state
+    const { isLoading,listSlide, hours, milliseconds} = this.state
 
     if(isLoading){
       return (<Loading/>)
@@ -68,6 +84,7 @@ export default class HomeScreen extends Component {
         <RenderHomeScreen
           hours = {hours}
           milliseconds = {milliseconds}
+          listSlide = {listSlide}
           onGoProfile = {() => this.onGoProfile()}
           onJoinNow = {()=> this.onJoinNow()}
           onSystemRoom = {() => this.onSystemRoom()}

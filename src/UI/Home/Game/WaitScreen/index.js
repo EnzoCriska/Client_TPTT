@@ -3,19 +3,22 @@ import { View, Text } from 'react-native';
 import { RenderWaitGame } from './render';
 
 import Global from '../../../../Util/Global';
+import { SendMessageFirebase, ReadMessageData } from '../../../../Network/Firebase';
 export default class WaitScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       chatValue : '',
       chatList: [{
-        userName: 'Rickey',
-        content:'hello'
+        userName: '',
+        content:''
       }]
     };
   }
 
   componentDidMount() {
+    this.updateMessage()
+
     var date = new Date().getDate()    
     startTime = new Date(2019, 1, date, 20, 0, 0)
      console.log(startTime)
@@ -33,6 +36,18 @@ export default class WaitScreen extends Component {
     
   }
 
+  updateMessage(){
+    // var tempList = this.state.chatList
+    ReadMessageData((list) =>{
+      // for (let i = 0; i < list.length; i++)
+      // tempList.push(list[i])
+      // console.log(tempList)
+      this.setState({chatList:list})
+      console.log(this.setState.chatList)
+    }
+    )
+  }
+
   onChangeChat(text){
     this.setState({chatValue:text})
   }
@@ -46,13 +61,14 @@ export default class WaitScreen extends Component {
       content: message
     }
 
-    console.log(messageItem)
-    var tempList = this.state.chatList
-    tempList.push(messageItem)
-    this.setState({
-      chatList:tempList,
-      chatValue:''
-    })
+    SendMessageFirebase(messageItem)
+
+   this.setState({chatValue:''})
+    
+  }
+
+  goToBack(){
+    this.props.navigation.goBack()
   }
 
 
@@ -67,6 +83,7 @@ export default class WaitScreen extends Component {
           chatList = {chatList}
           onChangeChat = {(text) => this.onChangeChat(text)}
           sendMessage = {(message) => this.sendMessage(message)}
+          goToBack = {() => this.goToBack()}
       />
     );
   }
