@@ -113,8 +113,8 @@ const {width, height} = Dimensions.get('window')
                         
                     </ImageBackground>
                     <TouchableOpacity 
-                    onPress = {onJoinNow}
-                    style = {styles.touchableJoinBtn}>
+                        onPress = {onJoinNow}
+                        style = {styles.touchableJoinBtn}>
                         <ImageBackground
                             source = {require('../../../../Media/Home/joinBtn.png')}
                             style = {styles.joinBtn}

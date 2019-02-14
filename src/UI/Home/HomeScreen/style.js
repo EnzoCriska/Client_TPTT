@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Dimensions} from 'react-native';
+import { pointY } from '../../../Util/Constanst';
 
 const {width, height} = Dimensions.get('window')
 export const styles = StyleSheet.create({
@@ -137,7 +138,7 @@ export const styles = StyleSheet.create({
    },
    touchableJoinBtn:{
        width:"60%",
-       marginTop:-55,
+       marginTop: - 40*pointY,
    },
    joinBtn:{
        width:'100%',

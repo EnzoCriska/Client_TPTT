@@ -114,7 +114,9 @@ export const RenderWaitGame = ({
                         renderItem = {({item}) => (
                             <View style ={{flexDirection:'row', width:'100%', margin:5,}}>
                                 <Text style = {{marginHorizontal:5, color:'#FF9626'}}>{item.userName}: </Text>
-                                <Text style = {{color:'#fff'}}>{item.content}</Text>
+                                <Text style = {{color:'#fff', flex:1, marginRight:10}}
+                                    multiline = {true}
+                                    >{item.content}</Text>
                             </View>
                         )}
                     />

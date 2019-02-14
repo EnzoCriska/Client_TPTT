@@ -9,6 +9,7 @@ export default class GamePlay extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      GameOverModalVisible : false,
       sourceA : answer,
       sourceB : answer,
       sourceC : answer,
@@ -24,6 +25,7 @@ export default class GamePlay extends Component {
       sourceB:answer,
       sourceC:answer
     })
+    this.showGameOverModal()
   }
 
   onPressB(){
@@ -51,12 +53,26 @@ export default class GamePlay extends Component {
 
   overTime(){
     console.log("Over Time")
+    // this.showGameOverModal()
     // Send Answer to server and wait KQ and Next Question
+  }
+
+  hideGameOverModal(){
+    this.setState({GameOverModalVisible:false})
+  }
+
+  showGameOverModal(){
+    this.setState({GameOverModalVisible:true})
+  }
+
+  GameOver(){
+    this.hideGameOverModal()
+    this.props.navigation.navigate('HomeScreen')
   }
 
 
   render() {
-    const {sourceA, sourceB, sourceC} = this.state
+    const {sourceA, sourceB, sourceC, GameOverModalVisible} = this.state
     return (
       <RenderPlayGame
         sourceA = {sourceA}
@@ -67,6 +83,11 @@ export default class GamePlay extends Component {
         onPressC = {() => this.onPressC()}
         setRefProgress = {(ref) => this.setRefProgress(ref)}
         overTime = {() => this.overTime()}
+
+        GameOverModalVisible = {GameOverModalVisible}
+        hideGameOverModal = {()=>  this.hideGameOverModal()}
+        showGameOverModal = {() => this.showGameOverModal()}
+        GameOver = {() => this.GameOver()}
       />
     );
   }

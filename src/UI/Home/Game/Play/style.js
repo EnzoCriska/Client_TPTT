@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Dimensions} from 'react-native'
+import { pointX, pointY } from '../../../../Util/Constanst';
 
 const {width, height} = Dimensions.get('window')
 export const styles = StyleSheet.create({
@@ -114,17 +115,17 @@ export const styles = StyleSheet.create({
        width:"85%"
    },
    answerStyle:{
-       width: width*0.85,
-       height:60,
+       width: 317 *pointX,
+       height:61.24 * pointY,
        alignItems:'center',
        flexDirection:'row',
-        marginTop:5
+        marginTop:5,
    },
    ABCStyle:{
         fontSize: 20,
         fontWeight:'bold',
         color:'#FF8000',
-        marginHorizontal: 20,
+        marginHorizontal: 25 * pointX,
    },
    textAnswerContainer:{
         position:'absolute', 
@@ -145,5 +146,39 @@ export const styles = StyleSheet.create({
    },
    countDown:{
        marginBottom:20,
+   },
+   ModalGameOverContainer:{
+        backgroundColor: '#fff',
+        borderRadius:5,
+        marginHorizontal: (width - 317 * pointX)/2,
+        marginVertical: (height - 225 * pointY)/2 ,
+        padding: 10,
+        alignItems: 'center',
+   },
+   textTitleModalGO:{
+       color: '#636363',
+       fontSize:20
+   },
+   scoreDes:{
+        fontSize: 18,
+        color:'#636363'
+   },
+   scoreValue:{
+        color:'#636363',
+        fontSize: 30,
+        fontWeight:'bold'
+   },
+   confirmBtn:{
+       width:126 * pointX,
+       height:39.15 * pointY,
+       backgroundColor:'#FF9626',
+       borderRadius:5,
+       justifyContent: 'center',
+       alignItems:'center'
+   },
+   textConfirmBtn:{
+       color:'#fff',
+       fontSize:16,
+       fontWeight:'bold'
    }
 })

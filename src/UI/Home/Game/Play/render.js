@@ -4,6 +4,7 @@ import {
  } from 'react-native'
  import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { styles } from './style';
+import Modal from 'react-native-modal';
 
 
 export const RenderPlayGame = ({
@@ -16,6 +17,10 @@ export const RenderPlayGame = ({
     onPressC = () => {},
     setRefProgress = () => {},
     
+    GameOverModalVisible = false,
+    hideGameOverModal = () => {},
+    showGameOverModal = () => {},
+    GameOver = () => {}
 }) => {
     
     return (
@@ -154,6 +159,32 @@ export const RenderPlayGame = ({
                     </ImageBackground>
                 </TouchableOpacity>
             </View>
+
+            <Modal
+                isVisible = {GameOverModalVisible}
+                onBackdropPress = {hideGameOverModal}
+                style = {styles.ModalGameOverContainer}>
+                <View style = {{flex:1}}>
+                        <Text style = {styles.textTitleModalGO}>Bạn đã trả lời sai</Text>
+                </View>
+
+                <View style = {{flex:1}}>
+                    <Text style = {styles.textTitleModalGO}>VÒNG CHƠI KẾT THÚC</Text>
+                </View>
+
+                <View style = {{flex:2}}>
+                    <Text style = {styles.scoreDes}>Điểm tích lũy</Text>
+                    <Text style = {styles.scoreValue}>15.500</Text>    
+                </View>
+
+                <View style = {{flex:1}}>
+                        <TouchableOpacity 
+                            style = {styles.confirmBtn}
+                            onPress = {() => GameOver()}>
+                            <Text style = {styles.textConfirmBtn}>XÁC NHẬN</Text>
+                        </TouchableOpacity>
+                </View>
+            </Modal>
 
         </ImageBackground>
     )

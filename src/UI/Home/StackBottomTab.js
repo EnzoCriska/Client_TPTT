@@ -5,36 +5,15 @@ import { StyleSheet, Image } from 'react-native';
 import {
     createBottomTabNavigator, createStackNavigator
 } from 'react-navigation';
-import HomeScreen from './HomeScreen.js';
+
 import Gift from './Gift/index.js';
 
-import Info from './Profile/Info/index.js';
+
 import { StackNews } from './News/StackNews.js';
 import { StackProfile } from './Profile/StackProfile.js';
 import { RankingStack } from './Rank/RankStack.js';
-import WaitScreen from './Game/WaitScreen/index.js';
-import GamePlay from './Game/Play/index.js';
 
-const GameStack = createStackNavigator({
-    HomeScreen:HomeScreen,
-    WaitScreen: WaitScreen,
-    GamePlay:GamePlay,
-    Profile: Info
-},{
-    headerMode: "none"
-})
-
-GameStack.navigationOptions = ({ navigation }) => {
-    let tabBarVisible = true;
-    var stack = navigation.state.routes
-
-    if (stack[stack.length -1].routeName != 'HomeScreen') {
-        tabBarVisible = false;
-    }
-    return {
-        tabBarVisible,
-    };
-};
+import GameStack from './Game/GameStack.js';
 
 export const BottomTabStack = createBottomTabNavigator(
 {

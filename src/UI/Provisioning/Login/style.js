@@ -83,8 +83,7 @@ export const styles = StyleSheet.create({
     },
     iconOtherBtn:{
         height:'90%',
-        width:30,
-        resizeMode:'center',
+        width:25,
         marginRight: 10,
     }
 })

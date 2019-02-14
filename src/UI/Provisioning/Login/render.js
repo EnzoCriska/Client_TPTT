@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    StyleSheet,
     Text,
     View,
     TextInput,
@@ -96,6 +95,7 @@ export const RenderLogin =  ({
                             <Image
                                 source = {require('../../../../Media/Provisioning/fb.png')}
                                 style = {styles.iconOtherBtn}
+                                resizeMode='center'
                             />
                             <Text style={styles.textOther}>FaceBook</Text>
                         </ImageBackground>

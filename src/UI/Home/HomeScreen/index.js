@@ -68,6 +68,7 @@ export default class HomeScreen extends Component {
 
   onFriendsRoom(){
     console.log("Friends Room")
+    this.props.navigation.navigate('ListRoom')
   }
 
   onTrainingRoom(){

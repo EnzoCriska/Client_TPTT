@@ -3,7 +3,8 @@ import {
     createStackNavigator
 } from 'react-navigation';
 import Info from './Info';
-import HomeScreen from '../HomeScreen.js';
+import HomeScreen from '../HomeScreen';
+
 
 export const StackProfile = createStackNavigator({
     Info: Info,
