@@ -185,7 +185,6 @@ export const styles = StyleSheet.create({
     joinBtn:{
         width: 126 * pointX,
         height: 39.15 * pointY,
-        alignSelf:'flex-end',
         borderRadius: 10,
         backgroundColor: '#FF9626',
         justifyContent: 'center',
@@ -200,7 +199,8 @@ export const styles = StyleSheet.create({
     },
     confirmContainer:{
         flex:2, 
-        justifyContent:'center'
+        justifyContent:'space-between',
+        flexDirection:'row'
     },
     textConfirmBtn:{
         color:'#fff',
@@ -214,6 +214,23 @@ export const styles = StyleSheet.create({
         marginVertical: (height - 273.36 * pointY)/2 ,
         padding: 10,
     },
-
+    timePickerContainer:{
+        width:157.75 * pointX,
+        height: 39.15 * pointY,
+        backgroundColor: '#000A29',
+        borderRadius:5,
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent: 'space-between',
+        paddingHorizontal:3
+    },
+    textTimePicker:{
+        color:'#fff',
+        fontSize:15
+    },
+    timePickerIcon:{
+        width: 15.57 * pointX,
+        height: 15.57 * pointY
+    }
    
 })

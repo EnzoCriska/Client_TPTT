@@ -60,6 +60,7 @@ export const RenderRegister = ({
                     <Image
                         source = {require('../../../../Media/Provisioning/calendar.png')}
                         style = {styles.iconTextInput}
+                        resizeMode = 'center'
                     />
                     <TextInput
                         style = {styles.input}
@@ -77,6 +78,7 @@ export const RenderRegister = ({
                     <Image
                         source = {require('../../../../Media/Provisioning/lock.png')}
                         style = {styles.iconTextInput}
+                        resizeMode = 'center'
                     />
                     <TextInput
                         style = {styles.input}

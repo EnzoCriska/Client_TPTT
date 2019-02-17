@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { pointX, pointY } from '../../../Util/Constanst';
 
 export const styles = StyleSheet.create({
     container:{
@@ -33,19 +34,22 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
     },
     textInput:{
-        width:"100%",
+        width:375 * pointX,
+        height:45 * pointY,
         flexDirection: 'row',
+        alignItems:'center',
         marginBottom:10,
     },
     input:{
         width:'80%',
         height:'100%',
+        marginLeft:20,
         color:'#fff'
     },
     iconTextInput:{
-        height:'90%',
-        resizeMode:'center',
-        marginLeft: "10%",
+        height:19 * pointX,
+        width:11.88 * pointX,
+        marginLeft: 51.13* pointX,
     },
     loginBtn:{
         width:'80%',

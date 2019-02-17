@@ -52,9 +52,13 @@ export default class ListRoomFriends extends Component {
         
         joinRoomVisible : false,
         createRoomVisible : false,
+        TimePickerVisible : false,
+
         joinModalValuePassword: '',
         createModalValueRoomName: '',
-        createModalValuePassword: ''
+        createModalValuePassword: '',
+
+        timeStartValue : 'Thời gian bắt đầu'
     };
   }
 
@@ -81,6 +85,10 @@ export default class ListRoomFriends extends Component {
   joinToRoom(){
       console.log(this.state.joinModalValuePassword)
       this.hideModalJoinRoom()
+        // Call API Join Room
+      this.props.navigation.navigate('WaitFriendRoom', 
+                    {   isRoot: false,
+                        })
   }
 
   showModalCreateRoom(){
@@ -104,11 +112,42 @@ export default class ListRoomFriends extends Component {
       this.hideModalCreateRoom()
     //   Call Api Create new Room
       var listTpm = this.state.listRoom
+
+      this.props.navigation.navigate('WaitFriendRoom', 
+                    {   isRoot: true,
+                        })
+  }
+
+  _showTimePicker(){
+      this.setState({TimePickerVisible:true})
+  }
+
+  _hideDateTimePicker(){
+      console.log("cancle")
+      this.setState({TimePickerVisible:false})
+  }
+
+  _handleDatePicked(time){
+      console.log(time)
+      var timeStart = time.getHours() + 'h' + time.getMinutes()
+      console.log(">>>>>>>>>>" + timeStart)
+
+      this.setState({timeStartValue: timeStart})
+      this._hideDateTimePicker()
   }
 
 
   render() {
-      const {listRoom, joinRoomVisible, createRoomVisible, joinModalValuePassword, createModalValueRoomName, createModalValuePassword} = this.state
+      const {
+          listRoom, 
+          joinRoomVisible, 
+          createRoomVisible, 
+          joinModalValuePassword, 
+          createModalValueRoomName, 
+          createModalValuePassword,
+          TimePickerVisible,
+          timeStartValue
+        } = this.state
     return (
       <RenderListRoom
           listRoom = {listRoom}
@@ -128,6 +167,14 @@ export default class ListRoomFriends extends Component {
           createModalValuePassword = {createModalValuePassword}
           onChangeRoomNameModalCreate = {(text) => this.onChangeRoomNameModalCreate(text)}
           onChangePasswordModalCreate = {(text) => this.onChangePasswordModalCreate(text)}
+
+          timeStartValue = {timeStartValue}
+
+          TimePickerVisible = {TimePickerVisible}
+          _showTimePicker = {() => this._showTimePicker()}
+          _hideDateTimePicker = {() => this._hideDateTimePicker()}
+          _handleDatePicked = {(time) => this._handleDatePicked(time)}
+
           createRoom = {() => this.createRoom()}
         
       />

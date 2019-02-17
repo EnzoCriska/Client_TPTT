@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { pointX, pointY } from '../../../Util/Constanst';
 
 export const styles = StyleSheet.create({
     container:{
@@ -25,30 +26,34 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
     },
     textInput:{
-        width:"100%",
+        width:375 * pointX,
+        height:45 * pointY,
         flexDirection: 'row',
+        alignItems:'center',
         marginBottom:10,
     },
     input:{
         width:'80%',
         height:'100%',
+        marginLeft:20,
         color:'#fff'
     },
     iconTextInput:{
-        height:'90%',
-        resizeMode:'center',
-        marginLeft: "10%",
+        height:19 * pointY,
+        width:11.88 * pointX,
+        marginLeft: 51.13* pointX,
     },
     forgot:{
-        alignItems:'flex-end',
-        width:'80%',
+        alignSelf: 'flex-end',
         padding: 5,
+        marginRight:37 * pointX
     },
     forgotText:{
         color:'#fff'
     },
     loginBtn:{
-        width:'80%',
+        width:295.47* pointX,
+        height:54.68 * pointY,
         backgroundColor:'rgba(255,255,255,0.5)',
         justifyContent:'center',
         alignItems:'center',
@@ -70,8 +75,8 @@ export const styles = StyleSheet.create({
         marginVertical:20,
     },
     other:{
-        width:'100%',
-        height:50,
+        width:148 * pointX,
+        height:47 * pointY,
         flexDirection:'row',
         justifyContent:'center',
         alignItems:'center',
@@ -82,8 +87,8 @@ export const styles = StyleSheet.create({
         fontSize: 16,
     },
     iconOtherBtn:{
-        height:'90%',
-        width:25,
+        height:22 * pointY,
+        width:22 * pointX,
         marginRight: 10,
     }
 })

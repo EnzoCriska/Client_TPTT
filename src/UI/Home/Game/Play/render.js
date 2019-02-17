@@ -159,7 +159,7 @@ export const RenderPlayGame = ({
                     </ImageBackground>
                 </TouchableOpacity>
             </View>
-
+            
             <Modal
                 isVisible = {GameOverModalVisible}
                 onBackdropPress = {hideGameOverModal}

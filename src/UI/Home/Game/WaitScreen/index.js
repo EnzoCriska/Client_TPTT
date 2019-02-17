@@ -56,14 +56,17 @@ export default class WaitScreen extends Component {
     //Fomat message
     //Send to Firebase
     console.log(message)
-    var messageItem = {
-      userName: Global.currentUser.userName,
-      content: message
+    if (message != ''){
+      var messageItem = {
+        userName: Global.currentUser.userName,
+        content: message
+      }
+  
+      SendMessageFirebase(messageItem)
+  
+     this.setState({chatValue:''})
     }
-
-    SendMessageFirebase(messageItem)
-
-   this.setState({chatValue:''})
+    
     
   }
 

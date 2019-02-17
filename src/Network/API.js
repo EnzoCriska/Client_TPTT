@@ -15,7 +15,7 @@ export function SigIn(phone, password){
             {
                 res = {
                     userID: "1243451",
-                    userName: "DungTT",
+                    userName: "Phạm Huyền Trang",
                     userAvatar: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
                     score: 10,
                     index:115,

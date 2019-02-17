@@ -58,6 +58,7 @@ export const RenderLogin =  ({
                     <Image
                         source = {require('../../../../Media/Provisioning/lock.png')}
                         style = {styles.iconTextInput}
+                        resizeMode = 'center'
                     />
                     <TextInput
                         style = {styles.input}
@@ -97,7 +98,7 @@ export const RenderLogin =  ({
                                 style = {styles.iconOtherBtn}
                                 resizeMode='center'
                             />
-                            <Text style={styles.textOther}>FaceBook</Text>
+                            <Text style={styles.textOther}>Facebook</Text>
                         </ImageBackground>
                     </TouchableOpacity>
 

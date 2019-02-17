@@ -7,6 +7,9 @@ import { FlatList } from 'react-native-gesture-handler';
 import { ItemRoomList } from './ItemListRoom';
 import Modal from 'react-native-modal';
 
+import DateTimePicker from 'react-native-modal-datetime-picker';
+
+
  export const RenderListRoom = ({
     listRoom = [],
     goBack = () => {},
@@ -25,7 +28,17 @@ import Modal from 'react-native-modal';
     createModalValuePassword = '',
     onChangeRoomNameModalCreate = () => {},
     onChangePasswordModalCreate = () => {},
+
+    timeStartValue = '',
+
+    TimePickerVisible = false,
+    openTimePicker = () => {},
+    _showTimePicker = () => {},
+    _hideDateTimePicker = () => {},
+    _handleDatePicked = () => {},
     createRoom = () => {}
+
+
  }) => {
      return (
         <ImageBackground
@@ -136,6 +149,7 @@ import Modal from 'react-native-modal';
                 </View>
 
                 <View style = {styles.confirmContainer}>
+                        <View></View>
                         <TouchableOpacity 
                             onPress = {() => joinToRoom()}
                             style = {styles.joinBtn}>
@@ -182,13 +196,30 @@ import Modal from 'react-native-modal';
                     </View>
 
                     <View style = {styles.confirmContainer}>
-                            <TouchableOpacity 
+                            <TouchableOpacity
+                                onPress= {() => {_showTimePicker()}}
+                                style = {styles.timePickerContainer}>
+                                <Text style = {styles.textTimePicker}>{timeStartValue}</Text>
+                                <Image
+                                    source = {require('../../../../../Media/Game/clock.png')}
+                                    style = {styles.timePickerIcon}
+                                />
+                            </TouchableOpacity>
+
+                            <TouchableOpacity
                                 onPress = {() => createRoom()}
                                 style = {styles.joinBtn}>
                                 <Text style = {styles.textConfirmBtn}>ĐỒNG Ý</Text>
                             </TouchableOpacity>
                     </View>
             </Modal>
+
+            <DateTimePicker
+                mode = 'time'
+                isVisible={TimePickerVisible}
+                onConfirm={(time) => _handleDatePicked(time)}
+                onCancel={() => _hideDateTimePicker()}
+            />
         </ImageBackground>
      )
  }

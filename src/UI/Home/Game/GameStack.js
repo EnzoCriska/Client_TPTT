@@ -8,12 +8,14 @@ import GamePlay from './Play/index.js';
 import ListRoomFriends from './ListRoomFriend/index.js';
 import HomeScreen from '../HomeScreen/index.js';
 import Info from '../Profile/Info/index.js';
+import WaitFriendRoom from './WaitFriendRoom/index.js';
 
 const GameStack = createStackNavigator({
     HomeScreen:HomeScreen,
     WaitScreen: WaitScreen,
     GamePlay:GamePlay,
     ListRoom : ListRoomFriends,
+    WaitFriendRoom: WaitFriendRoom,
     Profile: Info,
 },{
     headerMode: "none"
