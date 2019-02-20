@@ -4,6 +4,8 @@ import {
  } from 'react-native';
 import { styles } from './style';
 import Carousel from 'react-native-snap-carousel';
+import { HeaderComponent } from '../../../Util/HeaderComponent';
+import { pointX } from '../../../Util/Constanst';
 const {width, height} = Dimensions.get('window')
  export const RenderHomeScreen = ({
     hours = '',
@@ -20,47 +22,18 @@ const {width, height} = Dimensions.get('window')
          <ImageBackground
             source={require('../../../../Media/background.png')}
             style = {styles.container}>
-            <ImageBackground
-                source= {require('../../../../Media/Home/HeaderBG.png')}
-                style={styles.headerContainer}>
-                <View style = {styles.leftHeader}>
-                    <TouchableOpacity 
-                        onPress = {onGoProfile}
-                        style = {styles.headerAvatar}>
-                        <ImageBackground
-                            source = {{uri:'https://2sao.vietnamnetjsc.vn/images/2017/10/03/10/09/huyen-trang-11.jpg'}}
-                            style = {styles.headerAvatar}
-                            imageStyle = {styles.imgBGAvatar}>
+            <HeaderComponent
+                onGoProfile = {() => onGoProfile()}
+            />
 
-                            <Image
-                                source = {require('../../../../Media/Home/master-rank.png')}
-                                style = {styles.rankIcon}
-                            />
-
-                        </ImageBackground>
-                    </TouchableOpacity>
-
-                    <Text style={styles.textHeader}>Phạm Huyền Trang</Text>
-                </View>
-                
-
-                <View style = {styles.scoreContainer}>
-                    <Image
-                        source = {require('../../../../Media/Home/heart.png')}
-                        style = {styles.scoreIcon}
-                    />
-                    <Text style = {styles.textHeader}>100.000</Text>
-                </View>
-            </ImageBackground>
-
-            <View style = {styles.bodyContainer}>
+            <ImageBackground style = {styles.bodyContainer}>
                 
                 <View style = {styles.slideContainer}>
                     <View style= {styles.slideView}>
                         <Carousel
                             data={listSlide}
                             sliderWidth={width}
-                            itemWidth={width-100}
+                            itemWidth={275.32 * pointX}
                             inactiveSlideOpacity={0.6}
                             inactiveSlideScale={0.8}
                             autoplay = {true}
@@ -78,39 +51,58 @@ const {width, height} = Dimensions.get('window')
                     </View>
                 </View>
 
-                <View style = {styles.countDownContainer}>
+                <ImageBackground style = {styles.countDownContainer}>
                     <ImageBackground
                         source= {require('../../../../Media/Home/CountDownBG.png')}
                         style = {styles.countDownBG}
-                        imageStyle = {{width:'100%'}}
-                        resizeMode = "stretch">
+                        >
 
                         <View style={styles.topCountDown}>
                             <Text style = {styles.topCountDownTitle}>Game tiếp theo</Text>
+                            <View style = {styles.currentPlayerContainer}>
+                                <Image
+                                    source = {require('../../../../Media/Game/multiple-users.png')}
+                                    style = {styles.multiUserIcon}
+                                />
+
+                                <Text style = {styles.currentQuantityPlayer}>123</Text>
+                            </View>
                         </View>
 
                         <View style = {styles.bottomCountDown}>
 
-                            <View style={styles.boxCountDown}>
+                            <ImageBackground
+                                source = {require('../../../../Media/Game/BoxCountDown.png')}
+                                style={styles.boxCountDown}>
                                 <Text style = {styles.timeCountDown}>{hours>= 10 ? Math.floor(hours/10) : 0}</Text>
-                            </View>
+                            </ImageBackground>
 
-                            <View style={styles.boxCountDown}>
+                            <ImageBackground
+                                source = {require('../../../../Media/Game/BoxCountDown.png')}
+                                style={styles.boxCountDown}>
                                 <Text style = {styles.timeCountDown}>{hours%10}</Text>
-                            </View>
+                            </ImageBackground>
                             
-                            <Image source = {require('../../../../Media/Home/asset1.png')} style = {{height:60,}} resizeMode="center"/>
+                            <Image 
+                                source = {require('../../../../Media/Home/asset1.png')} 
+                                style = {styles.midBoxCountDown}
+                            />
 
-                            <View style={styles.boxCountDown}>
+                            <ImageBackground
+                                source = {require('../../../../Media/Game/BoxCountDown.png')}
+                                style={styles.boxCountDown}>
                                 <Text style = {styles.timeCountDown}>{milliseconds >= 10 ? Math.floor(milliseconds/10) : 0}</Text>
-                            </View>
+                            </ImageBackground>
 
-                            <View style={styles.boxCountDown}>
+                            <ImageBackground
+                                source = {require('../../../../Media/Game/BoxCountDown.png')}
+                                style={styles.boxCountDown}>
                                 <Text style = {styles.timeCountDown}>{milliseconds % 10}</Text>
-                            </View>
+                            </ImageBackground>
 
                         </View>
                         
+                        <View style = {{flex:1}}></View>
                     </ImageBackground>
                     <TouchableOpacity 
                         onPress = {onJoinNow}
@@ -124,7 +116,7 @@ const {width, height} = Dimensions.get('window')
                         </ImageBackground>
                 </TouchableOpacity>
 
-                </View>
+                </ImageBackground>
 
                 <View style = {styles.playSelectionContainer}>
                 <View style = {styles.Game}>
@@ -202,7 +194,7 @@ const {width, height} = Dimensions.get('window')
                     </TouchableOpacity>
                 </View>
                 </View>
-            </View>
+            </ImageBackground>
 
          </ImageBackground>
      )

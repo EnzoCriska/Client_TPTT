@@ -4,6 +4,7 @@ import { Avatar } from "react-native-elements";
 import { styles } from './style';
 import { ItemRank } from './itemRank';
 import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
+import { HeaderComponent } from '../../../../Util/HeaderComponent';
 
 export const RenderRank = ({
     thisRank = '',
@@ -14,44 +15,18 @@ export const RenderRank = ({
     showRankMonth = () => {},
     showRankWeek = () => {},
     showRankDay = () => {},
-    setMenuRef = () => {}
+    setMenuRef = () => {},
+
+    onGoProfile = () => {}
 }) => {
     return (
         <ImageBackground
             source={require('../../../../../Media/background.png')}
             style = {styles.container}>
-            <ImageBackground
-                source= {require('../../../../../Media/Home/HeaderBG.png')}
-                style={styles.headerContainer}>
-                <View style = {styles.leftHeader}>
-                    <TouchableOpacity 
-                        // onPress = {onToProfile}
-                        style = {styles.headerAvatar}>
-                        <ImageBackground
-                            source = {{uri:'https://2sao.vietnamnetjsc.vn/images/2017/10/03/10/09/huyen-trang-11.jpg'}}
-                            style = {styles.headerAvatar}
-                            imageStyle = {styles.imgBGAvatar}>
 
-                            <Image
-                                source = {require('../../../../../Media/Home/master-rank.png')}
-                                style = {styles.rankIcon}
-                            />
-
-                        </ImageBackground>
-                    </TouchableOpacity>
-
-                    <Text style={styles.textHeader}>Phạm Huyền Trang</Text>
-                </View>
-                
-
-                <View style = {styles.scoreContainer}>
-                    <Image
-                        source = {require('../../../../../Media/Home/heart.png')}
-                        style = {styles.scoreIcon}
-                    />
-                    <Text style = {styles.textHeader}>100.000</Text>
-                </View>
-            </ImageBackground>
+            <HeaderComponent
+                onGoProfile = {() => onGoProfile()}
+            />
 
             <View style = {styles.bodyContainer}>
                 <View style = {styles.menuDropDown}>
@@ -155,7 +130,7 @@ export const RenderRank = ({
                         data={listRanking.slice(3, listRanking.length)}
                         extraData={this.state}
                         showsVerticalScrollIndicator = {false}
-                        keyExtractor={(item, index) => item.toString()}
+                        keyExtractor={(item, index) => item.avatarUrl.toString()}
                         renderItem={({item, index}) => {
                            console.log(item.avatarUrl + ' ' + index)
                             return(

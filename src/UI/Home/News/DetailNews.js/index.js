@@ -17,8 +17,8 @@ export default class DetailNews extends Component {
     
   }
 
-  onToProfile(){
-      this.props.navigation.navigate('Profile')
+  onGoProfile(){
+      this.props.navigation.navigate('__Profile', {router:this.props.navigation})
   }
 
   onGoBack(){
@@ -32,7 +32,7 @@ export default class DetailNews extends Component {
         urlImage = {urlImage}
         titleNews = {titleNews}
         contentNews = {contentNews}
-        onToProfile = {()=> this.onToProfile()}
+        onGoProfile = {()=> this.onGoProfile()}
         onGoBack = {() => this.onGoBack()}
       />
     );

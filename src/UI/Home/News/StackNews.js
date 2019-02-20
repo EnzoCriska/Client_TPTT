@@ -13,18 +13,20 @@ import DetailNews from './DetailNews.js';
 export const StackNews = createStackNavigator({
     Scroll: ScrollNews,
     Detail:DetailNews,
-    __Profile: Info
+    __Profile: StackProfile
 },{
     headerMode:'none'
 })
 
 
 StackNews.navigationOptions = ({ navigation }) => {
-    let tabBarVisible = true;
+    let tabBarVisible = false;
     var stack = navigation.state.routes
 
-    if (stack[stack.length -1].routeName != 'Scroll') {
-        tabBarVisible = false;
+    console.log(stack[stack.length -1].routeName)
+
+    if (stack[stack.length -1].routeName == 'Scroll') {
+        tabBarVisible = true;
     }
     return {
         tabBarVisible,

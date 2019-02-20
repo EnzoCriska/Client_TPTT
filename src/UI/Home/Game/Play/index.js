@@ -13,6 +13,9 @@ export default class GamePlay extends Component {
       sourceA : answer,
       sourceB : answer,
       sourceC : answer,
+      question :'Nỏ thần An Dương Vương được làm từ phần nào của con rùa?',
+      answerA :'Mai Rùa',
+      answerB : 'Móng rùa'
     };
     
   }
@@ -34,6 +37,16 @@ export default class GamePlay extends Component {
       sourceB:selected,
       sourceC:answer
     })
+    // Send answer to server
+    this.setState({
+      sourceA: answer,
+      sourceB:answer,
+      sourceC:answer,
+      question : 'CLB xuất sắc nhất thế kỷ XX',
+      answerA : 'Barcelona',
+      answerB: 'RealMadrid'
+    })
+    this._ref.animate(100, 15000);
   }
 
   onPressC(){
@@ -42,6 +55,8 @@ export default class GamePlay extends Component {
       sourceB:answer,
       sourceC:selected
     })
+
+    this.showGameOverModal()
   }
   setRefProgress(ref){
     this._ref = ref
@@ -70,11 +85,17 @@ export default class GamePlay extends Component {
     this.props.navigation.navigate('HomeScreen')
   }
 
+  onGoProfile() {
+    this.props.navigation.navigate('Profile', {router:this.props.navigation})
+  }
+
 
   render() {
-    const {sourceA, sourceB, sourceC, GameOverModalVisible} = this.state
+    const {sourceA, sourceB, sourceC, GameOverModalVisible, question, answerA, answerB} = this.state
     return (
       <RenderPlayGame
+        onGoProfile = {() => this.onGoProfile()}
+
         sourceA = {sourceA}
         sourceB = {sourceB}
         sourceC = {sourceC}
@@ -88,6 +109,10 @@ export default class GamePlay extends Component {
         hideGameOverModal = {()=>  this.hideGameOverModal()}
         showGameOverModal = {() => this.showGameOverModal()}
         GameOver = {() => this.GameOver()}
+
+        question = {question}
+        answerA = {answerA}
+        answerB = {answerB}
       />
     );
   }

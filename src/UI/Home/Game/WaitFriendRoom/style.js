@@ -71,21 +71,42 @@ export const styles = StyleSheet.create({
        alignItems:'center',
        padding: 10,
    },
+   headerLeftContainer:{
+        flex:1,
+        flexDirection:'row',
+        justifyContent: 'space-between',
+        alignItems:'center'
+   },
    headerBackIcon:{
        width: 10.36 * pointX,
        height: 16.08 * pointY
    },
    headerRoomTitle:{
        color:'#fff',
-       fontSize:18
+       fontSize:16
    },
-   headerRoomRightContainer:{
+   headerRoomMidContainer:{
+       flex:1,
+       justifyContent: 'center',
        flexDirection:'row',
        alignItems:'center'
    },
-   headerRightIcon:{
+   headerMidIcon:{
        width:15.97 * pointX,
        height:13.44 * pointY
+   },
+   headerRoomRightContainer:{
+        flex:1,
+        justifyContent: 'center',
+        alignItems:'center'
+   },
+   inviteBtn:{
+       backgroundColor:'#02B514',
+       borderRadius:5,
+       width: 108 * pointX,
+       height: 39.15 * pointY,
+       justifyContent: 'center',
+       alignItems: 'center',
    },
    countDownContainer:{
        flexDirection:'row',
@@ -116,8 +137,9 @@ export const styles = StyleSheet.create({
    showStartBtn:{
        marginTop:10,
        width:295.47 * pointX,
-       height:51 * pointY,
+       height:54.68 * pointY,
        justifyContent: 'center',
+       marginBottom:5
     //    alignSelf: 'center',
    },
    hideStartBtn:{
@@ -170,7 +192,8 @@ export const styles = StyleSheet.create({
    },
    imageItemUserStyle:{
        borderRadius:5
-   }
+   },
+   
 
 
 })

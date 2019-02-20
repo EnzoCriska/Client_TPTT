@@ -1,67 +1,16 @@
 import React from 'react'
 import { StyleSheet, Dimensions} from 'react-native';
-import { pointY } from '../../../Util/Constanst';
+import { pointY, pointX } from '../../../Util/Constanst';
 
 const {width, height} = Dimensions.get('window')
 export const styles = StyleSheet.create({
     container:{
         flex:1
     },
-    headerContainer:{
-        width:'100%',
-        height:80,
-        alignItems: 'center',
-        flexDirection: 'row',
-        justifyContent:'space-between'
-   },
-   leftHeader:{
-       flexDirection:'row',
-       alignItems:'center'
-   },
-   headerAvatar:{
-       width:60,
-       height:60,
-       borderRadius: 30,
-       marginLeft: 10,
-       justifyContent: 'flex-end',
-       alignItems:'flex-end'
-   },
-   imgBGAvatar:{
-       borderRadius:30,
-       borderColor:'#fff',
-       borderWidth: 0.5
-   },
-   textHeader:{
-       fontFamily: 'Roboto',
-       color:'#fff',
-       fontSize: 16,
-       margin:5
-   },
-   rankIcon:{
-       width:30,
-       height:30,
-       marginRight: -10,
-       marginBottom: -5,
-   },
-   scoreContainer:{
-       height:30,
-       backgroundColor: '#1A2146',
-       borderColor:'#020824',
-       borderRadius:3,
-       borderWidth:1,
-       flexDirection:'row',
-       alignItems:'center',
-       marginRight:10
-   },
-   scoreIcon:{
-       width:23,
-       height:20,
-       margin:3,
-       resizeMode:'center'
-   },
+    
    slideContainer:{
-       flex:2, 
-       marginBottom:10
+        height: 126.59 * pointY,
+        marginBottom:5
     },
    slideView:{
         width:'100%',
@@ -84,7 +33,7 @@ export const styles = StyleSheet.create({
         marginBottom:10
     },
    bodyContainer:{
-       marginTop:5,
+       marginTop:10,
        alignItems:'center',
        width:'100%',
        flex:1
@@ -92,49 +41,65 @@ export const styles = StyleSheet.create({
    countDownContainer:{
        flex:2, 
        width:'100%', 
-       justifyContent:'center', 
+    //    justifyContent:'center', 
        alignItems:'center',
-       marginTop:10
+       marginTop:5
     },
    countDownBG:{
-       width:'80%',
-       height:170,
+       width: 317 * pointX,
+       height:132 * pointY,
        justifyContent: 'center',
        alignItems: 'center',
    },
    topCountDown:{
-       flex:1,
+       flex:2,
        width:'100%',
        alignItems:'center',
        justifyContent: 'center',
    },
    topCountDownTitle:{
        color:'#fff',
-       fontSize:20,
+       fontSize:18,
        marginHorizontal:5
    },
+   currentPlayerContainer:{
+        flexDirection:'row',
+        marginTop:5,
+        alignItems: 'center',
+   },
+   multiUserIcon:{
+        width: 14.76 * pointX,
+        height: 12.42 * pointY,
+        marginHorizontal:10
+   },
+   currentQuantityPlayer:{
+        color: "#fff",
+        fontSize: 15
+   }, 
    bottomCountDown:{
        flex:2,
        width:"90%",
+       alignItems: 'center',
        justifyContent: 'center',
        flexDirection:'row',
    },
    boxCountDown:{
-       // width:60,
-       flex:1,
-       height:50,  
-       borderRadius:5,
-       backgroundColor: '#01081E',
-       borderColor:'#3A535B',
-       borderWidth:1,
+       width: 38 * pointX,
+       height: 38 * pointY,  
        margin:5,
        justifyContent: 'center',
        alignItems: 'center',
    },
+   midBoxCountDown:{
+        width: 6 * pointX,
+        height: 29 * pointY,
+        marginBottom:10
+   },
    timeCountDown:{
        fontFamily:"Quartz",
        color:'red',
-       fontSize:30
+       fontSize:28,
+       marginBottom:5
    },
    touchableJoinBtn:{
        width:"60%",

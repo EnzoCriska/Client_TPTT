@@ -20,6 +20,7 @@ import DateTimePicker from 'react-native-modal-datetime-picker';
     joinModalValuePassword = '',
     onChangePasswordModalJoin = ()=> {},
     joinToRoom = () => {},
+    goToRoom = () => {},
 
     createRoomVisible = false,
     hideModalCreateRoom = () => {},
@@ -96,16 +97,22 @@ import DateTimePicker from 'react-native-modal-datetime-picker';
                 <FlatList
                     style = {styles.flatListStyle} 
                     data = {listRoom}
-                    keyExtractor = {(item) => item.toString()}
-                    renderItem = {({item}) => (
+                    keyExtractor = {(item) => item.roomName.toString()}
+                    renderItem = {({item}) => {
+                        return (
                        <TouchableOpacity
                         style = {{marginBottom:5}}
-                            onPress = {() => showModalJoinRoom()}>
+                            onPress = {() => {
+                                if (item.security)
+                                showModalJoinRoom(item)
+                                else goToRoom(item)}
+                            }>
+                                
                             <ItemRoomList
                                 item = {item}
                             />
                        </TouchableOpacity>                        
-                    )}
+                    )}}
                 />
 
                 <View style = {styles.buttonCreateRoomContainer}>

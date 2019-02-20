@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { pointX, pointY } from '../../../../Util/Constanst';
 
 export const styles = StyleSheet.create({
     container:{
@@ -6,7 +7,7 @@ export const styles = StyleSheet.create({
     },
     headerContainer:{
         width:'100%',
-        height:80,
+        height:45.75 * pointY,
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent:'space-between'

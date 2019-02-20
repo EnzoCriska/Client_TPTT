@@ -7,9 +7,11 @@ export const RenderWaitFriendRoom = ({
     goToBack = () => {},
     isRoot = false,
     listPlayerJoined = [],
+    roomInfo = {},
     hours = '',
     milliseconds = '',
-    onStartGame = () => {}
+    onStartGame = () => {},
+    onToInvite = () => {}
 }) => {
     return (
         <ImageBackground
@@ -52,24 +54,34 @@ export const RenderWaitFriendRoom = ({
         
                 <View style = {styles.headerRoom}>
 
-                    <TouchableOpacity
-                        onPress = {() => goToBack()}>
-                        <Image
-                            source = {require('../../../../../Media/Profile/leftArrow.png')}
-                            style = {styles.headerBackIcon}
-                        />
-                    </TouchableOpacity>
-        {/* Room name from props */}
-                    <Text style = {styles.headerRoomTitle}>Room 01</Text>
+                    <View style = {styles.headerLeftContainer}>
+                        <TouchableOpacity
+                            onPress = {() => goToBack()}>
+                            <Image
+                                source = {require('../../../../../Media/Profile/leftArrow.png')}
+                                style = {styles.headerBackIcon}
+                            />
+                        </TouchableOpacity>
+            {/* Room name from props */}
+                        <Text style = {styles.headerRoomTitle}>ID:{roomInfo.roomID}</Text>
 
-                    <View style = {styles.headerRoomRightContainer}>
+                    </View>
+                    <View style = {styles.headerRoomMidContainer}>
                         <Image
                             source = {require('../../../../../Media/Game/multiple-users.png')}
-                            style = {styles.headerRightIcon}
+                            style = {styles.headerMidIcon}
                         />
 
                         {/* Room current user from props */}
-                        <Text style = {styles.headerRoomTitle}>100</Text>
+                        <Text style = {styles.headerRoomTitle}>{roomInfo.currentQuantity}</Text>
+                    </View>
+
+                    <View style = {styles.headerRoomRightContainer}>
+                        <TouchableOpacity 
+                            style = {styles.inviteBtn}
+                            onPress = {() => onToInvite()}>
+                            <Text style = {styles.headerRoomTitle}>Mời bạn</Text>
+                        </TouchableOpacity>
                     </View>
 
                 </View>
@@ -133,7 +145,7 @@ export const RenderWaitFriendRoom = ({
                             </ImageBackground>
                     <FlatList
                         data = {listPlayerJoined}
-                        keyExtractor = {(item) =>item.toString()}
+                        keyExtractor = {(item) =>item.avatar.toString()}
                         showsVerticalScrollIndicator = {false}
                         renderItem = {({item, index}) => (
                             <ImageBackground

@@ -3,11 +3,13 @@ import {
     createStackNavigator
 } from 'react-navigation';
 import Info from './Info';
-import HomeScreen from '../HomeScreen';
+import HistoryGame from './historyGame';
+import HistoryChangeGift from './historyChangeGift';
 
 
 export const StackProfile = createStackNavigator({
     Info: Info,
-    Home: HomeScreen
+    HistoryGame: HistoryGame,
+    HistoryChangeGift: HistoryChangeGift
 
 }, {headerMode: 'none'})

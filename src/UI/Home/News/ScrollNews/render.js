@@ -5,49 +5,22 @@ import {
 import { FlatList } from 'react-native-gesture-handler';
 import { ItemNews } from './itemNews';
 import { styles } from './style';
+import { HeaderComponent } from '../../../../Util/HeaderComponent';
 
  export const RenderScrollNew = ({
     listNews = [],
     onRenderItem = () => {},
-    onToProfile = ()=> {},
+    onGoProfile = ()=> {},
     onToDetailNews = () => {}
  }) => {
      return (
         <ImageBackground
             source={require('../../../../../Media/background.png')}
             style = {styles.container}>
-            <ImageBackground
-                source= {require('../../../../../Media/Home/HeaderBG.png')}
-                style={styles.headerContainer}>
-                <View style = {styles.leftHeader}>
-                    <TouchableOpacity 
-                        onPress = {onToProfile}
-                        style = {styles.headerAvatar}>
-                        <ImageBackground
-                            source = {{uri:'https://2sao.vietnamnetjsc.vn/images/2017/10/03/10/09/huyen-trang-11.jpg'}}
-                            style = {styles.headerAvatar}
-                            imageStyle = {styles.imgBGAvatar}>
 
-                            <Image
-                                source = {require('../../../../../Media/Home/master-rank.png')}
-                                style = {styles.rankIcon}
-                            />
-
-                        </ImageBackground>
-                    </TouchableOpacity>
-
-                    <Text style={styles.textHeader}>Phạm Huyền Trang</Text>
-                </View>
-                
-
-                <View style = {styles.scoreContainer}>
-                    <Image
-                        source = {require('../../../../../Media/Home/heart.png')}
-                        style = {styles.scoreIcon}
-                    />
-                    <Text style = {styles.textHeader}>100.000</Text>
-                </View>
-            </ImageBackground>
+            <HeaderComponent
+                onGoProfile = {() => onGoProfile()}
+            />
             
             <View style = {styles.bodyContainer}>
                 <View style= {styles.scrollView}>
@@ -55,7 +28,7 @@ import { styles } from './style';
                         data = {listNews}
                         style = {styles.flatlistStyle}
                         showsVerticalScrollIndicator = {false}
-                        keyExtractor = {(item) => item.toString()}
+                        keyExtractor = {(item) => item.urlImage.toString()}
                         renderItem = {({item})=>(
                             <TouchableOpacity
                                 onPress = {() =>{onToDetailNews(item)}}>

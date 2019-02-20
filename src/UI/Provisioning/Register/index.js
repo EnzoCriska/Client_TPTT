@@ -28,6 +28,7 @@ export default class Register extends Component {
   }
 
   onRegister(){
+    // Call API Register
     this.props.navigation.navigate('confirmOTP')
   }
 

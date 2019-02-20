@@ -5,9 +5,11 @@ import {
  import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { styles } from './style';
 import Modal from 'react-native-modal';
-
+import {HeaderComponent} from '../../../../Util/HeaderComponent';
 
 export const RenderPlayGame = ({
+    onGoProfile = () => {},
+
     sourceA = '',
     sourceB = '',
     sourceC = '',
@@ -20,45 +22,21 @@ export const RenderPlayGame = ({
     GameOverModalVisible = false,
     hideGameOverModal = () => {},
     showGameOverModal = () => {},
-    GameOver = () => {}
+    GameOver = () => {},
+
+    question = '',
+    answerA = '',
+    answerB = ''
 }) => {
     
     return (
         <ImageBackground
             source={require('../../../../../Media/background.png')}
             style = {styles.container}>
-            <ImageBackground
-                source= {require('../../../../../Media/Home/HeaderBG.png')}
-                style={styles.headerContainer}>
-                <View style = {styles.leftHeader}>
-                    <TouchableOpacity 
-                        // onPress = {onToProfile}
-                        style = {styles.headerAvatar}>
-                        <ImageBackground
-                            source = {{uri:'https://2sao.vietnamnetjsc.vn/images/2017/10/03/10/09/huyen-trang-11.jpg'}}
-                            style = {styles.headerAvatar}
-                            imageStyle = {styles.imgBGAvatar}>
-
-                            <Image
-                                source = {require('../../../../../Media/Home/master-rank.png')}
-                                style = {styles.rankIcon}
-                            />
-
-                        </ImageBackground>
-                    </TouchableOpacity>
-
-                    <Text style={styles.textHeader}>Phạm Huyền Trang</Text>
-                </View>
-                
-
-                <View style = {styles.scoreContainer}>
-                    <Image
-                        source = {require('../../../../../Media/Home/heart.png')}
-                        style = {styles.scoreIcon}
-                    />
-                    <Text style = {styles.textHeader}>100.000</Text>
-                </View>
-            </ImageBackground>
+            
+            <HeaderComponent
+                onGoProfile = {() => onGoProfile()}
+            />
 
             <View style = {styles.infoHeader}>
                 <View style = {styles.leftContainer}>
@@ -93,7 +71,7 @@ export const RenderPlayGame = ({
                     style = {styles.questionContainer}
                     resizeMode = 'center'>
                     {/* Set state Question */}
-                    <Text style={styles.textQuestion}>Nỏ thần An Dương Vương được làm từ phần nào của con rùa?</Text>
+                    <Text style={styles.textQuestion}>{question}</Text>
                 </ImageBackground>
 
                 <View style = {styles.countDown}>
@@ -128,7 +106,7 @@ export const RenderPlayGame = ({
                         resizeMode = 'center'>
                         <Text style = {styles.ABCStyle}>A</Text>
                         <View style = {styles.textAnswerContainer}>
-                            <Text style={styles.textAnswer}>Mai Rùa</Text>
+                            <Text style={styles.textAnswer}>{answerA}</Text>
                         </View>
                     </ImageBackground>
                 </TouchableOpacity>
@@ -141,7 +119,7 @@ export const RenderPlayGame = ({
                         resizeMode = 'center'>
                         <Text style = {styles.ABCStyle}>B</Text>
                         <View style = {styles.textAnswerContainer}>
-                            <Text style={styles.textAnswer}>Móng Rùa</Text>
+                            <Text style={styles.textAnswer}>{answerB}</Text>
                         </View>
                     </ImageBackground>
                 </TouchableOpacity>

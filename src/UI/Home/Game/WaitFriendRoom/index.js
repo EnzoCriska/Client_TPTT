@@ -3,10 +3,12 @@ import { View, Text } from 'react-native';
 import { RenderWaitFriendRoom } from './render';
 import {Loading} from '../../../../Util/LoadingScreen';
 export default class WaitFriendRoom extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
       isRoot : this.props.navigation.getParam('isRoot'),
+      roomInfo: this.props.navigation.getParam('infoRoom'),
       listPlayerJoined: [],
       hours:'',
       milliseconds:''
@@ -18,6 +20,7 @@ export default class WaitFriendRoom extends Component {
   }
 
   componentDidMount(){
+    
     var list = [
       {
         avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQakdZtH_lxyBNe-7n5vGi8a7fUc6dHq23LLq241XNuLUOqhsHKdQ",
@@ -55,9 +58,9 @@ export default class WaitFriendRoom extends Component {
       listPlayerJoined: list
     })
     
-    var date = new Date().getDate()    
-    startTime = new Date(2019, 1, date, 20, 0, 0)
-     console.log(startTime)
+    var date = new Date()    
+    startTime = new Date(2019, date.getMonth(),date.getDate(), 20, 0, 0)
+    //  console.log(startTime)
     setInterval( () => {
         var time = new Date()
         var timeDiff = Math.abs(startTime - time);
@@ -74,18 +77,23 @@ export default class WaitFriendRoom extends Component {
   onStartGame(){
     this.props.navigation.navigate('GamePlay')
   }
+  onToInvite(){
+    this.props.navigation.navigate('InviteJoin')
+  }
 
   render() {
-    const {isRoot, listPlayerJoined, hours, milliseconds} = this.state
+    const {isRoot, roomInfo, listPlayerJoined, hours, milliseconds} = this.state
     if (!listPlayerJoined.length > 0) return <Loading/>
     return (
       <RenderWaitFriendRoom
         goToBack = {() => this.goToBack()}
         isRoot =  {isRoot}
         listPlayerJoined = {listPlayerJoined}
+        roomInfo = {roomInfo}
         hours = {hours}
         milliseconds = {milliseconds}
         onStartGame = {() => this.onStartGame()}
+        onToInvite = {() => this.onToInvite()}
       />
     );
   }

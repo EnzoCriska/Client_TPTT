@@ -3,52 +3,24 @@ import {
     View, Text, Image, ImageBackground, TouchableOpacity
 } from 'react-native';
 import { styles } from './style';
+import { HeaderComponent } from '../../../../Util/HeaderComponent';
 
 
 export const RenderDetailNews = ({
     urlImage= '',
     titleNews = '',
     contentNews = '',
-    onToProfile = () => {},
+    onGoProfile = () => {},
     onGoBack = () => {}
 }) => {
     return(
         <ImageBackground
             source={require('../../../../../Media/background.png')}
             style = {styles.container}>
-            <ImageBackground
-                source= {require('../../../../../Media/Home/HeaderBG.png')}
-                style={styles.headerContainer}>
-                <View style = {styles.leftHeader}>
-                    <TouchableOpacity 
-                        onPress = {onToProfile}
-                        style = {styles.headerAvatar}>
-                        <ImageBackground
-                            source = {{uri:'https://2sao.vietnamnetjsc.vn/images/2017/10/03/10/09/huyen-trang-11.jpg'}}
-                            style = {styles.headerAvatar}
-                            imageStyle = {styles.imgBGAvatar}>
 
-                            <Image
-                                source = {require('../../../../../Media/Home/master-rank.png')}
-                                style = {styles.rankIcon}
-                            />
-
-                        </ImageBackground>
-                    </TouchableOpacity>
-
-                    <Text style={styles.textHeader}>Phạm Huyền Trang</Text>
-                </View>
-                
-
-                <View style = {styles.scoreContainer}>
-                    <Image
-                        source = {require('../../../../../Media/Home/heart.png')}
-                        style = {styles.scoreIcon}
-                    />
-                    <Text style = {styles.textHeader}>100.000</Text>
-                </View>
-            </ImageBackground>
-
+            <HeaderComponent
+                onGoProfile = {() => onGoProfile()}
+            />
             <View style= {styles.titleHeader}>
                 <TouchableOpacity
                     onPress = {() => onGoBack()}>

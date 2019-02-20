@@ -37,11 +37,8 @@ export default class WaitScreen extends Component {
   }
 
   updateMessage(){
-    // var tempList = this.state.chatList
+
     ReadMessageData((list) =>{
-      // for (let i = 0; i < list.length; i++)
-      // tempList.push(list[i])
-      // console.log(tempList)
       this.setState({chatList:list})
       console.log(this.setState.chatList)
     }
@@ -74,12 +71,19 @@ export default class WaitScreen extends Component {
     this.props.navigation.goBack()
   }
 
+  onGoProfile(){
+    this.props.navigation.navigate('Profile', {router:this.props.navigation})
+  }
+
 
   render() {
     const { chatValue, chatList,hours, milliseconds} = this.state
 
     return (
       <RenderWaitGame
+
+          onGoProfile = {() => this.onGoProfile()}
+
           hours = {hours}
           milliseconds = {milliseconds}
           chatValue = {chatValue}

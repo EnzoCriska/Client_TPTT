@@ -42,9 +42,9 @@ export default class ScrollNews extends Component {
     };
   }
 
-  onToProfile(){
+  onGoProfile(){
     console.log("Profile")
-    this.props.navigation.navigate('__Profile')
+    this.props.navigation.navigate('__Profile', {router:this.props.navigation})
   }
 
   onToDetailNews(item){
@@ -58,7 +58,7 @@ export default class ScrollNews extends Component {
         
       <RenderScrollNew
           listNews = {listNews}
-          onToProfile = {()=> {this.onToProfile()}}
+          onGoProfile = {()=> {this.onGoProfile()}}
           onToDetailNews = {(item) => {this.onToDetailNews(item)}}
       />
     );

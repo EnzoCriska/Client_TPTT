@@ -4,7 +4,10 @@ import {
  } from 'react-native';
 import { styles } from './style';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { HeaderComponent } from '../../../../Util/HeaderComponent';
 export const RenderWaitGame = ({
+    onGoProfile = () => {},
+
     hours = '',
     milliseconds = '',
     chatValue = '',
@@ -17,38 +20,10 @@ export const RenderWaitGame = ({
         <ImageBackground
             source={require('../../../../../Media/background.png')}
             style = {styles.container}>
-            <ImageBackground
-                source= {require('../../../../../Media/Home/HeaderBG.png')}
-                style={styles.headerContainer}>
-                <View style = {styles.leftHeader}>
-                    <TouchableOpacity 
-                        // onPress = {onToProfile}
-                        style = {styles.headerAvatar}>
-                        <ImageBackground
-                            source = {{uri:'https://2sao.vietnamnetjsc.vn/images/2017/10/03/10/09/huyen-trang-11.jpg'}}
-                            style = {styles.headerAvatar}
-                            imageStyle = {styles.imgBGAvatar}>
-
-                            <Image
-                                source = {require('../../../../../Media/Home/master-rank.png')}
-                                style = {styles.rankIcon}
-                            />
-
-                        </ImageBackground>
-                    </TouchableOpacity>
-
-                    <Text style={styles.textHeader}>Phạm Huyền Trang</Text>
-                </View>
-                
-
-                <View style = {styles.scoreContainer}>
-                    <Image
-                        source = {require('../../../../../Media/Home/heart.png')}
-                        style = {styles.scoreIcon}
-                    />
-                    <Text style = {styles.textHeader}>100.000</Text>
-                </View>
-            </ImageBackground>
+            
+            <HeaderComponent
+                onGoProfile = {() => onGoProfile()}
+            />
 
             <View style= {styles.bodyContainer}>
                 <View style = {styles.bottomHeaderContainer}>
@@ -112,9 +87,9 @@ export const RenderWaitGame = ({
                         onLayout={() => this.flatList.scrollToEnd({animated: true})}
                         keyExtractor = {(item, index) => item.toString()}
                         renderItem = {({item}) => (
-                            <View style ={{flexDirection:'row', width:'100%', margin:5,}}>
-                                <Text style = {{marginHorizontal:5, color:'#FF9626'}}>{item.userName}: </Text>
-                                <Text style = {{color:'#fff', flex:1, marginRight:10}}
+                            <View style ={styles.itemContainerChat}>
+                                <Text style = {styles.userNameChat}>{item.userName}: </Text>
+                                <Text style = {styles.contentChat}
                                     multiline = {true}
                                     >{item.content}</Text>
                             </View>

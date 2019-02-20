@@ -112,6 +112,10 @@ export default class RankComponent extends Component {
     this.hideMenu()
   }
 
+  onGoProfile(){
+    this.props.navigation.navigate('_Profile', {router:this.props.navigation})
+  }
+
   render() {
     const {thisRank,list, currentUserRank} = this.state
     return (
@@ -125,6 +129,8 @@ export default class RankComponent extends Component {
         showRankMonth = {() => this.showRankMonth()}
         showRankWeek = {() => this.showRankWeek()}
         showRankDay = {() => this.showRankDay()}
+
+        onGoProfile = {() => this.onGoProfile()}
       />
     );
   }

@@ -34,7 +34,7 @@ export function SigIn(phone, password){
 }
 
 
-export function JoinNowGame(player){
+export function JoinNowGame(player,callback){
     return fetch(URL, {
         method: 'POST',
         headers: {

@@ -6,7 +6,8 @@ export default class ListRoomFriends extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        listRoom: [{
+        listRoom: [
+            {
             roomName:'wertgferg',
             roomID: '343DE565',
             security: true,
@@ -50,6 +51,7 @@ export default class ListRoomFriends extends Component {
         }
     ],
         
+        isSelected: {},
         joinRoomVisible : false,
         createRoomVisible : false,
         TimePickerVisible : false,
@@ -68,8 +70,10 @@ export default class ListRoomFriends extends Component {
   };
   
 
-  showModalJoinRoom() {
-      this.setState({joinRoomVisible:true})
+  showModalJoinRoom(item) {
+      this.setState({joinRoomVisible:true,
+                    isSelected: item
+                    })
   }
 
   hideModalJoinRoom() {
@@ -85,9 +89,15 @@ export default class ListRoomFriends extends Component {
   joinToRoom(){
       console.log(this.state.joinModalValuePassword)
       this.hideModalJoinRoom()
-        // Call API Join Room
-      this.props.navigation.navigate('WaitFriendRoom', 
+    //     // Call API Join Room
+    this.goToRoom(this.state.isSelected)
+      
+  }
+
+  goToRoom(item){
+    this.props.navigation.navigate('WaitFriendRoom', 
                     {   isRoot: false,
+                        infoRoom: item
                         })
   }
 
@@ -154,12 +164,13 @@ export default class ListRoomFriends extends Component {
           goBack = {() => this.props.navigation.goBack()}
 
           joinRoomVisible = {joinRoomVisible}
-          showModalJoinRoom = {() => this.showModalJoinRoom()}
+          showModalJoinRoom = {(item) => this.showModalJoinRoom(item)}
           hideModalJoinRoom = {() => this.hideModalJoinRoom()}
           onChangePasswordModalJoin = {(text) => this.onChangePasswordModalJoin(text)}
           joinModalValuePassword = {joinModalValuePassword}
           joinToRoom = {() => this.joinToRoom()}
-
+          goToRoom = {(item) => this.goToRoom(item)}
+        
           createRoomVisible = {createRoomVisible}
           showModalCreateRoom = {() => this.showModalCreateRoom()}
           hideModalCreateRoom = {() => this.hideModalCreateRoom()}

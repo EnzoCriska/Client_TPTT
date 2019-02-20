@@ -6,7 +6,9 @@ import { styles } from './style';
 
  export const RenderInfo = ({
     onGoBack = () => {},
-    onGoEdit = () => {}
+    onGoEdit = () => {},
+    onGoHistoryGame = () => {},
+    onGoHistoryChangeGift = () => {}
  }) => {
      return (
         <ImageBackground
@@ -93,7 +95,9 @@ import { styles } from './style';
                         <Text style ={styles.textData}>090 41 23 123</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.selectMore}>
+                    <TouchableOpacity 
+                        onPress = {() => onGoHistoryGame()}
+                        style={styles.selectMore}>
                         <Text style ={styles.textData}>Lịch sử chơi</Text>
                         <Image
                             source = {require('../../../../../Media/Profile/rightArrow.png')}
@@ -102,7 +106,9 @@ import { styles } from './style';
                         />
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.selectMore}>
+                    <TouchableOpacity 
+                        onPress = {() => onGoHistoryChangeGift()}
+                        style={styles.selectMore}>
                         <Text style ={styles.textData}>Lịch sử đổi quà</Text>
                         <Image
                             source = {require('../../../../../Media/Profile/rightArrow.png')}
