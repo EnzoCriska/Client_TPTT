@@ -46,8 +46,8 @@ export const styles = StyleSheet.create({
        marginTop:5
     },
    countDownBG:{
-       width: 317 * pointX,
-       height:132 * pointY,
+       width: 310 * pointX,
+       height:139 * pointY,
        justifyContent: 'center',
        alignItems: 'center',
    },
@@ -102,8 +102,15 @@ export const styles = StyleSheet.create({
        marginBottom:5
    },
    touchableJoinBtn:{
-       width:"60%",
-       marginTop: - 40*pointY,
+    //    width:"60%",
+    //    marginTop: - 40*pointY,
+   },
+   joinNowBtn:{
+        width: 207 * pointX,
+        height: 42 * pointY,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: - 30 * pointY,
    },
    joinBtn:{
        width:'100%',

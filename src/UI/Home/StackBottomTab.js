@@ -108,6 +108,9 @@ export const BottomTabStack = createBottomTabNavigator(
         style: {
             backgroundColor: '#01113C',
           },
+          labelStyle:{
+              color: '#fff'
+          }
     }
 }
 )

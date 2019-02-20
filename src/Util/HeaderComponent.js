@@ -44,7 +44,7 @@ export const HeaderComponent = ({
 const styles = StyleSheet.create({
     headerContainer:{
         width:'100%',
-        height:45.75 * pointY,
+        height:47.75 * pointY,
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent:'space-between'

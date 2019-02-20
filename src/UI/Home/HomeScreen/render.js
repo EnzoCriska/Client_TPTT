@@ -36,6 +36,7 @@ const {width, height} = Dimensions.get('window')
                             itemWidth={275.32 * pointX}
                             inactiveSlideOpacity={0.6}
                             inactiveSlideScale={0.8}
+                            loop = {true}
                             autoplay = {true}
                             renderItem={({item, index}) => (
                                 <ImageBackground
@@ -51,7 +52,8 @@ const {width, height} = Dimensions.get('window')
                     </View>
                 </View>
 
-                <ImageBackground style = {styles.countDownContainer}>
+                <View style = {styles.countDownContainer}>
+
                     <ImageBackground
                         source= {require('../../../../Media/Home/CountDownBG.png')}
                         style = {styles.countDownBG}
@@ -109,14 +111,14 @@ const {width, height} = Dimensions.get('window')
                         style = {styles.touchableJoinBtn}>
                         <ImageBackground
                             source = {require('../../../../Media/Home/joinBtn.png')}
-                            style = {styles.joinBtn}
+                            style = {styles.joinNowBtn}
                             resizeMode = "center"
                         >
                             <Text style = {styles.topCountDownTitle}>Tham gia</Text>
                         </ImageBackground>
                 </TouchableOpacity>
 
-                </ImageBackground>
+                </View>
 
                 <View style = {styles.playSelectionContainer}>
                 <View style = {styles.Game}>

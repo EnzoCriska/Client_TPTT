@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
     },
     historyBackground:{
         width: 362.46 * pointX,
-        height : 470 * pointY,
+        height : 508 * pointY,
     },
     titleTableContainer:{
         width:'100%',
