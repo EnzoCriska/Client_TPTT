@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {  } from 'react-native';
+import {SafeAreaView  } from 'react-native';
+// import {SafeAreaView} from 'react-navigation';
 
 import {RenderLogin} from './render';
 import { Loading } from '../../../Util/LoadingScreen';
@@ -56,6 +57,7 @@ export default class Login extends Component {
     const {phone, pass, isLoading} = this.state;
     if (isLoading) return (<Loading/>)
     return (
+        <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
         <RenderLogin
             phone = {phone}
             password = {pass}
@@ -66,6 +68,7 @@ export default class Login extends Component {
             onRegister = {() => this.onRegister()}
             onForgotPassword = {()=> this.onForgotPassword()}
         />
+        </SafeAreaView>
     );
   }
 }

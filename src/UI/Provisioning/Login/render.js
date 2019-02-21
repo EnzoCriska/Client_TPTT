@@ -8,7 +8,7 @@ import {
     Image
 } from 'react-native';
 import { styles } from './style';
-
+import {SafeAreaView} from 'react-navigation';
 export const RenderLogin =  ({
     phone = '',
     password = '',
@@ -22,6 +22,7 @@ export const RenderLogin =  ({
 }) => {
     
     return (
+
         <ImageBackground
             source = {require('../../../../Media/background.png')}
             style = {styles.container}>
@@ -117,6 +118,7 @@ export const RenderLogin =  ({
             </View>
 
         </ImageBackground>
+
     )
 }
 
