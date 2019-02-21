@@ -102,15 +102,16 @@ export const styles = StyleSheet.create({
        marginBottom:5
    },
    touchableJoinBtn:{
-    //    width:"60%",
-    //    marginTop: - 40*pointY,
+       width: 207 * pointX,
+       height: 42 * pointY,
+       marginTop: - 30 * pointY,
    },
    joinNowBtn:{
         width: 207 * pointX,
         height: 42 * pointY,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: - 30 * pointY,
+        // marginTop: - 30 * pointY,
    },
    joinBtn:{
        width:'100%',

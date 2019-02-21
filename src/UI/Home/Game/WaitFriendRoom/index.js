@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { RenderWaitFriendRoom } from './render';
 import {Loading} from '../../../../Util/LoadingScreen';
+import { areaStyles } from '../../../../Util/SafeAreaStyle';
 export default class WaitFriendRoom extends Component {
   
   constructor(props) {
@@ -81,12 +82,19 @@ export default class WaitFriendRoom extends Component {
     this.props.navigation.navigate('InviteJoin')
   }
 
+  onGoProfile() {
+    this.props.navigation.navigate('Profile', {router:this.props.navigation})
+  }
+
   render() {
     const {isRoot, roomInfo, listPlayerJoined, hours, milliseconds} = this.state
     if (!listPlayerJoined.length > 0) return <Loading/>
     return (
+      <SafeAreaView style={areaStyles.area}>
       <RenderWaitFriendRoom
         goToBack = {() => this.goToBack()}
+        onGoProfile = {() => this.onGoProfile()}
+
         isRoot =  {isRoot}
         listPlayerJoined = {listPlayerJoined}
         roomInfo = {roomInfo}
@@ -95,6 +103,7 @@ export default class WaitFriendRoom extends Component {
         onStartGame = {() => this.onStartGame()}
         onToInvite = {() => this.onToInvite()}
       />
+      </SafeAreaView>
     );
   }
 }

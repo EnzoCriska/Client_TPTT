@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { RenderHomeScreen } from './render';
 import { Loading } from '../../../Util/LoadingScreen';
 import { JoinNowGame } from '../../../Network/API';
 
 import Global from '../../../Util/Global';
+import { areaStyles } from '../../../Util/SafeAreaStyle';
 export default class HomeScreen extends Component {
   constructor(props) {
     super(props);
@@ -82,6 +83,7 @@ export default class HomeScreen extends Component {
       return (<Loading/>)
     }
     return (
+      <SafeAreaView style={areaStyles.area}>
         <RenderHomeScreen
           hours = {hours}
           milliseconds = {milliseconds}
@@ -92,6 +94,7 @@ export default class HomeScreen extends Component {
           onFriendsRoom = {() => this.onFriendsRoom()}
           onTrainingRoom = {() => this.onTrainingRoom()}
         />
+        </SafeAreaView>
     );
   }
 }

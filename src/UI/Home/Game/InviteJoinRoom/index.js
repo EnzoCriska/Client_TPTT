@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { RenderInviteJoinRoom } from './render';
+import { areaStyles } from '../../../../Util/SafeAreaStyle';
 
 const list  = [
   {
@@ -72,15 +73,22 @@ export default class InviteJoinRoom extends Component {
     this.props.navigation.goBack()
   }
 
+  onGoProfile(){
+    this.props.navigation.navigate('Profile', {router:this.props.navigation})
+  }
+
   render() {
     const {listFriend} = this.state
     return (
+      <SafeAreaView style={areaStyles.area}>
       <RenderInviteJoinRoom
           parrentState = {this.state}
           listFriend = {listFriend}
           selectItemToInvite = {(item) => this.selectItemToInvite(item)}
           goBack = {() => this.goBack()}
+          onGoProfile = {() =>  this.onGoProfile()}
       />
+      </SafeAreaView>
     );
   }
 }

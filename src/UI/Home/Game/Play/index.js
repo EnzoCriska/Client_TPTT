@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { SafeAreaView } from 'react-native';
 import { RenderPlayGame } from './render';
 
 import answer from '../../../../../Media/Game/anwes.png'
 import selected from '../../../../../Media/Game/selectedAnwes.png'
+import { areaStyles } from '../../../../Util/SafeAreaStyle';
 
 export default class GamePlay extends Component {
   
@@ -93,6 +95,7 @@ export default class GamePlay extends Component {
   render() {
     const {sourceA, sourceB, sourceC, GameOverModalVisible, question, answerA, answerB} = this.state
     return (
+      <SafeAreaView style={areaStyles.area}>
       <RenderPlayGame
         onGoProfile = {() => this.onGoProfile()}
 
@@ -114,6 +117,8 @@ export default class GamePlay extends Component {
         answerA = {answerA}
         answerB = {answerB}
       />
+
+      </SafeAreaView>
     );
   }
 }

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { RenderWaitGame } from './render';
 
 import Global from '../../../../Util/Global';
 import { SendMessageFirebase, ReadMessageData } from '../../../../Network/Firebase';
+import { areaStyles } from '../../../../Util/SafeAreaStyle';
 export default class WaitScreen extends Component {
   constructor(props) {
     super(props);
@@ -80,6 +81,7 @@ export default class WaitScreen extends Component {
     const { chatValue, chatList,hours, milliseconds} = this.state
 
     return (
+      <SafeAreaView style={areaStyles.area}>
       <RenderWaitGame
 
           onGoProfile = {() => this.onGoProfile()}
@@ -92,6 +94,7 @@ export default class WaitScreen extends Component {
           sendMessage = {(message) => this.sendMessage(message)}
           goToBack = {() => this.goToBack()}
       />
+      </SafeAreaView>
     );
   }
 }

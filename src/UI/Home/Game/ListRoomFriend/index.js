@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { RenderListRoom } from './render';
+import { areaStyles } from '../../../../Util/SafeAreaStyle';
 
 export default class ListRoomFriends extends Component {
   constructor(props) {
@@ -146,6 +147,9 @@ export default class ListRoomFriends extends Component {
       this._hideDateTimePicker()
   }
 
+  onGoProfile(){
+      this.props.navigation.navigate('Profile', {router:this.props.navigation})
+  }
 
   render() {
       const {
@@ -159,10 +163,12 @@ export default class ListRoomFriends extends Component {
           timeStartValue
         } = this.state
     return (
+
+        <SafeAreaView style={areaStyles.area}>
       <RenderListRoom
           listRoom = {listRoom}
           goBack = {() => this.props.navigation.goBack()}
-
+          onGoProfile = {() => this.onGoProfile()}
           joinRoomVisible = {joinRoomVisible}
           showModalJoinRoom = {(item) => this.showModalJoinRoom(item)}
           hideModalJoinRoom = {() => this.hideModalJoinRoom()}
@@ -189,6 +195,7 @@ export default class ListRoomFriends extends Component {
           createRoom = {() => this.createRoom()}
         
       />
+      </SafeAreaView>
     );
   }
 }

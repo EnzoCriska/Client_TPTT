@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { RenderScrollNew } from './render';
+import { areaStyles } from '../../../../Util/SafeAreaStyle';
 
 export default class ScrollNews extends Component {
   constructor(props) {
@@ -55,12 +56,13 @@ export default class ScrollNews extends Component {
   render() {
     const {listNews} = this.state
     return (
-        
+      <SafeAreaView style={areaStyles.area}>
       <RenderScrollNew
           listNews = {listNews}
           onGoProfile = {()=> {this.onGoProfile()}}
           onToDetailNews = {(item) => {this.onToDetailNews(item)}}
       />
+      </SafeAreaView>
     );
   }
 }

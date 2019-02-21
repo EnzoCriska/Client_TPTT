@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { RenderInfo } from './render';
+import { areaStyles } from '../../../../Util/SafeAreaStyle';
 var GameRouter 
     
 export default class Info extends Component {
@@ -35,12 +36,14 @@ export default class Info extends Component {
 
   render() {
     return (
+      <SafeAreaView style={areaStyles.area}>
       <RenderInfo
           onGoBack = {()=> this.onGoBack()}
           onGoEdit = {() => this.onGoEdit()}
           onGoHistoryGame = {() => this.onGoHistoryGame()}
           onGoHistoryChangeGift = {() => this.onGoHistoryChangeGift()}
       />
+      </SafeAreaView>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { RenderHistoryChangeGift } from './render';
+import { areaStyles } from '../../../../Util/SafeAreaStyle';
 
 export default class HistoryChangeGift extends Component {
   constructor(props) {
@@ -87,10 +88,12 @@ export default class HistoryChangeGift extends Component {
   render() {
     const {listHistoryChangeGift} = this.state
     return (
+      <SafeAreaView style={areaStyles.area}>
       <RenderHistoryChangeGift
           onGoBack = {() => this.onGoBack()}
           listHistoryChangeGift = {listHistoryChangeGift}
       />
+      </SafeAreaView>
     );
   }
 }

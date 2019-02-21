@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { RenderRegister } from './render';
 import {CheckCameraPermission, CheckStoragePermission} from '../../../Util/CheckPermission';
 import { picker } from '../../../Util/ImagePicker';
+import { areaStyles } from '../../../Util/SafeAreaStyle';
 
 
 export default class Register extends Component {
@@ -65,6 +66,7 @@ export default class Register extends Component {
   render() {
     const {avatar, userName, birthDay, CMND} = this.state
     return (
+      <SafeAreaView style={areaStyles.area}>
       <RenderRegister
         avatar = {avatar}
         userName = {userName}
@@ -76,6 +78,7 @@ export default class Register extends Component {
         onChangeCMND = {(text)=> this.onChangeCMND(text)}
         onRegister = {()=> this.onRegister()}
       />
+      </SafeAreaView>
     );
   }
 }

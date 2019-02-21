@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { RenderDetailNews } from './render';
+import { areaStyles } from '../../../../Util/SafeAreaStyle';
 
 export default class DetailNews extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ export default class DetailNews extends Component {
   render() {
       const { urlImage, titleNews, contentNews} = this.state
     return (
+      <SafeAreaView style={areaStyles.area}>
       <RenderDetailNews
         urlImage = {urlImage}
         titleNews = {titleNews}
@@ -35,6 +37,7 @@ export default class DetailNews extends Component {
         onGoProfile = {()=> this.onGoProfile()}
         onGoBack = {() => this.onGoBack()}
       />
+      </SafeAreaView>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { RenderHistoryGame } from './render';
+import { areaStyles } from '../../../../Util/SafeAreaStyle';
 
 export default class HistoryGame extends Component {
   constructor(props) {
@@ -86,10 +87,12 @@ export default class HistoryGame extends Component {
   render() {
     const {listHistoryGame} = this.state
     return (
+      <SafeAreaView style={areaStyles.area}>
       <RenderHistoryGame
           onGoBack = {() => this.onGoBack()}
           listHistoryGame = {listHistoryGame}
       />
+      </SafeAreaView>
     );
   }
 }

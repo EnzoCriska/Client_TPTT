@@ -7,6 +7,7 @@ import { Loading } from '../../../Util/LoadingScreen';
 import { SigIn } from '../../../Network/API';
 
 import Global from '../../../Util/Global';
+import { areaStyles } from '../../../Util/SafeAreaStyle';
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -57,7 +58,7 @@ export default class Login extends Component {
     const {phone, pass, isLoading} = this.state;
     if (isLoading) return (<Loading/>)
     return (
-        <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+        <SafeAreaView style={areaStyles.area}>
         <RenderLogin
             phone = {phone}
             password = {pass}

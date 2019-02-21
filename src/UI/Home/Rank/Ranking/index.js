@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { RenderRank } from './render';
+import { areaStyles } from '../../../../Util/SafeAreaStyle';
 
 const listRanking = [
   {
@@ -119,6 +120,7 @@ export default class RankComponent extends Component {
   render() {
     const {thisRank,list, currentUserRank} = this.state
     return (
+      <SafeAreaView style={areaStyles.area}>
       <RenderRank
         thisRank = {thisRank}
         listRanking = {list}
@@ -132,6 +134,7 @@ export default class RankComponent extends Component {
 
         onGoProfile = {() => this.onGoProfile()}
       />
+      </SafeAreaView>
     );
   }
 }

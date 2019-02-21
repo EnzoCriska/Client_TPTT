@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { RenderFriend } from './render';
+import { areaStyles } from '../../../../Util/SafeAreaStyle';
 
 export default class Friends extends Component {
   constructor(props) {
@@ -15,9 +16,11 @@ export default class Friends extends Component {
 
   render() {
     return (
+      <SafeAreaView style={areaStyles.area}>
       <RenderFriend
         onGoProfile = {() => this.onGoProfile()}
       />
+      </SafeAreaView>
     );
   }
 }
