@@ -4,7 +4,7 @@ import { RenderPlayGame } from './render';
 
 import answer from '../../../../../Media/Game/anwes.png'
 import selected from '../../../../../Media/Game/selectedAnwes.png'
-import { areaStyles } from '../../../../Util/SafeAreaStyle';
+import { areaStyles } from '../../../../Util/Component Util/SafeAreaStyle';
 
 export default class GamePlay extends Component {
   

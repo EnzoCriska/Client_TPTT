@@ -3,11 +3,11 @@ import {SafeAreaView  } from 'react-native';
 // import {SafeAreaView} from 'react-navigation';
 
 import {RenderLogin} from './render';
-import { Loading } from '../../../Util/LoadingScreen';
+import { Loading } from '../../../Util/Component Util/LoadingScreen';
 import { SigIn } from '../../../Network/API';
 
 import Global from '../../../Util/Global';
-import { areaStyles } from '../../../Util/SafeAreaStyle';
+import { areaStyles } from '../../../Util/Component Util/SafeAreaStyle';
 export default class Login extends Component {
   constructor(props) {
     super(props);

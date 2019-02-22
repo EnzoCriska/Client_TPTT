@@ -5,7 +5,7 @@ import {
 import { FlatList } from 'react-native-gesture-handler';
 import { ItemNews } from './itemNews';
 import { styles } from './style';
-import { HeaderComponent } from '../../../../Util/HeaderComponent';
+import { HeaderComponent } from '../../../../Util/Component Util/HeaderComponent';
 
  export const RenderScrollNew = ({
     listNews = [],

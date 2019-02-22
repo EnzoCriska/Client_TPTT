@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
 import { RenderFriend } from './render';
-import { areaStyles } from '../../../../Util/SafeAreaStyle';
+import { areaStyles } from '../../../../Util/Component Util/SafeAreaStyle';
 
 export default class Friends extends Component {
   constructor(props) {

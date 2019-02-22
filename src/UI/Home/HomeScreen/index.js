@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
 import { RenderHomeScreen } from './render';
-import { Loading } from '../../../Util/LoadingScreen';
+import { Loading } from '../../../Util/Component Util/LoadingScreen';
 import { JoinNowGame } from '../../../Network/API';
 
 import Global from '../../../Util/Global';
-import { areaStyles } from '../../../Util/SafeAreaStyle';
+import { areaStyles } from '../../../Util/Component Util/SafeAreaStyle';
 export default class HomeScreen extends Component {
   constructor(props) {
     super(props);

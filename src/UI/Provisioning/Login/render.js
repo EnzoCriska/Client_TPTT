@@ -5,10 +5,11 @@ import {
     TextInput,
     TouchableOpacity,
     ImageBackground,
-    Image
+    Image,
+    StatusBar
 } from 'react-native';
 import { styles } from './style';
-import {SafeAreaView} from 'react-navigation';
+
 export const RenderLogin =  ({
     phone = '',
     password = '',
@@ -26,7 +27,7 @@ export const RenderLogin =  ({
         <ImageBackground
             source = {require('../../../../Media/background.png')}
             style = {styles.container}>
-
+            <StatusBar backgroundColor = 'transparent' translucent = {true}/>
             <View style= {styles.LogoContainer}>
                 <Image
                     source = {require('../../../../Media/Provisioning/LogoApp.png')}

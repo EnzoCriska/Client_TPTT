@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
 import { RenderInfo } from './render';
-import { areaStyles } from '../../../../Util/SafeAreaStyle';
+import { areaStyles } from '../../../../Util/Component Util/SafeAreaStyle';
 var GameRouter 
     
 export default class Info extends Component {

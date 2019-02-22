@@ -5,7 +5,7 @@ import {
  import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { styles } from './style';
 import Modal from 'react-native-modal';
-import {HeaderComponent} from '../../../../Util/HeaderComponent';
+import {HeaderComponent} from '../../../../Util/Component Util/HeaderComponent';
 
 export const RenderPlayGame = ({
     onGoProfile = () => {},

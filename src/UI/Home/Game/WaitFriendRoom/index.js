@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
 import { RenderWaitFriendRoom } from './render';
-import {Loading} from '../../../../Util/LoadingScreen';
-import { areaStyles } from '../../../../Util/SafeAreaStyle';
+import {Loading} from '../../../../Util/Component Util/LoadingScreen';
+import { areaStyles } from '../../../../Util/Component Util/SafeAreaStyle';
 export default class WaitFriendRoom extends Component {
   
   constructor(props) {

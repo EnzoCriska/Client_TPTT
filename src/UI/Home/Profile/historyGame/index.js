@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
 import { RenderHistoryGame } from './render';
-import { areaStyles } from '../../../../Util/SafeAreaStyle';
+import { areaStyles } from '../../../../Util/Component Util/SafeAreaStyle';
 
 export default class HistoryGame extends Component {
   constructor(props) {

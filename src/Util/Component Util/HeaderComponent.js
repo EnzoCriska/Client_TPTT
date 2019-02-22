@@ -7,13 +7,13 @@ import {
   Image,
   TouchableOpacity
 } from "react-native";
-import { pointY, pointX } from "./Constanst";
+import { pointY, pointX } from "../Constanst";
 export const HeaderComponent = ({
     onGoProfile  = () => {}
 }) => {
   return (
     <ImageBackground
-      source={require("../../Media/Home/HeaderBG.png")}
+      source={require("../../../Media/Home/HeaderBG.png")}
       style={styles.headerContainer}
     >
       <View style={styles.leftHeader}>
@@ -32,7 +32,7 @@ export const HeaderComponent = ({
 
       <View style={styles.scoreContainer}>
         <Image
-          source={require("../../Media/Home/heart.png")}
+          source={require("../../../Media/Home/heart.png")}
           style={styles.scoreIcon}
         />
         <Text style={styles.textHeader}>100.000</Text>
@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
         height:47.75 * pointY,
         alignItems: 'center',
         flexDirection: 'row',
-        justifyContent:'space-between'
+        justifyContent:'space-between',
+        marginTop: 20,
    },
    leftHeader:{
        flexDirection:'row',

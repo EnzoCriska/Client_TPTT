@@ -5,7 +5,7 @@ import {
 export const Loading = () => {
 return (
     <ImageBackground
-        source = {require('../../Media/background.png')}
+        source = {require('../../../Media/background.png')}
         style = {styles.container}>
         <ActivityIndicator size="large" color="#00ff00"/>
     </ImageBackground>

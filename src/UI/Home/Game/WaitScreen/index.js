@@ -4,7 +4,7 @@ import { RenderWaitGame } from './render';
 
 import Global from '../../../../Util/Global';
 import { SendMessageFirebase, ReadMessageData } from '../../../../Network/Firebase';
-import { areaStyles } from '../../../../Util/SafeAreaStyle';
+import { areaStyles } from '../../../../Util/Component Util/SafeAreaStyle';
 export default class WaitScreen extends Component {
   constructor(props) {
     super(props);

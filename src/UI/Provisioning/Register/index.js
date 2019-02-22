@@ -3,7 +3,7 @@ import { View, SafeAreaView } from 'react-native';
 import { RenderRegister } from './render';
 import {CheckCameraPermission, CheckStoragePermission} from '../../../Util/CheckPermission';
 import { picker } from '../../../Util/ImagePicker';
-import { areaStyles } from '../../../Util/SafeAreaStyle';
+import { areaStyles } from '../../../Util/Component Util/SafeAreaStyle';
 
 
 export default class Register extends Component {

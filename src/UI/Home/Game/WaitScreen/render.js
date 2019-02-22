@@ -4,7 +4,7 @@ import {
  } from 'react-native';
 import { styles } from './style';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { HeaderComponent } from '../../../../Util/HeaderComponent';
+import { HeaderComponent } from '../../../../Util/Component Util/HeaderComponent';
 export const RenderWaitGame = ({
     onGoProfile = () => {},
 
