@@ -22,12 +22,7 @@ const  MainStack = createStackNavigator({
     headerMode: "none"
 })
 
-// MainStack.navigationOptions = ({navigation}) =>{
-//     let headerMode = "float"
-//     console.log(navigation)
-//     return headerMode   
-// }
 
-const App = createAppContainer(MainStack);
+const Main = createAppContainer(MainStack);
 
-export default App;
+export default Main;

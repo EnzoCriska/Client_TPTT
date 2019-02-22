@@ -8,7 +8,11 @@ import { SigIn } from '../../../Network/API';
 
 import Global from '../../../Util/Global';
 import { areaStyles } from '../../../Util/Component Util/SafeAreaStyle';
-export default class Login extends Component {
+
+import {connect} from 'react-redux';
+import {loginDefault} from '../../../actions/loginAction';
+
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,15 +33,16 @@ export default class Login extends Component {
   }
 
   onLogin(){
-      console.log("Login")
-      this.setState({isLoading:true})
-      SigIn(this.state.phone, this.state.pass)
-      .then((res)=> {
-        // console.log(res)
-        Global.currentUser = res
-        this.setState({isLoading:false})
-        this.props.navigation.navigate('bottomTabStack')
-      })
+      this.props.loginDefault(this)
+    //   console.log("Login")
+    //   this.setState({isLoading:true})
+    //   SigIn(this.state.phone, this.state.pass)
+    //   .then((res)=> {
+    //     // console.log(res)
+    //     Global.currentUser = res
+    //     this.setState({isLoading:false})
+    //     this.props.navigation.navigate('bottomTabStack')
+    //   })
   }
 
   onFBLogin(){
@@ -55,8 +60,9 @@ export default class Login extends Component {
   }
 
   render() {
+      console.log(this.props.data)
     const {phone, pass, isLoading} = this.state;
-    if (isLoading) return (<Loading/>)
+    if (this.props.data.isLogin) return (<Loading/>)
     return (
         <SafeAreaView style={areaStyles.area}>
         <RenderLogin
@@ -73,3 +79,12 @@ export default class Login extends Component {
     );
   }
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        data: state.loginReducer
+    }
+};
+
+export default connect (mapStateToProps, {loginDefault})(Login)

@@ -8,36 +8,44 @@ import {
   TouchableOpacity
 } from "react-native";
 import { pointY, pointX } from "../Constanst";
-export const HeaderComponent = ({
+
+import {connect} from 'react-redux';
+import {loginDefault} from '../../actions/loginAction';
+
+
+const HeaderComponent = ({
     onGoProfile  = () => {}
 }) => {
+  console.log(this.props)
   return (
-    <ImageBackground
-      source={require("../../../Media/Home/HeaderBG.png")}
-      style={styles.headerContainer}
-    >
-      <View style={styles.leftHeader}>
-        <TouchableOpacity onPress={onGoProfile}>
+    <Provider>
+      <ImageBackground
+        source={require("../../../Media/Home/HeaderBG.png")}
+        style={styles.headerContainer}
+      >
+        <View style={styles.leftHeader}>
+          <TouchableOpacity onPress={onGoProfile}>
+            <Image
+              source={{
+                uri:
+                  "https://2sao.vietnamnetjsc.vn/images/2017/10/03/10/09/huyen-trang-11.jpg"
+              }}
+              style={styles.headerAvatar}
+            />
+          </TouchableOpacity>
+
+          <Text style={styles.textHeader}>Phạm Huyền Trang</Text>
+        </View>
+
+        <View style={styles.scoreContainer}>
           <Image
-            source={{
-              uri:
-                "https://2sao.vietnamnetjsc.vn/images/2017/10/03/10/09/huyen-trang-11.jpg"
-            }}
-            style={styles.headerAvatar}
+            source={require("../../../Media/Home/heart.png")}
+            style={styles.scoreIcon}
           />
-        </TouchableOpacity>
-
-        <Text style={styles.textHeader}>Phạm Huyền Trang</Text>
-      </View>
-
-      <View style={styles.scoreContainer}>
-        <Image
-          source={require("../../../Media/Home/heart.png")}
-          style={styles.scoreIcon}
-        />
-        <Text style={styles.textHeader}>100.000</Text>
-      </View>
-    </ImageBackground>
+          <Text style={styles.textHeader}>100.000</Text>
+        </View>
+      </ImageBackground>
+    </Provider>
   );
 };
 
@@ -87,3 +95,11 @@ const styles = StyleSheet.create({
        margin:3,
    },
 });
+
+const mapStateToProps = (state) => {
+  return {
+      data: state.loginReducer
+  }
+};
+
+export default connect (mapStateToProps, {loginDefault})(HeaderComponent)

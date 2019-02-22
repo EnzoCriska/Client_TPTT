@@ -4,7 +4,7 @@ import {
  } from 'react-native';
 import { styles } from './style';
 import Carousel from 'react-native-snap-carousel';
-import { HeaderComponent } from '../../../Util/Component Util/HeaderComponent';
+import  HeaderComponent  from '../../../Util/Component Util/HeaderComponent';
 import { pointX } from '../../../Util/Constanst';
 const {width, height} = Dimensions.get('window')
  export const RenderHomeScreen = ({
