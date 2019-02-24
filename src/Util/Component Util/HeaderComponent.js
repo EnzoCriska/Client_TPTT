@@ -16,9 +16,7 @@ import {loginDefault} from '../../actions/loginAction';
 const HeaderComponent = ({
     onGoProfile  = () => {}
 }) => {
-  console.log(this.props)
   return (
-    <Provider>
       <ImageBackground
         source={require("../../../Media/Home/HeaderBG.png")}
         style={styles.headerContainer}
@@ -45,7 +43,6 @@ const HeaderComponent = ({
           <Text style={styles.textHeader}>100.000</Text>
         </View>
       </ImageBackground>
-    </Provider>
   );
 };
 

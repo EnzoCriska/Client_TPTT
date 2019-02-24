@@ -6,7 +6,12 @@ import { JoinNowGame } from '../../../Network/API';
 
 import Global from '../../../Util/Global';
 import { areaStyles } from '../../../Util/Component Util/SafeAreaStyle';
-export default class HomeScreen extends Component {
+
+import {connect} from 'react-redux';
+import {loginDefault} from '../../../actions/loginAction';
+
+
+class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -78,7 +83,6 @@ export default class HomeScreen extends Component {
 
   render() {
     const { isLoading,listSlide, hours, milliseconds} = this.state
-
     if(isLoading){
       return (<Loading/>)
     }
@@ -98,3 +102,12 @@ export default class HomeScreen extends Component {
     );
   }
 }
+
+
+const mapStateToProps = (state) => {
+  return {
+      data: state.loginReducer
+  }
+};
+
+export default connect (mapStateToProps, {loginDefault})(HomeScreen)
