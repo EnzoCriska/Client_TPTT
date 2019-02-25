@@ -2,23 +2,25 @@ import React from "react";
 import { View, Text, Image, ImageBackground } from "react-native";
 import { styles } from "./style";
 
+import * as IMG from '../../../../Util/Image'
+import Strings from "../../../../Util/Strings";
 export const ItemRoomList = ({ item = {} }) => {
   return (
     <View style={styles.containerItem}>
       <View style={styles.itemListRoomBG}>
         <ImageBackground
-          source={require("../../../../../Media/Game/ItemListRoomBG.png")}
+          source={IMG.ITEM_LIST_ROOM_FRIEND_BG_IMG}
           style={styles.imageBackgroundStyle}
-          resizeMode="center"
+          resizeMode= {Strings.CENTER}
         >
           <View style={styles.topItemRoomContainer}>
             <Text style={styles.textRoomName}>{item.roomName}</Text>
 
             <View style={styles.topRightItemContainer}>
               <Image
-                source={require("../../../../../Media/Game/multiple-users.png")}
+                source={IMG.MULTIPLE_USER_ICON_IMG}
                 style={styles.leftArrowStyle}
-                resizeMode="center"
+                resizeMode={Strings.CENTER}
               />
               <Text style={styles.textQuantityPlayer}>
                 {item.currentQuantity}
@@ -27,7 +29,7 @@ export const ItemRoomList = ({ item = {} }) => {
           </View>
 
           <Image
-            source={require("../../../../../Media/Game/Line1.png")}
+            source={IMG.LINE_IN_ROOM_ITEM_IMG}
             style={styles.lineStyle}
           />
 
@@ -38,9 +40,9 @@ export const ItemRoomList = ({ item = {} }) => {
           <View style={styles.bottomItemRoomContainer}>
             <View>
               <Image
-                source={require("../../../../../Media/Game/lockIcon.png")}
+                source={IMG.LOCK_ICON_IMG}
                 style={item.security ? styles.scoreIcon : styles.hideImage}
-                resizeMode="center"
+                resizeMode={Strings.CENTER}
               />
             </View>
 

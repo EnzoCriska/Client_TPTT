@@ -10,7 +10,9 @@ import Modal from 'react-native-modal';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
 
-
+import * as IMG from '../../../../Util/Image';
+import Strings from '../../../../Util/Strings';
+import Colors from '../../../../Util/Colors';
  export const RenderListRoom = ({
     listRoom = [],
     goBack = () => {},
@@ -45,7 +47,7 @@ import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
  }) => {
      return (
         <ImageBackground
-        source={require('../../../../../Media/background.png')}
+        source={IMG.BACKGROUND_IMG}
         style = {styles.container}>
 
             <HeaderComponent
@@ -56,14 +58,14 @@ import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
                 <TouchableOpacity
                     onPress = {() => goBack()}>
                     <Image
-                        source = {require('../../../../../Media/Profile/leftArrow.png')}
+                        source = {IMG.LEFT_ARROW_ICON_IMG}
                         style = {styles.leftArrowStyle}
-                        resizeMode = 'center'
+                        resizeMode = {Strings.CENTER}
                     />
                 </TouchableOpacity>
 
                 <View style = {styles.titleContainer}>
-                    <Text style ={styles.textTitle}>Phòng chơi bạn bè</Text>
+                    <Text style ={styles.textTitle}>{Strings.FRIEND_ROOM}</Text>
                 </View>
             </View>
 
@@ -93,9 +95,9 @@ import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
                         <TouchableOpacity
                             onPress = {() =>  showModalCreateRoom()}>
                             <Image
-                                source = {require('../../../../../Media/Game/createBtn.png')}
+                                source = {IMG.CREATE_BTN_IMG}
                                 style = {styles.createRoomBtn}
-                                resizeMode = "center"
+                                resizeMode = {Strings.CENTER}
                             />
                         </TouchableOpacity>
                 </View>
@@ -110,20 +112,20 @@ import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
                     onPress = {() => hideModalJoinRoom()}
                     style = {styles.closeBtnContainer}>
                     <Image
-                        source = {require('../../../../../Media/Game/closeBtn.png')}
+                        source = {IMG.CLOSE_BTN_IMG}
                         style = {styles.closeBtn}
                     />
                 </TouchableOpacity>
 
-                <Text style = {styles.textTitleModal}>PASSWORD</Text>
+                <Text style = {styles.textTitleModal}>{Strings.PASSWORD_VI}</Text>
 
                 <View style = {{flex:3}}>
-                    <Text style = {styles.textPlaceHolderModal}>Nhập password</Text>
+                    <Text style = {styles.textPlaceHolderModal}>{Strings.PASSWORD_VI}</Text>
                     <TextInput
                         style = {styles.textInputStyleModal}
                         secureTextEntry = {true}
                         placeholder = '******'
-                        placeholderTextColor = "#fff"
+                        placeholderTextColor = {Colors.WHITE}
                         onChangeText = {(text) => onChangePasswordModalJoin(text)}
                         value = {joinModalValuePassword}
                     />
@@ -134,7 +136,7 @@ import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
                         <TouchableOpacity 
                             onPress = {() => joinToRoom()}
                             style = {styles.joinBtn}>
-                            <Text style = {styles.textConfirmBtn}>ĐỒNG Ý</Text>
+                            <Text style = {styles.textConfirmBtn}>{Strings.YES_BTN}</Text>
                         </TouchableOpacity>
                 </View>
             </Modal>
@@ -148,15 +150,15 @@ import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
                         onPress = {() => hideModalCreateRoom()}
                         style = {styles.closeBtnContainer}>
                         <Image
-                            source = {require('../../../../../Media/Game/closeBtn.png')}
+                            source = {IMG.CLOSE_BTN_IMG}
                             style = {styles.closeBtn}
                         />
                     </TouchableOpacity>
 
-                    <Text style = {styles.textTitleModal}>TẠO PHÒNG</Text>
+                    <Text style = {styles.textTitleModal}>{Strings.CREATE_ROOM}</Text>
 
                     <View style = {{flex:3}}>
-                        <Text style = {styles.textPlaceHolderModal}>Tên phòng</Text>
+                        <Text style = {styles.textPlaceHolderModal}>{Strings.ROOM_NAME}</Text>
                         <TextInput
                             style = {styles.textInputStyleModal}
                             onChangeText = {(text) => onChangeRoomNameModalCreate(text)}
@@ -165,7 +167,7 @@ import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
                     </View>
 
                     <View style = {{flex:3}}>
-                        <Text style = {styles.textPlaceHolderModal}>Mật khẩu phòng</Text>
+                        <Text style = {styles.textPlaceHolderModal}>{Strings.ROOM_PASSWORD}</Text>
                         <TextInput
                             style = {styles.textInputStyleModal}
                             secureTextEntry = {true}
@@ -182,7 +184,7 @@ import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
                                 style = {styles.timePickerContainer}>
                                 <Text style = {styles.textTimePicker}>{timeStartValue}</Text>
                                 <Image
-                                    source = {require('../../../../../Media/Game/clock.png')}
+                                    source = {IMG.CLOCK_ICON_IMG}
                                     style = {styles.timePickerIcon}
                                 />
                             </TouchableOpacity>
@@ -190,7 +192,7 @@ import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
                             <TouchableOpacity
                                 onPress = {() => createRoom()}
                                 style = {styles.joinBtn}>
-                                <Text style = {styles.textConfirmBtn}>ĐỒNG Ý</Text>
+                                <Text style = {styles.textConfirmBtn}>{Strings.YES_BTN}</Text>
                             </TouchableOpacity>
                     </View>
             </Modal>

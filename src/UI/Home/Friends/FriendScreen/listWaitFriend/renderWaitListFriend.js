@@ -3,7 +3,8 @@ import {
     View, Text, TouchableOpacity, Image, ImageBackground, FlatList
  } from 'react-native';
 import { styles } from './style';
-
+import * as IMG from '../../../../../Util/Image';
+import Strings from '../../../../../Util/Strings';
 
  export const RenderWaitListFriend = ({
      parentState = {},
@@ -19,9 +20,9 @@ import { styles } from './style';
                 keyExtractor = {(item) => item.avatar.toString()}
                 renderItem = {({item}) => (
                         <ImageBackground
-                                source = {require('../../../../../../Media/Game/ItemListRoomBG.png')}
+                                source = {IMG.ITEM_LIST_ROOM_FRIEND_BG_IMG}
                                 style = {styles.itemFriendBG}
-                                resizeMode= 'stretch'
+                                resizeMode= {Strings.STRETCH}
                                 >
 
                                 <View style = {styles.leftItemContainer}>
@@ -43,7 +44,7 @@ import { styles } from './style';
                                         style = {styles.btnContainer}
                                         onPress = {() => acceptFriend(item)}>
                                         <Image
-                                            source = {require('../../../../../../Media/Game/acceptIcon.png')}
+                                            source = {IMG.ACCEPT_ICON_IMG}
                                             style = {styles.acceptIcon}
                                         />    
                                     </TouchableOpacity>
@@ -52,7 +53,7 @@ import { styles } from './style';
                                         style = {styles.btnContainer}
                                         onPress = {() => dismissFriend(item)}>
                                         <Image
-                                            source = {require('../../../../../../Media/Game/dismissIcon.png')}
+                                            source = {IMG.DISMISS_ICON_IMG}
                                             style = {styles.dismissIcon}
                                         />
                                     </TouchableOpacity>

@@ -145,6 +145,9 @@ export const styles = StyleSheet.create({
     textSelection:{
         flex:3, 
         alignItems:'center',
+    },
+    flex1:{
+        flex:1
     }
 
 })

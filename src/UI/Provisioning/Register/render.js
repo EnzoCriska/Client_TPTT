@@ -10,8 +10,9 @@ import {
     Keyboard
 } from 'react-native';
 import { styles } from './style';
-
-const uriDefault = '../../../../Media/Provisioning/ImagePicker.png'
+import * as IMG from '../../../Util/Image';
+import Colors from '../../../Util/Colors';
+import Strings from '../../../Util/Strings';
 
 export const RenderRegister = ({
     userName ='',
@@ -25,62 +26,62 @@ export const RenderRegister = ({
     return (
         <TouchableWithoutFeedback onPress = {Keyboard.dismiss} accessible = {false}>
         <ImageBackground
-            source ={require('../../../../Media/background.png')}
+            source ={IMG.BACKGROUND_IMG}
             style= {styles.container}>
 
             <Image
-                source = {require('../../../../Media/Provisioning/LogoApp.png')}
+                source = {IMG.LOGO_APP_IMG}
                 style = {styles.logoAppStyle}
             />
             
 
             <ImageBackground
-                source={require('../../../../Media/Provisioning/inputBackground.png')}
+                source={IMG.INPUT_BACKGROUND_IMG}
                 style = {styles.textInput}>
                     <Image
-                        source = {require('../../../../Media/Provisioning/user.png')}
+                        source = {IMG.USER_ICON_IMG}
                         style = {styles.iconTextInput}
                     />
                     <TextInput
                         style = {styles.input}
-                        placeholder = "Tên đăng nhập"
-                        placeholderTextColor = "grey"
+                        placeholder = {Strings.USER_NAME_VI}
+                        placeholderTextColor = {Colors.GREY}
                         onChangeText = {onChangeUserName}
                         value = {userName}
                     />
             </ImageBackground>
 
             <ImageBackground
-                source={require('../../../../Media/Provisioning/inputBackground.png')}
+                source={IMG.INPUT_BACKGROUND_IMG}
                 style = {styles.textInput}>
                     <Image
-                        source = {require('../../../../Media/Provisioning/lock.png')}
+                        source = {IMG.LOCK_ICON_IMG}
                         style = {styles.iconTextInput}
-                        resizeMode = 'center'
+                        resizeMode = {Strings.CENTER}
                     />
                     <TextInput
                         style = {styles.input}
-                        placeholder = "Password"
+                        placeholder = {Strings.PASSWORD_VI}
                         secureTextEntry = {true}
-                        placeholderTextColor = "grey"
+                        placeholderTextColor = {Colors.GREY}
                         onChangeText = {onChangePassword}
                         value = {password}
                     />
             </ImageBackground>
 
             <ImageBackground
-                source={require('../../../../Media/Provisioning/inputBackground.png')}
+                source={IMG.INPUT_BACKGROUND_IMG}
                 style = {styles.textInput}>
                     <Image
-                        source = {require('../../../../Media/Provisioning/lock.png')}
+                        source = {IMG.LOCK_ICON_IMG}
                         style = {styles.iconTextInput}
-                        resizeMode = 'center'
+                        resizeMode = {Strings.CENTER}
                     />
                     <TextInput
                         style = {styles.input}
-                        placeholder = "Re Password"
+                        placeholder = {Strings.RE_PASSWORD_VI}
                         secureTextEntry = {true}
-                        placeholderTextColor = "grey"
+                        placeholderTextColor = {Colors.GREY}
                         onChangeText = {onReChangePassword}
                         value = {rePassword}
                     />
@@ -89,7 +90,7 @@ export const RenderRegister = ({
             <TouchableOpacity 
                     style= {styles.loginBtn}
                     onPress = {onRegister}>
-                        <Text style = {styles.textLoginBtn}>ĐĂNG KÝ</Text>
+                        <Text style = {styles.textLoginBtn}>{Strings.SIGN_UP}</Text>
             </TouchableOpacity>
         </ImageBackground>
         </TouchableWithoutFeedback>

@@ -14,6 +14,8 @@ import { styles } from './style';
 import Strings from '../../../Util/Strings';
 import Colors from '../../../Util/Colors';
 
+import * as IMG from '../../../Util/Image';
+
 export const RenderLogin =  ({
     phone = '',
     password = '',
@@ -31,24 +33,24 @@ export const RenderLogin =  ({
             onPress = {Keyboard.dismiss} 
             accessible={false}>
             <ImageBackground
-                source = {require('../../../../Media/background.png')}
+                source = {IMG.BACKGROUND_IMG}
                 style = {styles.container}>
 
                 <StatusBar backgroundColor = {Strings.TRANSPARENT} translucent = {true}/>
 
                 <View style= {styles.LogoContainer}>
                     <Image
-                        source = {require('../../../../Media/Provisioning/LogoApp.png')}
+                        source = {IMG.LOGO_APP_IMG}
                         style={styles.logoStyle}
                     />
                 </View>
 
                 <View style = {styles.ActionContainer}>
                     <ImageBackground
-                        source = {require('../../../../Media/Provisioning/inputBackground.png')}
+                        source = {IMG.INPUT_BACKGROUND_IMG}
                         style = {styles.textInput}>
                         <Image
-                            source = {require('../../../../Media/Provisioning/smartphone.png')}
+                            source = {IMG.SMARTPHONE_ICON_IMG}
                             style = {styles.iconTextInput}
                         />
                         <TextInput
@@ -63,12 +65,12 @@ export const RenderLogin =  ({
                     </ImageBackground>
                     
                     <ImageBackground
-                        source = {require('../../../../Media/Provisioning/inputBackground.png')}
+                        source = {IMG.INPUT_BACKGROUND_IMG}
                         style = {styles.textInput}>
                         <Image
-                            source = {require('../../../../Media/Provisioning/lock.png')}
+                            source = {IMG.LOCK_ICON_IMG}
                             style = {styles.iconTextInput}
-                            resizeMode = 'center'
+                            resizeMode = {Strings.CENTER}
                         />
                         <TextInput
                             style = {styles.input}
@@ -101,12 +103,12 @@ export const RenderLogin =  ({
                             style = {styles.flex1}
                             onPress = {onFBLogin}>
                             <ImageBackground 
-                                source={require('../../../../Media/Provisioning/FbLoginBtn.png')}
+                                source={IMG.FB_LOGIN_BTN_BG_IMG}
                                 style = {styles.other}>
                                 <Image
-                                    source = {require('../../../../Media/Provisioning/fb.png')}
+                                    source = {IMG.FB_ICON_IMG}
                                     style = {styles.iconOtherBtn}
-                                    resizeMode='center'
+                                    resizeMode={Strings.CENTER}
                                 />
                                 <Text style={styles.textOther}>{Strings.FACEBOOK}</Text>
                             </ImageBackground>
@@ -116,7 +118,7 @@ export const RenderLogin =  ({
                             style = {styles.flex1}
                             onPress = {onRegister}>
                             <ImageBackground 
-                                source={require('../../../../Media/Provisioning/registerBtn.png')}
+                                source={IMG.REGISTER_BTN_BG_IMG}
                                 style = {styles.other}>
                                 <Text style={styles.textOther}>{Strings.SIGN_UP}</Text>
                             </ImageBackground>

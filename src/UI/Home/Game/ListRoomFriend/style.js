@@ -200,7 +200,8 @@ export const styles = StyleSheet.create({
     confirmContainer:{
         flex:2, 
         justifyContent:'space-between',
-        flexDirection:'row'
+        flexDirection:'row',
+        marginTop:10
     },
     textConfirmBtn:{
         color:'#fff',

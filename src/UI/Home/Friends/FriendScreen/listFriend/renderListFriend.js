@@ -4,6 +4,8 @@ import {
     FlatList
  } from 'react-native';
 import { styles } from './style';
+import * as IMG from '../../../../../Util/Image';
+import Strings from '../../../../../Util/Strings';
 
 
  export const RenderListFriend = ({
@@ -19,9 +21,9 @@ import { styles } from './style';
                 keyExtractor = {(item) => item.avatar.toString()}
                 renderItem = {({item}) => (
                         <ImageBackground
-                                source = {require('../../../../../../Media/Game/ItemListRoomBG.png')}
+                                source = {IMG.ITEM_LIST_ROOM_FRIEND_BG_IMG}
                                 style = {styles.itemFriendBG}
-                                resizeMode= 'stretch'
+                                resizeMode= {Strings.STRETCH}
                                 >
 
                                 <View style = {styles.leftItemContainer}>
@@ -42,7 +44,7 @@ import { styles } from './style';
                                     <TouchableOpacity
                                         onPress = {() => selectItemToDelete(item)}>
                                         <Image
-                                            source = {require('../../../../../../Media/Game/rubbish-bin-delete-button.png')}
+                                            source = {IMG.RUBBISH_BIN_DELETE_ICON_IMG}
                                             style = {styles.rightItemIcon}
                                         />
                                         

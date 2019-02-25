@@ -11,6 +11,7 @@ import ListFriend from './listFriend/indexListFriend';
 import ListWaitFriend from './listWaitFriend/indexListWaitFriend';
 import { HeaderComponent } from '../../../../Util/Component Util/HeaderComponent';
 
+import * as IMG from '../../../../Util/Image';
 
 const tabStack = createMaterialTopTabNavigator(
     {
@@ -55,7 +56,7 @@ const TabRoot = createAppContainer(tabStack)
  }) => {
      return(
         <ImageBackground
-            source={require('../../../../../Media/background.png')}
+            source={IMG.BACKGROUND_IMG}
             style = {styles.container}>
 
             <HeaderComponent

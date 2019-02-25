@@ -6,7 +6,12 @@ import { styles } from './style';
 import Carousel from 'react-native-snap-carousel';
 import  HeaderComponent  from '../../../Util/Component Util/HeaderComponent';
 import { pointX } from '../../../Util/Constanst';
+
+import * as IMG from '../../../Util/Image';
+import Strings from '../../../Util/Strings';
+
 const {width, height} = Dimensions.get('window')
+
  export const RenderHomeScreen = ({
     hours = '',
     milliseconds = '',
@@ -20,7 +25,7 @@ const {width, height} = Dimensions.get('window')
      
      return(
          <ImageBackground
-            source={require('../../../../Media/background.png')}
+            source={IMG.BACKGROUND_IMG}
             style = {styles.container}>
             <HeaderComponent
                 onGoProfile = {() => onGoProfile()}
@@ -55,15 +60,15 @@ const {width, height} = Dimensions.get('window')
                 <View style = {styles.countDownContainer}>
 
                     <ImageBackground
-                        source= {require('../../../../Media/Home/CountDownBG.png')}
+                        source= {IMG.COUNTDOWN_BACKGROUND_IMG}
                         style = {styles.countDownBG}
                         >
 
                         <View style={styles.topCountDown}>
-                            <Text style = {styles.topCountDownTitle}>Game tiếp theo</Text>
+                            <Text style = {styles.topCountDownTitle}>{Strings.NEXT_GAME}</Text>
                             <View style = {styles.currentPlayerContainer}>
                                 <Image
-                                    source = {require('../../../../Media/Game/multiple-users.png')}
+                                    source = {IMG.MULTIPLE_USER_ICON_IMG}
                                     style = {styles.multiUserIcon}
                                 />
 
@@ -74,48 +79,48 @@ const {width, height} = Dimensions.get('window')
                         <View style = {styles.bottomCountDown}>
 
                             <ImageBackground
-                                source = {require('../../../../Media/Game/BoxCountDown.png')}
+                                source = {IMG.BOX_COUNTDOWN_IMG}
                                 style={styles.boxCountDown}>
                                 <Text style = {styles.timeCountDown}>{hours>= 10 ? Math.floor(hours/10) : 0}</Text>
                             </ImageBackground>
 
                             <ImageBackground
-                                source = {require('../../../../Media/Game/BoxCountDown.png')}
+                                source = {IMG.BOX_COUNTDOWN_IMG}
                                 style={styles.boxCountDown}>
                                 <Text style = {styles.timeCountDown}>{hours%10}</Text>
                             </ImageBackground>
                             
                             <Image 
-                                source = {require('../../../../Media/Home/asset1.png')} 
+                                source = {IMG.MID_BOX_COUNTDOWN_IMG} 
                                 style = {styles.midBoxCountDown}
                             />
 
                             <ImageBackground
-                                source = {require('../../../../Media/Game/BoxCountDown.png')}
+                                source = {IMG.BOX_COUNTDOWN_IMG}
                                 style={styles.boxCountDown}>
                                 <Text style = {styles.timeCountDown}>{milliseconds >= 10 ? Math.floor(milliseconds/10) : 0}</Text>
                             </ImageBackground>
 
                             <ImageBackground
-                                source = {require('../../../../Media/Game/BoxCountDown.png')}
+                                source = {IMG.BOX_COUNTDOWN_IMG}
                                 style={styles.boxCountDown}>
                                 <Text style = {styles.timeCountDown}>{milliseconds % 10}</Text>
                             </ImageBackground>
 
                         </View>
                         
-                        <View style = {{flex:1}}></View>
+                        <View style = {styles.flex1}></View>
                     </ImageBackground>
                     <TouchableOpacity 
                         onPress = {onJoinNow}
                         style = {styles.touchableJoinBtn}
                         >
                         <ImageBackground
-                            source = {require('../../../../Media/Home/joinBtn.png')}
+                            source = {IMG.JOIN_BTN_IMG}
                             style = {styles.joinNowBtn}
-                            resizeMode = "center"
+                            resizeMode = {Strings.CENTER}
                         >
-                            <Text style = {styles.topCountDownTitle}>Tham gia</Text>
+                            <Text style = {styles.topCountDownTitle}>{Strings.JOIN}</Text>
                         </ImageBackground>
                 </TouchableOpacity>
 
@@ -127,21 +132,21 @@ const {width, height} = Dimensions.get('window')
                         onPress = {onSystemRoom}
                         style = {styles.playRoomBtn}>
                             <ImageBackground
-                                source = {require('../../../../Media/Home/RoomSelect.png')}
+                                source = {IMG.ROOM_SELECT_BG_IMG}
                                 style = {styles.joinBtn}
-                                resizeMode = "center"
+                                resizeMode = {Strings.CENTER}
                             >
                                 <View style = {styles.iconSelectionContainer}>
                                     <Image
-                                        source={require('../../../../Media/Home/opened-door-aperture.png')}
+                                        source={IMG.OPENED_DOOR_ICON_IMG}
                                         style = {styles.iconSelected}
-                                        resizeMode = 'center'
+                                        resizeMode = {Strings.CENTER}
                                     />
                                 </View>
                                 <View style = {styles.textSelection}>
-                                    <Text style = {styles.topCountDownTitle}>Phòng hệ thống</Text>
+                                    <Text style = {styles.topCountDownTitle}>{Strings.SYSTEM_ROOM}</Text>
                                 </View>
-                                <View style = {{flex:1}}>
+                                <View style = {styles.flex1}>
 
                                 </View>
 
@@ -152,21 +157,21 @@ const {width, height} = Dimensions.get('window')
                         onPress = {onFriendsRoom}
                         style = {styles.playRoomBtn}>
                             <ImageBackground
-                                source = {require('../../../../Media/Home/RoomSelect.png')}
+                                source = {IMG.ROOM_SELECT_BG_IMG}
                                 style = {styles.joinBtn}
-                                resizeMode = "center"
+                                resizeMode = {Strings.CENTER}
                             >
                                 <View style = {styles.iconSelectionContainer}>
                                     <Image
-                                        source={require('../../../../Media/Home/friends-talking.png')}
+                                        source={IMG.FRIEND_TALKING_ICON_IMG}
                                         style = {styles.iconSelected}
-                                        resizeMode = 'center'
+                                        resizeMode = {Strings.CENTER}
                                     />
                                 </View>
                                 <View style = {styles.textSelection}>
-                                    <Text style = {styles.topCountDownTitle}>Phòng bạn bè</Text>
+                                    <Text style = {styles.topCountDownTitle}>{Strings.FRIEND_ROOM}</Text>
                                 </View>
-                                <View style = {{flex:1}}>
+                                <View style = {styles.flex1}>
 
                                 </View>
                             </ImageBackground>
@@ -176,21 +181,21 @@ const {width, height} = Dimensions.get('window')
                         onPress = {onTrainingRoom}
                         style = {styles.playRoomBtn}>
                             <ImageBackground
-                                source = {require('../../../../Media/Home/RoomSelect.png')}
+                                source = {IMG.ROOM_SELECT_BG_IMG}
                                 style = {styles.joinBtn}
-                                resizeMode = "center"
+                                resizeMode = {Strings.CENTER}
                             >
                                 <View style = {styles.iconSelectionContainer}>
                                     <Image
-                                        source={require('../../../../Media/Home/gamepad.png')}
+                                        source={IMG.GAME_PAD_ICON_IMG}
                                         style = {styles.iconSelected}
-                                        resizeMode = 'center'
+                                        resizeMode ={Strings.CENTER}
                                     />
                                 </View>
                                 <View style = {styles.textSelection}>
-                                    <Text style = {styles.topCountDownTitle}>Phòng Training</Text>
+                                    <Text style = {styles.topCountDownTitle}>{Strings.TRAINING_ROOM}</Text>
                                 </View>
-                                <View style = {{flex:1}}>
+                                <View style = {styles.flex1}>
 
                                 </View>
                             </ImageBackground>

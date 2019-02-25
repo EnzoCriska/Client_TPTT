@@ -12,6 +12,8 @@ import {
 } from "react-native";
 import { styles } from "./style";
 import Strings from "../../../Util/Strings";
+import * as IMG from "../../../Util/Image";
+import Colors from "../../../Util/Colors";
 
 export const RenderConfirmOTP = ({
   OTP = "",
@@ -23,26 +25,26 @@ export const RenderConfirmOTP = ({
         onPress={Keyboard.dismiss} 
         accessible={false}>
       <ImageBackground
-        source={require("../../../../Media/background.png")}
+        source={IMG.BACKGROUND_IMG}
         style={styles.container}
       >
         <View style={styles.content}>
           <Image
             style={styles.logoStyle}
-            source={require("../../../../Media/Provisioning/LogoApp.png")}
+            source={IMG.LOGO_APP_IMG}
           />
           <Text style={styles.descripText}>
              {Strings.DESCRIPTION_TEXT_INPUT_OTP}
           </Text>
           <ImageBackground
-            source={require("../../../../Media/Provisioning/inputBackground.png")}
+            source={IMG.INPUT_BACKGROUND_IMG}
             style={styles.textInput}
           >
             <TextInput
               style={styles.input}
               onChangeText={onChangeOTP}
               placeholder={Strings.OTP_VI}
-              placeholderTextColor="grey"
+              placeholderTextColor={Colors.GREY}
               value={OTP}
             />
           </ImageBackground>

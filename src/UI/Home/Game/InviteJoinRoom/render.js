@@ -5,6 +5,8 @@ import {
 import { styles } from './style';
 import  HeaderComponent  from '../../../../Util/Component Util/HeaderComponent';
 
+import * as IMG from '../../../../Util/Image';
+import Strings from '../../../../Util/Strings';
  export const RenderInviteJoinRoom = ({
      parentState = {},
     listFriend = [],
@@ -14,7 +16,7 @@ import  HeaderComponent  from '../../../../Util/Component Util/HeaderComponent';
  }) => {
      return (
         <ImageBackground
-            source={require('../../../../../Media/background.png')}
+            source={IMG.BACKGROUND_IMG}
             style = {styles.container}>
 
             <HeaderComponent
@@ -25,12 +27,12 @@ import  HeaderComponent  from '../../../../Util/Component Util/HeaderComponent';
                 <TouchableOpacity
                     onPress = {() => goBack()}>
                     <Image
-                        source = {require('../../../../../Media/Profile/leftArrow.png')}
+                        source = {IMG.LEFT_ARROW_ICON_IMG}
                         style = {styles.goBackIcon}
                     />
                 </TouchableOpacity>
                 <View style = {styles.titleContainer}>
-                    <Text style = {styles.titleStyle}>Danh sách bạn bè</Text>
+                    <Text style = {styles.titleStyle}>{Strings.LIST_FRIEND}</Text>
                 </View>
             </View>
 
@@ -43,9 +45,9 @@ import  HeaderComponent  from '../../../../Util/Component Util/HeaderComponent';
                         return (
                         <TouchableOpacity style = {styles.itemFriendContainer}>
                             <ImageBackground
-                                source = {require('../../../../../Media/Game/ItemListRoomBG.png')}
+                                source = {IMG.ITEM_LIST_ROOM_FRIEND_BG_IMG}
                                 style = {styles.itemFriendBG}
-                                resizeMode= 'stretch'
+                                resizeMode= {Strings.STRETCH}
                                 >
 
                                 <View style = {styles.leftItemContainer}>
@@ -54,7 +56,7 @@ import  HeaderComponent  from '../../../../Util/Component Util/HeaderComponent';
                                             source = {{uri: item.avatar}}
                                             style = {styles.itemAvatar}
                                         />
-                                        <View style = {item.status == 'online' ? styles.onLineStatus : styles.offLineStatus}></View>
+                                        <View style = {item.status == Strings.ONLINE ? styles.onLineStatus : styles.offLineStatus}></View>
                                     </View>
                                 </View>
 
@@ -67,9 +69,10 @@ import  HeaderComponent  from '../../../../Util/Component Util/HeaderComponent';
                                         onPress = {() => selectItemToInvite(item)}>
                                         <ImageBackground
                                             style = {item.selected ? styles.hideBtn : styles.inviteBtnContainer}
-                                            source = {require('../../../../../Media/Game/inviteBtnBG.png')}
-                                            resizeMode = 'center'>
-                                            <Text style = {styles.itemTextUserName}>Mời bạn</Text>
+                                            source = {IMG.INVITE_JOIN_GAME_BTN_IMG}
+                                            resizeMode = {Strings.CENTER}
+                                        >
+                                            <Text style = {styles.itemTextUserName}>{Strings.INVITE}</Text>
                                         </ImageBackground>
                                         
                                     </TouchableOpacity>
