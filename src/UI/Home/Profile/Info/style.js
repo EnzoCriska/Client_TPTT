@@ -6,11 +6,13 @@ export const styles = StyleSheet.create({
         flex:1
     },
     headerContainer:{
+        marginTop: 25 * pointX,
         width:'100%',
         height:45.75 * pointY,
         alignItems: 'center',
         flexDirection: 'row',
-        justifyContent:'space-between'
+        justifyContent:'space-between',
+        backgroundColor: "green",
    },
    leftHeader:{
        flex:1,

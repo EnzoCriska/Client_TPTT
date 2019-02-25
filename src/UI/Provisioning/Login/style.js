@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { pointX, pointY } from '../../../Util/Constanst';
+import { pointX, pointY, width, height } from '../../../Util/Constanst';
 
 export const styles = StyleSheet.create({
     container:{
@@ -90,5 +90,8 @@ export const styles = StyleSheet.create({
         height:22 * pointY,
         width:22 * pointX,
         marginRight: 10,
+    },
+    flex1:{
+        flex:1
     }
 })

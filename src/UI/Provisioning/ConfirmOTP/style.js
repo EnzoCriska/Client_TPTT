@@ -9,7 +9,8 @@ export const styles = StyleSheet.create({
     content:{
         width:'100%',
         alignItems:'center',
-        marginTop:"30%"
+        marginTop:"30%",
+        flex:1
     },
     descripText:{
         color: "#fff",
@@ -24,14 +25,14 @@ export const styles = StyleSheet.create({
     
     textInput:{
         width:375 * pointX,
-        height: 40 * pointY,
+        height: 45 * pointY,
         marginBottom:10,
         flexDirection: 'row',
         justifyContent: 'center',
     },
     input:{
         width:'80%',
-        height:'100%',
+        // height:'100%',
         color:'#fff',
         marginLeft:5
     },

@@ -19,6 +19,7 @@ export default class Info extends Component {
 
   onGoEdit(){
     console.log("Edit")
+    this.props.navigation.navigate('Edit')
   }
 
   onGoHistoryGame(){

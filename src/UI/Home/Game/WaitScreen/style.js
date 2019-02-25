@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet } from 'react-native';
+import { pointX, pointY } from '../../../../Util/Constanst';
 
 export const styles = StyleSheet.create({
     container:{
@@ -60,21 +61,22 @@ export const styles = StyleSheet.create({
         flexDirection:'row',
     },
     boxCountDown:{
-        // width:60,
-        flex:1,
-        height:50,  
-        borderRadius:5,
-        backgroundColor: '#01081E',
-        borderColor:'#3A535B',
-        borderWidth:1,
+        width: 40 * pointX,
+        height: 40 * pointY,  
         margin:5,
         justifyContent: 'center',
         alignItems: 'center',
     },
+    midBoxCountDown:{
+         width: 6 * pointX,
+         height: 29 * pointY,
+         marginBottom:10
+    },
     timeCountDown:{
         fontFamily:"Quartz",
         color:'red',
-        fontSize:30
+        fontSize:28,
+        marginBottom:5
     },
     chatBackground:{
         flex:1,

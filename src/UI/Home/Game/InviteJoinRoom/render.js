@@ -3,7 +3,7 @@ import {
     View, Text, Image, ImageBackground, TouchableOpacity, FlatList,
  } from 'react-native';
 import { styles } from './style';
-import { HeaderComponent } from '../../../../Util/Component Util/HeaderComponent';
+import  HeaderComponent  from '../../../../Util/Component Util/HeaderComponent';
 
  export const RenderInviteJoinRoom = ({
      parentState = {},

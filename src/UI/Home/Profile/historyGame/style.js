@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
     },
     headerBackground :{
+        marginTop:25* pointX,
         width:  375 * pointX,
         height: 45.75 * pointY,
         justifyContent: 'center',

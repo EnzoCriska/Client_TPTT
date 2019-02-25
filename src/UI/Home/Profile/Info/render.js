@@ -14,7 +14,7 @@ import { styles } from './style';
         <ImageBackground
             source={require('../../../../../Media/background.png')}
             style = {styles.container}>
-            
+           
             <ImageBackground
                 source= {require('../../../../../Media/Home/HeaderBG.png')}
                 style={styles.headerContainer}>
@@ -36,7 +36,7 @@ import { styles } from './style';
 
                 <View style = {styles.rightHeader}>
                     <TouchableOpacity
-                        onPress = {() => {onGoEdit()}}>
+                        onPress = {() => onGoEdit()}>
                         <Image
                             source = {require('../../../../../Media/Profile/editProfile.png')}
                             style = {styles.iconHeader}

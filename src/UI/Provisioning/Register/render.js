@@ -1,42 +1,38 @@
 import React from 'react';
 import {
-    View, Text, TouchableOpacity, Image, ImageBackground, StyleSheet, TextInput
+    View, 
+    Text, 
+    TouchableOpacity, 
+    Image, 
+    ImageBackground, 
+    TextInput,
+    TouchableWithoutFeedback,
+    Keyboard
 } from 'react-native';
 import { styles } from './style';
 
 const uriDefault = '../../../../Media/Provisioning/ImagePicker.png'
 
 export const RenderRegister = ({
-    avatar = '',
     userName ='',
-    birthDay = '',
-    CMND = '',
-    onChangeAva = () => {},
+    password = '',
+    rePassword = '',
     onChangeUserName = () => {},
-    onChangeBirthDay = () => {},
-    onChangeCMND = () => {},
+    onChangePassword = () => {},
+    onReChangePassword = () => {},
     onRegister = () => {}
 }) => {
-    let img = avatar == null ? 
-        <Image
-            source= {require(uriDefault)}
-            style={styles.imagePicker}
-        />
-    : 
-        <Image
-            source= {{uri:avatar}}
-            style={styles.imagePicker}
-        />
     return (
+        <TouchableWithoutFeedback onPress = {Keyboard.dismiss} accessible = {false}>
         <ImageBackground
             source ={require('../../../../Media/background.png')}
             style= {styles.container}>
-            
-            <TouchableOpacity onPress = {onChangeAva}>
-                {img}
-            </TouchableOpacity>
 
-            <Text style = {styles.textAva}>Cập nhật Avatar</Text>
+            <Image
+                source = {require('../../../../Media/Provisioning/LogoApp.png')}
+                style = {styles.logoAppStyle}
+            />
+            
 
             <ImageBackground
                 source={require('../../../../Media/Provisioning/inputBackground.png')}
@@ -58,17 +54,17 @@ export const RenderRegister = ({
                 source={require('../../../../Media/Provisioning/inputBackground.png')}
                 style = {styles.textInput}>
                     <Image
-                        source = {require('../../../../Media/Provisioning/calendar.png')}
+                        source = {require('../../../../Media/Provisioning/lock.png')}
                         style = {styles.iconTextInput}
                         resizeMode = 'center'
                     />
                     <TextInput
                         style = {styles.input}
-                        placeholder = "Ngày sinh"
-                        keyboardType = 'numeric'
+                        placeholder = "Password"
+                        secureTextEntry = {true}
                         placeholderTextColor = "grey"
-                        onChangeText = {onChangeBirthDay}
-                        value = {birthDay}
+                        onChangeText = {onChangePassword}
+                        value = {password}
                     />
             </ImageBackground>
 
@@ -82,11 +78,11 @@ export const RenderRegister = ({
                     />
                     <TextInput
                         style = {styles.input}
-                        keyboardType = 'numeric'
-                        placeholder = "Số CMND"
+                        placeholder = "Re Password"
+                        secureTextEntry = {true}
                         placeholderTextColor = "grey"
-                        onChangeText = {onChangeCMND}
-                        value = {CMND}
+                        onChangeText = {onReChangePassword}
+                        value = {rePassword}
                     />
             </ImageBackground>
 
@@ -96,6 +92,7 @@ export const RenderRegister = ({
                         <Text style = {styles.textLoginBtn}>ĐĂNG KÝ</Text>
             </TouchableOpacity>
         </ImageBackground>
+        </TouchableWithoutFeedback>
     )
 }
 

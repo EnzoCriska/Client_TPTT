@@ -1,81 +1,58 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView } from 'react-native';
+import { SafeAreaView, Alert } from 'react-native';
 import { RenderRegister } from './render';
-import {CheckCameraPermission, CheckStoragePermission} from '../../../Util/CheckPermission';
-import { picker } from '../../../Util/ImagePicker';
 import { areaStyles } from '../../../Util/Component Util/SafeAreaStyle';
+import Strings from '../../../Util/Strings';
 
 
 export default class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        phone:'',
-        pass:'',
-        avatar:null,
         userName:'',
-        birthDay:'',
-        CMND:'',
-        data: null 
+        password:'',
+        rePassword:'',
     };
   }
 
   componentDidMount = () => {
-    var {navigation} = this.props
-    this.setState({
-        phone: navigation.getParam('phone', null),
-        pass : navigation.getParam('password', null)
-    })
+    
   }
 
   onRegister(){
     // Call API Register
-    this.props.navigation.navigate('confirmOTP')
-  }
-
-  async onChangeAva(){
-    console.log("Change Ava")
-    await CheckCameraPermission((result)=> {
-      console.log(result)
-      
-    })
-    await CheckStoragePermission((result) => {
-      console.log(result)
-      
-    })
-    await picker((source, data) =>
-      this.setState({
-        avatar: source,
-        data : data
-      }))
+    if (this.state.password !== this.state.rePassword){
+      Alert.alert(
+        Strings.WARRING,
+        Strings.INVALID_PASSWORD
+      )
+    }else this.props.navigation.navigate('confirmOTP')
   }
 
   onChangeUserName(text){
     this.setState({userName:text})
   }
   
-  onChangeBirthDay(text){
-    this.setState({birthDay:text})
+  onChangePassword(text){
+    this.setState({password:text})
   }
 
-  onChangeCMND(text){
-    this.setState({CMND:text})
+  onReChangePassword(text){
+    this.setState({rePassword:text})
   }
   
 
   render() {
-    const {avatar, userName, birthDay, CMND} = this.state
+    const {userName, password, rePassword} = this.state
     return (
       <SafeAreaView style={areaStyles.area}>
       <RenderRegister
-        avatar = {avatar}
         userName = {userName}
-        birthDay = {birthDay}
-        CMND = {CMND}
-        onChangeAva = {()=> this.onChangeAva()}
+        password = {password}
+        rePassword = {rePassword}
         onChangeUserName = {(text)=> this.onChangeUserName(text)}
-        onChangeBirthDay = {(text)=> this.onChangeBirthDay(text)}
-        onChangeCMND = {(text)=> this.onChangeCMND(text)}
+        onChangePassword = {(text) => this.onChangePassword(text)}
+        onReChangePassword = {(text) => this.onReChangePassword(text)}
         onRegister = {()=> this.onRegister()}
       />
       </SafeAreaView>

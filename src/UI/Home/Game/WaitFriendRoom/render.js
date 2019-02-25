@@ -3,7 +3,7 @@ import { View, Text, Image, ImageBackground, TouchableOpacity } from 'react-nati
 import { styles } from './style';
 import { FlatList } from 'react-native-gesture-handler';
 import Global from '../../../../Util/Global';
-import { HeaderComponent } from '../../../../Util/Component Util/HeaderComponent';
+import  HeaderComponent  from '../../../../Util/Component Util/HeaderComponent';
 export const RenderWaitFriendRoom = ({
     goToBack = () => {},
     onGoProfile = () => {},

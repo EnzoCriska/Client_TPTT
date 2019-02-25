@@ -1,7 +1,7 @@
 import {
     LOGING, LOGIN_FAIL, LOGIN_OK
 } from './types';
-import { SigIn } from '../Network/API';
+import { SigIn } from '../Network/ProvisioningAPI';
 
 
 export function login(){

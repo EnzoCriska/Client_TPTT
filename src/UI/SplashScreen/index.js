@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { RenderSplash } from './render';
 
-export default class SplashScreen extends Component {
+import { connect } from 'react-redux';
+import {exchangeAccessToken} from '../../actions/splashAction';
+
+
+class SplashScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,7 +14,10 @@ export default class SplashScreen extends Component {
   }
 
   componentDidMount = () => {
-
+    setTimeout(() => {
+      this.props.exchangeAccessToken(this)
+    }, 3000)
+    
   };
   
   goToLogin(){
@@ -18,8 +25,20 @@ export default class SplashScreen extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <RenderSplash/>
     );
   }
 }
+
+
+function mapStateToProps(state) {
+  return {
+      token: state.splashReducer,
+  };
+}
+
+
+export default connect(mapStateToProps, {exchangeAccessToken})(SplashScreen);
+

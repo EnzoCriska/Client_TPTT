@@ -1,10 +1,18 @@
 import React from 'react';
 import { 
-    View, Text, Image, ImageBackground, TouchableOpacity, TextInput, FlatList
+    View, 
+    Text, 
+    Image, 
+    ImageBackground, 
+    TouchableOpacity, 
+    TextInput, 
+    FlatList,
+    Keyboard,
+    TouchableWithoutFeedback
  } from 'react-native';
 import { styles } from './style';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { HeaderComponent } from '../../../../Util/Component Util/HeaderComponent';
+import  HeaderComponent  from '../../../../Util/Component Util/HeaderComponent';
 export const RenderWaitGame = ({
     onGoProfile = () => {},
 
@@ -17,6 +25,7 @@ export const RenderWaitGame = ({
     goToBack = () => {}
 }) => {
     return (
+    <TouchableWithoutFeedback onPress = {Keyboard.dismiss} accessible = {false}>
         <ImageBackground
             source={require('../../../../../Media/background.png')}
             style = {styles.container}>
@@ -52,23 +61,34 @@ export const RenderWaitGame = ({
                     
                     <View style = {styles.bottomCountDown}>
 
-                        <View style={styles.boxCountDown}>
-                            <Text style = {styles.timeCountDown}>{hours>= 10 ? Math.floor(hours/10) : 0}</Text>
-                        </View>
+                        <ImageBackground
+                                source = {require('../../../../../Media/Game/BoxCountDown.png')}
+                                style={styles.boxCountDown}>
+                                <Text style = {styles.timeCountDown}>{hours>= 10 ? Math.floor(hours/10) : 0}</Text>
+                            </ImageBackground>
 
-                        <View style={styles.boxCountDown}>
-                            <Text style = {styles.timeCountDown}>{hours%10}</Text>
-                        </View>
-                        
-                        <Image source = {require('../../../../../Media/Home/asset1.png')} style = {{height:60,}} resizeMode="center"/>
+                            <ImageBackground
+                                source = {require('../../../../../Media/Game/BoxCountDown.png')}
+                                style={styles.boxCountDown}>
+                                <Text style = {styles.timeCountDown}>{hours%10}</Text>
+                            </ImageBackground>
+                            
+                            <Image 
+                                source = {require('../../../../../Media/Home/asset1.png')} 
+                                style = {styles.midBoxCountDown}
+                            />
 
-                        <View style={styles.boxCountDown}>
-                            <Text style = {styles.timeCountDown}>{milliseconds >= 10 ? Math.floor(milliseconds/10) : 0}</Text>
-                        </View>
+                            <ImageBackground
+                                source = {require('../../../../../Media/Game/BoxCountDown.png')}
+                                style={styles.boxCountDown}>
+                                <Text style = {styles.timeCountDown}>{milliseconds >= 10 ? Math.floor(milliseconds/10) : 0}</Text>
+                            </ImageBackground>
 
-                        <View style={styles.boxCountDown}>
-                            <Text style = {styles.timeCountDown}>{milliseconds % 10}</Text>
-                        </View>
+                            <ImageBackground
+                                source = {require('../../../../../Media/Game/BoxCountDown.png')}
+                                style={styles.boxCountDown}>
+                                <Text style = {styles.timeCountDown}>{milliseconds % 10}</Text>
+                            </ImageBackground>
 
                     </View>
                 </View>
@@ -132,5 +152,6 @@ export const RenderWaitGame = ({
 
 
         </ImageBackground>
+        </TouchableWithoutFeedback>
     )
 }

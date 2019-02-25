@@ -12,7 +12,7 @@ import SplashScreen from './SplashScreen';
 YellowBox.ignoreWarnings(['Warning: ReactNative.createElement']);
 
 const  MainStack = createStackNavigator({
-    // Splash: SplashScreen,
+    Splash: SplashScreen,
     Login: Login,
     Register: Register,
     updatePhone: UpdatePhoneNumber ,

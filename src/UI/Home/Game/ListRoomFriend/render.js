@@ -8,7 +8,7 @@ import { ItemRoomList } from './ItemListRoom';
 import Modal from 'react-native-modal';
 
 import DateTimePicker from 'react-native-modal-datetime-picker';
-import { HeaderComponent } from '../../../../Util/Component Util/HeaderComponent';
+import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
 
 
  export const RenderListRoom = ({

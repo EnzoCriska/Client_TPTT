@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { pointX, pointY } from '../../../Util/Constanst';
+import { pointX, pointY } from '../../../../Util/Constanst';
 
 export const styles = StyleSheet.create({
     container:{
@@ -18,11 +18,6 @@ export const styles = StyleSheet.create({
     textAva:{
         color:'#fff',
         margin: 10,
-    },
-    logoAppStyle :{
-        width: 195.34 * pointX,
-        height: 97.62 * pointY,
-        marginBottom: 46.35 * pointY
     },
     textInput:{
         width:375 * pointX,
