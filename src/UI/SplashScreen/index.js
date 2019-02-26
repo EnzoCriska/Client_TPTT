@@ -4,6 +4,10 @@ import { RenderSplash } from './render';
 
 import { connect } from 'react-redux';
 import {exchangeAccessToken} from '../../actions/splashAction';
+import { getStatusLogin } from '../../Util/asyncStorage';
+
+
+
 
 
 class SplashScreen extends Component {
@@ -14,7 +18,15 @@ class SplashScreen extends Component {
   }
 
   componentDidMount = () => {
+    
     setTimeout(() => {
+      // getStatusLogin().then(status => {
+      //   if (status){
+      //     this.props.navigation.navigate('bottomTabStack')
+      //   }else{
+      //     this.props.navigation.navigate('Login')
+      //   }
+      // })
       this.props.exchangeAccessToken(this)
     }, 3000)
     
@@ -25,7 +37,6 @@ class SplashScreen extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <RenderSplash/>
     );

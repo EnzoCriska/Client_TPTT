@@ -1,33 +1,42 @@
-const URL = "https://facebook.github.io/react-native/movies.json"
+import { BASE_URL, AUTH_API, SIGN_UP, LOGIN, NORMAL } from "../Util/Constanst";
 
-export function SigIn(phone, password){
-    return fetch(URL, {
+const HEADER = {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  }
+
+export function SigUp(userName, password, device_id, os_id){
+    return fetch(BASE_URL.url + '/' + AUTH_API + '/' + SIGN_UP, {
         method: 'POST',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            phoneNumber: phone,
+        headers: HEADER,
+        body: JSON.stringify({
+            username: userName,
             password: password,
+            device_id: device_id,
+            os_id: os_id
           }),
         })
         .then(res =>
-            {
-                res = {
-                    userID: "1243451",
-                    userName: "Phạm Huyền Trang",
-                    userAvatar: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
-                    score: 10,
-                    index:115,
-                    nextRoom: {
-                        roomID:12345,
-                        roomName: 'defauld Room',
-                        startTime: '25/1/2019 21:17:0'
-                    }
-                }
-                return res
-            }
+           res
+        )
+        .catch(err => {
+            console.error(err)
+        });
+}
+
+export function SigIn(username, password, device_id, os_id){
+    return fetch(BASE_URL.url + '/' + AUTH_API + '/' + LOGIN + '/' + NORMAL, {
+        method: 'POST',
+        headers: HEADER,
+        body: JSON.stringify({
+            username: username,
+            password: password,
+            device_id: device_id,
+            os_id:os_id
+          }),
+        })
+        .then(res =>
+            res
         )
         .catch(err => {
             console.error(err)

@@ -79,12 +79,16 @@ export const styles = StyleSheet.create({
         marginBottom:5
     },
     chatBackground:{
-        flex:1,
         marginBottom: 10,
-        width:'90%',
+        width:334 * pointX,
+        height : 294 * pointY,
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: 3,
+    },
+    flatListChat:{
+        width:'100%',
+        flex:1,
     },
     itemContainerChat:{
         flexDirection:'row', 

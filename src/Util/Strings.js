@@ -29,13 +29,26 @@ export default {
     CREATE_ROOM:'TẠO PHÒNG',
     ROOM_NAME: 'Tên phòng',
     ROOM_PASSWORD:'Mật khẩu phòng',
-
-
-
+    SCORE_ACCUMULATION: 'Điểm tích lũy',
+    STOP_PLAY_GAME: 'Dừng cuộc chơi',
+    YOUR_ANSWER_WRONG: "Bạn đã trả lời sai",
+    GAME_OVER:'VÒNG CHƠI KẾT THÚC',
+    CONFIRM: 'XÁC NHẬN',
+    START: 'BẮT ĐẦU',
+    QUANTITY_MEMBER_JOIN: 'Số người tham gia',
+    TALK: 'Nói chuyện',
+    SEND:'send',
+    FAIL : 'FAIL!',
+    INTERNET_NOT_CONNECTED: "Bạn không có kết nối internet, vui lòng kết nối để thử lại",
+    
 
 
 
 
     CENTER: 'center',
-    STRETCH: 'stretch'
+    STRETCH: 'stretch',
+    NOTIFICATION: 'Thông Báo',
+    MISSING_DATA: "Dữ liệu gửi thiếu"
+
+
 }

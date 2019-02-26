@@ -4,6 +4,10 @@ import { styles } from './style';
 import { FlatList } from 'react-native-gesture-handler';
 import Global from '../../../../Util/Global';
 import  HeaderComponent  from '../../../../Util/Component Util/HeaderComponent';
+import * as IMG from '../../../../Util/Image'
+import Strings from '../../../../Util/Strings';
+
+
 export const RenderWaitFriendRoom = ({
     goToBack = () => {},
     onGoProfile = () => {},
@@ -18,7 +22,7 @@ export const RenderWaitFriendRoom = ({
 }) => {
     return (
         <ImageBackground
-            source={require('../../../../../Media/background.png')}
+            source={IMG.BACKGROUND_IMG}
             style = {styles.container}>
 
             <HeaderComponent
@@ -33,7 +37,7 @@ export const RenderWaitFriendRoom = ({
                         <TouchableOpacity
                             onPress = {() => goToBack()}>
                             <Image
-                                source = {require('../../../../../Media/Profile/leftArrow.png')}
+                                source = {IMG.LEFT_ARROW_ICON_IMG}
                                 style = {styles.headerBackIcon}
                             />
                         </TouchableOpacity>
@@ -43,7 +47,7 @@ export const RenderWaitFriendRoom = ({
                     </View>
                     <View style = {styles.headerRoomMidContainer}>
                         <Image
-                            source = {require('../../../../../Media/Game/multiple-users.png')}
+                            source = {IMG.MULTIPLE_USER_ICON_IMG}
                             style = {styles.headerMidIcon}
                         />
 
@@ -55,7 +59,7 @@ export const RenderWaitFriendRoom = ({
                         <TouchableOpacity 
                             style = {styles.inviteBtn}
                             onPress = {() => onToInvite()}>
-                            <Text style = {styles.headerRoomTitle}>Mời bạn</Text>
+                            <Text style = {styles.headerRoomTitle}>{Strings.INVITE}</Text>
                         </TouchableOpacity>
                     </View>
 
@@ -64,30 +68,30 @@ export const RenderWaitFriendRoom = ({
                 <View style = {styles.countDownContainer}>
                     
                     <ImageBackground
-                        source = {require('../../../../../Media/Game/BoxCountDown.png')}
+                        source = {IMG.BOX_COUNTDOWN_IMG}
                         style = {styles.countDownItemBG}>
                         <Text style = {styles.timeCountDown}>{hours>= 10 ? Math.floor(hours/10) : 0}</Text>
                     </ImageBackground>
 
                     <ImageBackground
-                        source = {require('../../../../../Media/Game/BoxCountDown.png')}
+                        source = {IMG.BOX_COUNTDOWN_IMG}
                         style = {styles.countDownItemBG}>
                         <Text style = {styles.timeCountDown}>{hours%10}</Text>
                     </ImageBackground>
 
                     <Image 
-                        source = {require('../../../../../Media/Home/asset1.png')}
+                        source = {IMG.MID_BOX_COUNTDOWN_IMG}
                         style = {styles.midCountdownIcon}
                     />
 
                     <ImageBackground
-                        source = {require('../../../../../Media/Game/BoxCountDown.png')}
+                        source = {IMG.BOX_COUNTDOWN_IMG}
                         style = {styles.countDownItemBG}>
                         <Text style = {styles.timeCountDown}>{milliseconds >= 10 ? Math.floor(milliseconds/10) : 0}</Text>
                     </ImageBackground>
 
                     <ImageBackground
-                        source = {require('../../../../../Media/Game/BoxCountDown.png')}
+                        source = {IMG.BOX_COUNTDOWN_IMG}
                         style = {styles.countDownItemBG}>
                         <Text style = {styles.timeCountDown}>{milliseconds % 10}</Text>
                     </ImageBackground>
@@ -98,7 +102,7 @@ export const RenderWaitFriendRoom = ({
 
                             {/*  Current user */}
                             <ImageBackground
-                                source = {require('../../../../../Media/Game/CurrentUserItemBG.png')}
+                                source = {IMG.CURRENT_USER_ITEM_BG_IMG}
                                 style = {styles.itemUser}
                                 imageStyle = {styles.imageItemUserStyle}>
 
@@ -124,7 +128,7 @@ export const RenderWaitFriendRoom = ({
                         showsVerticalScrollIndicator = {false}
                         renderItem = {({item, index}) => (
                             <ImageBackground
-                                source = {require('../../../../../Media/Game/UserItemBG.png')}
+                                source = {IMG.ITEM_LIST_ROOM_FRIEND_BG_IMG}
                                 style = {styles.itemUser}
                                 imageStyle = {styles.imageItemUserStyle}>
 
@@ -151,10 +155,10 @@ export const RenderWaitFriendRoom = ({
                 <TouchableOpacity
                     onPress = {() => onStartGame()}>
                     <ImageBackground
-                        source = {require('../../../../../Media/Game/StartBtn.png')}
+                        source = {IMG.START_GAME_BTN_IMG}
                         style = {isRoot ? styles.showStartBtn : styles.hideStartBtn}
                     >
-                        <Text style = {styles.textStartBtn}>BẮT ĐẦU</Text>
+                        <Text style = {styles.textStartBtn}>{Strings.START}</Text>
                     </ImageBackground>
                 </TouchableOpacity>
 

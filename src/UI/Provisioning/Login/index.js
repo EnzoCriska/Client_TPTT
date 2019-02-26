@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {SafeAreaView  } from 'react-native';
+import {SafeAreaView , Platform } from 'react-native';
 // import {SafeAreaView} from 'react-navigation';
 
 import {RenderLogin} from './render';
@@ -12,37 +12,53 @@ import { areaStyles } from '../../../Util/Component Util/SafeAreaStyle';
 import {connect} from 'react-redux';
 import {loginDefault} from '../../../actions/loginAction';
 
+import md5 from 'md5';
+import DeviceInfo from 'react-native-device-info';
+
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        phone : '',
-        pass : '', 
+        deviceId:null,
+        os_id:null,
+        phone : null,
+        pass : null, 
         isLoading : false
     };
   }
 
+  componentDidMount = () => {
+    const deviceId = DeviceInfo.getUniqueID();
+    
+    var os_id
+    if (Platform.OS === 'ios'){
+      os_id = 1
+    }else if (Platform.OS === 'android'){
+      os_id = 2
+    }else{
+      os_id = 1
+    }
+
+    this.setState({
+        phone:'',
+        pass: '',
+      deviceId: deviceId,
+      os_id: os_id
+    })
+  }
+
   onChangePhone(text){
-      console.log(text)
       this.setState({phone:text})
   }
 
   onChangePass(text){
-    console.log(text)
       this.setState({pass:text})
   }
 
   onLogin(){
-      this.props.loginDefault(this)
-    //   console.log("Login")
-    //   this.setState({isLoading:true})
-    //   SigIn(this.state.phone, this.state.pass)
-    //   .then((res)=> {
-    //     // console.log(res)
-    //     Global.currentUser = res
-    //     this.setState({isLoading:false})
-    //     this.props.navigation.navigate('bottomTabStack')
-    //   })
+      const {phone, pass, deviceId, os_id} = this.state
+      const hashPass  = md5(pass)
+      this.props.loginDefault(this, phone, hashPass, deviceId, os_id)
   }
 
   onFBLogin(){
@@ -52,7 +68,7 @@ class Login extends Component {
 
   onRegister(){
       console.log("Register")
-      this.props.navigation.navigate('Register', {phone: this.state.phone, password: this.state.pass})
+      this.props.navigation.navigate('Register')
   }
 
   onForgotPassword(){
@@ -60,9 +76,10 @@ class Login extends Component {
   }
 
   render() {
-      console.log(this.props.data)
     const {phone, pass, isLoading} = this.state;
+
     if (this.props.data.isLogin) return (<Loading/>)
+    
     return (
         <SafeAreaView style={areaStyles.area}>
         <RenderLogin

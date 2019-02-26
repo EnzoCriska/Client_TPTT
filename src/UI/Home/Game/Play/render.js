@@ -7,6 +7,10 @@ import { styles } from './style';
 import Modal from 'react-native-modal';
 import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
 
+import * as IMG from '../../../../Util/Image'
+import Strings from '../../../../Util/Strings';
+import Colors from '../../../../Util/Colors';
+
 export const RenderPlayGame = ({
     onGoProfile = () => {},
 
@@ -31,7 +35,7 @@ export const RenderPlayGame = ({
     
     return (
         <ImageBackground
-            source={require('../../../../../Media/background.png')}
+            source={IMG.BACKGROUND_IMG}
             style = {styles.container}>
             
             <HeaderComponent
@@ -41,20 +45,20 @@ export const RenderPlayGame = ({
             <View style = {styles.infoHeader}>
                 <View style = {styles.leftContainer}>
                     <Image
-                        source = {require('../../../../../Media/Game/multiple-users.png')}
+                        source = {IMG.MULTIPLE_USER_ICON_IMG}
                         style = {styles.infoHeaderIcon}
-                        resizeMode = 'center'
+                        resizeMode = {Strings.CENTER}
                     />
                     <Text style = {styles.titleScoreHeader}>123</Text>
                 </View>
 
                 <View style = {styles.rightContainer}>
                     <Image
-                        source={require('../../../../../Media/Game/Dinamon.png')}
+                        source={IMG.DIAMOND_ICON_IMG}
                         style = {styles.infoHeaderIcon}
-                        resizeMode = "center"
+                        resizeMode = {Strings.CENTER}
                     />
-                    <Text style = {styles.titleScoreHeader}>Điểm tích lũy</Text>
+                    <Text style = {styles.titleScoreHeader}>{Strings.SCORE_ACCUMULATION}</Text>
                 </View>
             </View>
             <View style = {styles.score}>
@@ -80,8 +84,8 @@ export const RenderPlayGame = ({
                         size={80}
                         width={5}
                         fill={100}
-                        tintColor="#3d5875"
-                        backgroundColor="#B2FF2A"
+                        tintColor= {Colors.CIRCULAR_PROGRESS_TINT_COLOR}
+                        backgroundColor={Colors.CIRCULAR_PROGRESS_BACKGROUND}
                         rotation={360}
                         >
                         {
@@ -132,7 +136,7 @@ export const RenderPlayGame = ({
                         resizeMode = 'center'>
                         <Text style = {styles.ABCStyle}>C</Text>
                         <View style = {styles.textAnswerContainer}>
-                            <Text style={styles.textAnswer}>Dừng cuộc chơi</Text>
+                            <Text style={styles.textAnswer}>{Strings.STOP_PLAY_GAME}</Text>
                         </View>
                     </ImageBackground>
                 </TouchableOpacity>
@@ -143,15 +147,15 @@ export const RenderPlayGame = ({
                 onBackdropPress = {hideGameOverModal}
                 style = {styles.ModalGameOverContainer}>
                 <View style = {{flex:1}}>
-                        <Text style = {styles.textTitleModalGO}>Bạn đã trả lời sai</Text>
+                        <Text style = {styles.textTitleModalGO}>{Strings.YOUR_ANSWER_WRONG}</Text>
                 </View>
 
                 <View style = {{flex:1}}>
-                    <Text style = {styles.textTitleModalGO}>VÒNG CHƠI KẾT THÚC</Text>
+                    <Text style = {styles.textTitleModalGO}>{Strings.GAME_OVER}</Text>
                 </View>
 
                 <View style = {{flex:2}}>
-                    <Text style = {styles.scoreDes}>Điểm tích lũy</Text>
+                    <Text style = {styles.scoreDes}>{Strings.SCORE_ACCUMULATION}</Text>
                     <Text style = {styles.scoreValue}>15.500</Text>    
                 </View>
 
@@ -159,7 +163,7 @@ export const RenderPlayGame = ({
                         <TouchableOpacity 
                             style = {styles.confirmBtn}
                             onPress = {() => GameOver()}>
-                            <Text style = {styles.textConfirmBtn}>XÁC NHẬN</Text>
+                            <Text style = {styles.textConfirmBtn}>{Strings.CONFIRM}</Text>
                         </TouchableOpacity>
                 </View>
             </Modal>

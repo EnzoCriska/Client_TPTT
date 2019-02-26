@@ -8,6 +8,7 @@ import UpdatePhoneNumber from './Provisioning/UpdatePhoneNumber';
 import ConfirmOTP from './Provisioning/ConfirmOTP';
 import { BottomTabStack } from './Home/StackBottomTab';
 import SplashScreen from './SplashScreen';
+import UpdateInfo from './Home/Profile/UpdateInfo';
 
 YellowBox.ignoreWarnings(['Warning: ReactNative.createElement']);
 
@@ -17,7 +18,8 @@ const  MainStack = createStackNavigator({
     Register: Register,
     updatePhone: UpdatePhoneNumber ,
     confirmOTP: ConfirmOTP,
-    bottomTabStack: BottomTabStack
+    bottomTabStack: BottomTabStack,
+    updateProfile: UpdateInfo
 },{
     headerMode: "none"
 })

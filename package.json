@@ -13,9 +13,11 @@
   },
   "dependencies": {
     "firebase": "^5.7.3",
+    "md5": "^2.2.1",
     "react": "16.6.1",
     "react-native": "0.57.7",
     "react-native-circular-progress": "^1.1.0",
+    "react-native-device-info": "^0.26.4",
     "react-native-elements": "^1.0.0",
     "react-native-gesture-handler": "^1.0.15",
     "react-native-image-picker": "^0.28.0",

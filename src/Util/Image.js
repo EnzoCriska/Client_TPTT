@@ -35,6 +35,13 @@ export const LINE_IN_ROOM_ITEM_IMG = require('../../Media/Game/Line1.png')
 export const CREATE_BTN_IMG = require('../../Media/Game/createBtn.png')
 export const CLOSE_BTN_IMG = require('../../Media/Game/closeBtn.png')
 export const CLOCK_ICON_IMG = require('../../Media/Game/clock.png')
+export const DIAMOND_ICON_IMG = require('../../Media/Game/Dinamon.png')
+export const CURRENT_USER_ITEM_BG_IMG = require('../../Media/Game/CurrentUserItemBG.png')
+export const START_GAME_BTN_IMG = require('../../Media/Game/StartBtn.png')
+export const CHAT_BACKGROUND_IMG = require('../../Media/Game/ChatBackground.png')
+export const INPUT_CHAT_BACKGROUND = require('../../Media/Game/inputChatBG.png')
+export const CHAT_ICON_IMG = require('../../Media/Game/chat.png')
 
 // Profile
 export const LEFT_ARROW_ICON_IMG = require('../../Media/Profile/leftArrow.png')
+export const DEFAULT_AVATAR_IMG =require('../../Media/Provisioning/ImagePicker.png')

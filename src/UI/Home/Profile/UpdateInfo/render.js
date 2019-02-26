@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { styles } from './style';
 
-const uriDefault = '../../../../../Media/Provisioning/ImagePicker.png'
+import * as IMG from '../../../../Util/Image';
 
 export const RenderUpdateInfo = ({
     avatar = '',
@@ -19,7 +19,7 @@ export const RenderUpdateInfo = ({
 }) => {
     let img = avatar == null ? 
         <Image
-            source= {require(uriDefault)}
+            source= {IMG.DEFAULT_AVATAR_IMG}
             style={styles.imagePicker}
         />
     : 

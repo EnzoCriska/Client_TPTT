@@ -55,8 +55,6 @@ export const RenderLogin =  ({
                         />
                         <TextInput
                             style = {styles.input}
-                            textContentType = {Strings.TELEPHONENUMBER}
-                            keyboardType = {Strings.NUMRIC}
                             placeholder = {Strings.PHONE_NUMBER_VI}
                             placeholderTextColor = {Colors.GREY}
                             onChangeText = {onChangePhone}

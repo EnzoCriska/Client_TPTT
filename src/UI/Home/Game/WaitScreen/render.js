@@ -13,6 +13,10 @@ import {
 import { styles } from './style';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import  HeaderComponent  from '../../../../Util/Component Util/HeaderComponent';
+import * as IMG from '../../../../Util/Image';
+import Strings from '../../../../Util/Strings';
+import Colors from '../../../../Util/Colors';
+
 export const RenderWaitGame = ({
     onGoProfile = () => {},
 
@@ -27,7 +31,7 @@ export const RenderWaitGame = ({
     return (
     <TouchableWithoutFeedback onPress = {Keyboard.dismiss} accessible = {false}>
         <ImageBackground
-            source={require('../../../../../Media/background.png')}
+            source={IMG.BACKGROUND_IMG}
             style = {styles.container}>
             
             <HeaderComponent
@@ -38,54 +42,54 @@ export const RenderWaitGame = ({
                 <View style = {styles.bottomHeaderContainer}>
                     <TouchableOpacity onPress = {() => goToBack()}>
                         <Image
-                            source = {require('../../../../../Media/Profile/leftArrow.png')}
+                            source = {IMG.LEFT_ARROW_ICON_IMG}
                             style = {styles.iconHeader}
-                            resizeMode = 'center'
+                            resizeMode = {Strings.CENTER}
                         />
                     </TouchableOpacity>
                     <View style= {styles.midHeaderTitle}>
-                        <Text style = {styles.titleHeader}>Số người tham gia</Text>
+                        <Text style = {styles.titleHeader}>{Strings.QUANTITY_MEMBER_JOIN}</Text>
                     </View>
-                    <View style = {{flex:1}}></View>
+                    <View style = {styles.container}></View>
                 </View>
                 <View style = {styles.quantityPlayerContainer}>
                     <Image
-                        source={require('../../../../../Media/Game/multiple-users.png')}
+                        source={IMG.MULTIPLE_USER_ICON_IMG}
                         style = {styles.quantityPlayerIcon}
                     />
                     <Text style = {styles.quantityPlayerValue}>123</Text>
                 </View>
 
                 <View style={styles.nextGameTimeContainer}>
-                    <Text style = {styles.nextTimeTitle}>Game tiếp theo</Text>
+                    <Text style = {styles.nextTimeTitle}>{Strings.NEXT_GAME}</Text>
                     
                     <View style = {styles.bottomCountDown}>
 
                         <ImageBackground
-                                source = {require('../../../../../Media/Game/BoxCountDown.png')}
+                                source = {IMG.BOX_COUNTDOWN_IMG}
                                 style={styles.boxCountDown}>
                                 <Text style = {styles.timeCountDown}>{hours>= 10 ? Math.floor(hours/10) : 0}</Text>
                             </ImageBackground>
 
                             <ImageBackground
-                                source = {require('../../../../../Media/Game/BoxCountDown.png')}
+                                source = {IMG.BOX_COUNTDOWN_IMG}
                                 style={styles.boxCountDown}>
                                 <Text style = {styles.timeCountDown}>{hours%10}</Text>
                             </ImageBackground>
                             
                             <Image 
-                                source = {require('../../../../../Media/Home/asset1.png')} 
+                                source = {IMG.MID_BOX_COUNTDOWN_IMG} 
                                 style = {styles.midBoxCountDown}
                             />
 
                             <ImageBackground
-                                source = {require('../../../../../Media/Game/BoxCountDown.png')}
+                                source = {IMG.BOX_COUNTDOWN_IMG}
                                 style={styles.boxCountDown}>
                                 <Text style = {styles.timeCountDown}>{milliseconds >= 10 ? Math.floor(milliseconds/10) : 0}</Text>
                             </ImageBackground>
 
                             <ImageBackground
-                                source = {require('../../../../../Media/Game/BoxCountDown.png')}
+                                source = {IMG.BOX_COUNTDOWN_IMG}
                                 style={styles.boxCountDown}>
                                 <Text style = {styles.timeCountDown}>{milliseconds % 10}</Text>
                             </ImageBackground>
@@ -94,13 +98,13 @@ export const RenderWaitGame = ({
                 </View>
 
                 <ImageBackground
-                    source = {require('../../../../../Media/Game/ChatBackground.png')}
+                    source = {IMG.CHAT_BACKGROUND_IMG}
                     style={styles.chatBackground}
-                    resizeMode= 'stretch'
-                    imageStyle = {{width:'100%'}}>
+                    resizeMode= {Strings.STRETCH}
+                    >
 
                     <FlatList
-                        style = {{width:'100%',flex:1,}}
+                        style = {styles.flatListChat}
                         data = {chatList}
                         ref={ref => this.flatList = ref}
                         onContentSizeChange={() => this.flatList.scrollToEnd({animated: true})}
@@ -117,22 +121,22 @@ export const RenderWaitGame = ({
                     />
 
                     <ImageBackground
-                        source = {require('../../../../../Media/Game/inputChatBG.png')}
+                        source = {IMG.INPUT_CHAT_BACKGROUND}
                         style = {styles.inputChatBG}
-                        resizeMode='center'>
+                        resizeMode={Strings.CENTER}>
 
                         <Image
-                            source = {require('../../../../../Media/Game/chat.png')}
+                            source = {IMG.CHAT_ICON_IMG}
                             style = {styles.iconChat}
-                            resizeMode = 'center'
+                            resizeMode = {Strings.CENTER}
                         />
 
                         <TextInput
                             style = {styles.textInputChat}
                             onChangeText = {(text) => onChangeChat(text)}
                             value = {chatValue}
-                            placeholder = "Nói chuyện"
-                            placeholderTextColor = "#fff"
+                            placeholder = {Strings.TALK}
+                            placeholderTextColor = {Colors.WHITE}
                             multiline = {true}
                         />
 
@@ -140,8 +144,8 @@ export const RenderWaitGame = ({
                             style = {styles.sendIcon}
                             onPress = {() => sendMessage(chatValue)}>
                             <Icon
-                                name = 'send'
-                                color = '#fff'
+                                name = {Strings.SEND}
+                                color = {Colors.WHITE}
                                 size = {20}
                             />
                         </TouchableOpacity>

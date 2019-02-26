@@ -12,27 +12,46 @@ import { pointY, pointX } from "../Constanst";
 import {connect} from 'react-redux';
 import {loginDefault} from '../../actions/loginAction';
 
+import * as IMG from '../../Util/Image';
+import { getStatusLogin } from "../asyncStorage";
 
-const HeaderComponent = ({
-    onGoProfile  = () => {}
-}) => {
-  return (
+
+class HeaderComponent extends React.Component{
+  constructor(props){
+    super(props)
+  }
+
+  componentDidMount(){
+    getStatusLogin().then(status => console.log(JSON.parse(status)))
+  }
+  
+
+  onGoProfile = this.props.onGoProfile
+  render(){
+    const {username, avatar, point} = this.props.data.data.user_info
+
+    let img = avatar == null ? 
+        <Image
+            source= {IMG.DEFAULT_AVATAR_IMG}
+            style={styles.headerAvatar}
+        />
+    : 
+        <Image
+            source= {{uri:avatar}}
+            style={styles.headerAvatar}
+        />
+      
+    return (
       <ImageBackground
         source={require("../../../Media/Home/HeaderBG.png")}
         style={styles.headerContainer}
       >
         <View style={styles.leftHeader}>
-          <TouchableOpacity onPress={onGoProfile}>
-            <Image
-              source={{
-                uri:
-                  "https://2sao.vietnamnetjsc.vn/images/2017/10/03/10/09/huyen-trang-11.jpg"
-              }}
-              style={styles.headerAvatar}
-            />
+          <TouchableOpacity onPress={this.onGoProfile}>
+              {img}
           </TouchableOpacity>
 
-          <Text style={styles.textHeader}>Phạm Huyền Trang</Text>
+          <Text style={styles.textHeader}>{username}</Text>
         </View>
 
         <View style={styles.scoreContainer}>
@@ -40,12 +59,12 @@ const HeaderComponent = ({
             source={require("../../../Media/Home/heart.png")}
             style={styles.scoreIcon}
           />
-          <Text style={styles.textHeader}>100.000</Text>
+          <Text style={styles.textHeader}>{point}</Text>
         </View>
       </ImageBackground>
   );
 };
-
+}
 const styles = StyleSheet.create({
     headerContainer:{
         width:'100%',
@@ -72,7 +91,8 @@ const styles = StyleSheet.create({
        fontFamily: 'Roboto',
        color:'#fff',
        fontSize: 14,
-       margin:3
+       margin:3,
+       textAlign:'right'
    },
 
    scoreContainer:{
@@ -84,7 +104,8 @@ const styles = StyleSheet.create({
        borderWidth:1,
        flexDirection:'row',
        alignItems:'center',
-       marginRight:10
+       marginRight:10,
+       justifyContent:'space-between'
    },
    scoreIcon:{
        width:13.61 * pointX,
