@@ -5,7 +5,8 @@ import {
   View,
   Text,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Platform
 } from "react-native";
 import { pointY, pointX } from "../Constanst";
 
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent:'space-between',
-        marginTop: 25,
+        marginTop: Platform.OS === 'android' ? 25 : 0,
    },
    leftHeader:{
        flexDirection:'row',

@@ -3,6 +3,9 @@ import {
     View, Text, TouchableOpacity, Image, ImageBackground, StyleSheet
  } from 'react-native';
 
+ import * as IMG from '../../../../Util/Image';
+import Strings from '../../../../Util/Strings';
+
  export const ItemNews = ({
     urlImage = '',
     description ='',
@@ -10,9 +13,9 @@ import {
  })=> {
      return (
          <ImageBackground
-            source={require('../../../../../Media/News/backgroundItem.png')}
+            source={IMG.NEWS_BACKGROUND_ITEM_IMG}
             style = {styles.itemContainer}
-            resizeMode='cover'
+            resizeMode={Strings.COVER}
             imageStyle = {styles.imageBGStyle}>
             <Image
                 source={{uri:urlImage}}

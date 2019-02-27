@@ -2,6 +2,7 @@ export default {
     WARRING : "WARRING",
     INVALID_PASSWORD : "Re password is not same your password!",
     SIGN_UP: "ĐĂNG KÝ",
+    SIGN_OUT: 'Đăng xuất',
     LOG_IN: 'ĐĂNG NHẬP',
     UPDATE: "CẬP NHẬT",
     DESCRIPTION_TEXT_INPUT_OTP:"Nhập mã xác thực được gửi về số ĐT của bạn",
@@ -40,13 +41,23 @@ export default {
     SEND:'send',
     FAIL : 'FAIL!',
     INTERNET_NOT_CONNECTED: "Bạn không có kết nối internet, vui lòng kết nối để thử lại",
-    
-
+    NEWS_VI : "Tin tức",
+    CHANGE_PASSWORD: 'Đổi mật khẩu', 
+    GIFT_HISTORY: 'Lịch sử đổi quà',
+    GAME_HISTORY:'Lịch sử chơi',
+    BIRTH_DAY: 'Ngày sinh',
+    GAME: 'Game',
+    RANK: 'Rank',
+    PROFILE: 'Profile',
+    OLD_PASSWORD: 'Mật khẩu cũ',
+    NEW_PASSWORD: 'Mật khẩu mới',
+    RE_NEW_PASSWORD: 'Nhập lại mật khẩu mới',
 
 
 
     CENTER: 'center',
     STRETCH: 'stretch',
+    COVER: 'cover',
     NOTIFICATION: 'Thông Báo',
     MISSING_DATA: "Dữ liệu gửi thiếu"
 

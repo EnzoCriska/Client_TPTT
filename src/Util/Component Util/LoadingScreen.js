@@ -7,6 +7,7 @@ return (
     <ImageBackground
         source = {require('../../../Media/background.png')}
         style = {styles.container}>
+        <StatusBar backgroundColor = {Strings.TRANSPARENT} translucent = {true}/>
         <ActivityIndicator size="large" color="#00ff00"/>
     </ImageBackground>
 )

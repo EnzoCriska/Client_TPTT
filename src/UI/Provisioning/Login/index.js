@@ -77,7 +77,6 @@ class Login extends Component {
 
   render() {
     const {phone, pass, isLoading} = this.state;
-
     if (this.props.data.isLogin) return (<Loading/>)
     
     return (
@@ -100,7 +99,7 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        data: state.loginReducer
+        data: state.loginReducer,
     }
 };
 

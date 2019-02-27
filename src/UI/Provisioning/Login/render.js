@@ -11,10 +11,10 @@ import {
     TouchableWithoutFeedback
 } from 'react-native';
 import { styles } from './style';
-import Strings from '../../../Util/Strings';
-import Colors from '../../../Util/Colors';
+import Strings from '../../../Util/Common/Strings';
+import Colors from '../../../Util/Common/Colors';
 
-import * as IMG from '../../../Util/Image';
+import * as IMG from '../../../Util/Common/Image';
 
 export const RenderLogin =  ({
     phone = '',

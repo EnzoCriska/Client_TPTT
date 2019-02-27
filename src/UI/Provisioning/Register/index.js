@@ -71,7 +71,7 @@ class Register extends Component {
 
   render() {
     const {userName, password, rePassword} = this.state
-
+    console.log(this.props)
     if(this.props.data.isRegisting) return <Loading/>
 
     return (

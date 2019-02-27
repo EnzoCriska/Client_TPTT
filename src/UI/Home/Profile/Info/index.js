@@ -9,7 +9,19 @@ export default class Info extends Component {
     super(props);
     GameRouter = this.props.navigation.getParam('router')
     this.state = {
+      avatarUrl: null,
+      userName: null,
+      pointValue: null,
+      rankValue: null,
+      gameValue: null,
+      r_gValue: null,
+      birthdayValue: null,
+      phonenumberValue:null
     };
+  }
+
+  componentDidMount(){
+    // Call API
   }
 
   onGoBack(){
@@ -31,11 +43,12 @@ export default class Info extends Component {
     this.props.navigation.navigate('HistoryChangeGift')
   }
 
-  componentDidMount(){
-    
+  onGoChangePassword(){
+    this.props.navigation.navigate('ChangePassword')
   }
 
   render() {
+    const {avatarUrl, userName, pointValue, gameValue, rankValue, r_gValue, birthdayValue, phonenumberValue} = this.state
     return (
       <SafeAreaView style={areaStyles.area}>
       <RenderInfo
@@ -43,6 +56,15 @@ export default class Info extends Component {
           onGoEdit = {() => this.onGoEdit()}
           onGoHistoryGame = {() => this.onGoHistoryGame()}
           onGoHistoryChangeGift = {() => this.onGoHistoryChangeGift()}
+          onGoChangePassword = {() => this.onGoChangePassword()}
+          avartarUrl = {avatarUrl}
+          userName = {userName}
+          pointValue = {pointValue}
+          gameValue = {gameValue}
+          rankValue = {rankValue}
+          r_gValue = {r_gValue}
+          birthdayValue = {birthdayValue}
+          phonenumberValue = {phonenumberValue}
       />
       </SafeAreaView>
     );

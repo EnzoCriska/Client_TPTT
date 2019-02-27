@@ -1,6 +1,6 @@
 
 import { Alert } from 'react-native';
-import Strings from '../Strings';
+import Strings from '../Common/Strings';
 
 // import strings from '../constants/Strings';
 export default function alertMsgErrorCallApi(code, mess) {

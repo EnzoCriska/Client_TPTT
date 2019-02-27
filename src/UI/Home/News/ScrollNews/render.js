@@ -5,8 +5,9 @@ import {
 import { FlatList } from 'react-native-gesture-handler';
 import { ItemNews } from './itemNews';
 import { styles } from './style';
-import { HeaderComponent } from '../../../../Util/Component Util/HeaderComponent';
+import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
 
+import * as IMG from '../../../../Util/Image';
  export const RenderScrollNew = ({
     listNews = [],
     onRenderItem = () => {},
@@ -15,7 +16,7 @@ import { HeaderComponent } from '../../../../Util/Component Util/HeaderComponent
  }) => {
      return (
         <ImageBackground
-            source={require('../../../../../Media/background.png')}
+            source={IMG.BACKGROUND_IMG}
             style = {styles.container}>
 
             <HeaderComponent

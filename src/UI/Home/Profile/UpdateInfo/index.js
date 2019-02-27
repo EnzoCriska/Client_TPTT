@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView } from 'react-native';
+import { View, SafeAreaView, Platform } from 'react-native';
 import { RenderUpdateInfo } from './render';
 import {CheckCameraPermission, CheckStoragePermission} from '../../../../Util/CheckPermission';
 import { picker } from '../../../../Util/ImagePicker';
@@ -31,14 +31,16 @@ export default class UpdateInfo extends Component {
 
   async onChangeAva(){
     console.log("Change Ava")
-    await CheckCameraPermission((result)=> {
-      console.log(result)
-      
-    })
-    await CheckStoragePermission((result) => {
-      console.log(result)
-      
-    })
+    if(Platform.OS === 'android'){
+      await CheckCameraPermission((result)=> {
+        console.log(result)
+        
+      })
+      await CheckStoragePermission((result) => {
+        console.log(result)
+        
+      })
+    }
     await picker((source, data) =>
       this.setState({
         avatar: source,

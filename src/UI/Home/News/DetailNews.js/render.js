@@ -5,6 +5,8 @@ import {
 import { styles } from './style';
 import { HeaderComponent } from '../../../../Util/Component Util/HeaderComponent';
 
+import * as IMG from '../../../../Util/Image';
+import Strings from '../../../../Util/Strings';
 
 export const RenderDetailNews = ({
     urlImage= '',
@@ -15,7 +17,7 @@ export const RenderDetailNews = ({
 }) => {
     return(
         <ImageBackground
-            source={require('../../../../../Media/background.png')}
+            source={IMG.BACKGROUND_IMG}
             style = {styles.container}>
 
             <HeaderComponent
@@ -25,24 +27,24 @@ export const RenderDetailNews = ({
                 <TouchableOpacity
                     onPress = {() => onGoBack()}>
                     <Image
-                        source = {require('../../../../../Media/Profile/leftArrow.png')}
+                        source = {IMG.LEFT_ARROW_ICON_IMG}
                         style = {styles.scoreIcon}
-                        resizeMode = 'center'
+                        resizeMode = {Strings.CENTER}
                     />
                 </TouchableOpacity>
-                <Text style= {styles.textTitle}>Tin tức</Text>
+                <Text style= {styles.textTitle}>{Strings.NEWS_VI}</Text>
             </View>
 
             <ImageBackground
-                source = {require('../../../../../Media/News/backgroundNews.png')}
+                source = {IMG.NEWS_BACKGROUND_NEWS_IMG}
                 style = {styles.bodyContainer}
                 imageStyle  = {styles.imageBodyBG}
-                resizeMode = "stretch">
+                resizeMode = {Strings.STRETCH}>
 
                 <Image
                     source = {{uri:urlImage}}
                     style = {styles.imageNews}
-                    resizeMode = "cover"
+                    resizeMode = {Strings.COVER}
                 />
 
                 <View style = {styles.newsTitleContainer}>

@@ -1,22 +1,26 @@
-const URL = "https://facebook.github.io/react-native/movies.json"
 
-
-
-export function JoinNowGame(player,callback){
-    return fetch(URL, {
-        method: 'POST',
-        headers: {
+export function fetch(URL, method, body, token){
+    var HEADER;
+    if (token){
+        HEADER = {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            user: player,
-          }),
-        })
-        .then(res =>
-            res
-        )
-        .catch(err => {
-            console.error(err)
-        });
+            token: token,
+        }
+    }else{
+        HEADER = {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        }
+    }
+
+    return fetch(URL, {
+        method: method,
+        headers: HEADER,
+        body: body
+    })
+    .then( res=> res)
+    .catch(err => {
+        console.log(err)
+    })
 }
