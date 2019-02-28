@@ -56,7 +56,7 @@ async onUpdate(){
 
   render() {
     const {oldPassword, newPassword, reNewPassword} = this.state
-    console.log(this.props.data.isChanging)
+    
     if(this.props.data.isChanging) return <Loading/>
     return (
         <RenderChangePassword

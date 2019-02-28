@@ -44,7 +44,7 @@ class HeaderComponent extends React.Component{
       
     return (
       <ImageBackground
-        source={require("../../../Media/Home/HeaderBG.png")}
+        source={IMG.HEADER_PROFILE_BACKGROUND_IMG}
         style={styles.headerContainer}
       >
         <View style={styles.leftHeader}>
@@ -57,7 +57,7 @@ class HeaderComponent extends React.Component{
 
         <View style={styles.scoreContainer}>
           <Image
-            source={require("../../../Media/Home/heart.png")}
+            source={IMG.POINT_ICON_HEADER_IMG}
             style={styles.scoreIcon}
           />
           <Text style={styles.textHeader}>{point}</Text>

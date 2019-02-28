@@ -2,19 +2,28 @@ import React from 'react';
 import {
     View, Text, TouchableOpacity, Image, ImageBackground, StyleSheet, TextInput
 } from 'react-native';
+
+import { CheckBox } from 'react-native-elements'
+
 import { styles } from './style';
 
 import * as IMG from '../../../../Util/Common/Image';
+import Strings from '../../../../Util/Common/Strings';
+import Colors from '../../../../Util/Common/Colors';
 
 export const RenderUpdateInfo = ({
     avatar = '',
-    userName ='',
-    birthDay = '',
-    CMND = '',
+    displayName ='',
+    address = '',
+    male = true,
+    female = false,
+    // CMND = '',
     onChangeAva = () => {},
-    onChangeUserName = () => {},
-    onChangeBirthDay = () => {},
-    onChangeCMND = () => {},
+    onChangeDisplayName = () => {},
+    onChangeAddress = () => {},
+    onSetChecker = () => {},
+
+    // onChangeCMND = () => {},
     onUpdate = () => {}
 }) => {
     let img = avatar == null ? 
@@ -29,50 +38,76 @@ export const RenderUpdateInfo = ({
         />
     return (
         <ImageBackground
-            source ={require('../../../../../Media/background.png')}
+            source ={IMG.BACKGROUND_IMG}
             style= {styles.container}>
             
             <TouchableOpacity onPress = {onChangeAva}>
                 {img}
             </TouchableOpacity>
 
-            <Text style = {styles.textAva}>Cập nhật Avatar</Text>
+            <Text style = {styles.textAva}>{Strings.UPDATE_AVATAR}</Text>
 
             <ImageBackground
-                source={require('../../../../../Media/Provisioning/inputBackground.png')}
+                source={IMG.INPUT_BACKGROUND_IMG}
                 style = {styles.textInput}>
                     <Image
-                        source = {require('../../../../../Media/Provisioning/user.png')}
+                        source = {IMG.USER_ICON_IMG}
                         style = {styles.iconTextInput}
                     />
                     <TextInput
                         style = {styles.input}
-                        placeholder = "Tên đăng nhập"
-                        placeholderTextColor = "grey"
-                        onChangeText = {onChangeUserName}
-                        value = {userName}
+                        placeholder = {Strings.DISPLAY_NAME}
+                        placeholderTextColor = {Colors.GREY}
+                        onChangeText = {onChangeDisplayName}
+                        value = {displayName}
                     />
             </ImageBackground>
 
             <ImageBackground
-                source={require('../../../../../Media/Provisioning/inputBackground.png')}
+                source={IMG.INPUT_BACKGROUND_IMG}
                 style = {styles.textInput}>
                     <Image
                         source = {require('../../../../../Media/Provisioning/calendar.png')}
                         style = {styles.iconTextInput}
-                        resizeMode = 'center'
+                        resizeMode = {Strings.CENTER}
                     />
                     <TextInput
                         style = {styles.input}
-                        placeholder = "Ngày sinh"
-                        keyboardType = 'numeric'
-                        placeholderTextColor = "grey"
-                        onChangeText = {onChangeBirthDay}
-                        value = {birthDay}
+                        placeholder = {Strings.ADDRESS}
+                        placeholderTextColor = {Colors.GREY}
+                        onChangeText = {onChangeAddress}
+                        value = {address}
                     />
             </ImageBackground>
 
-            <ImageBackground
+            <View style = {styles.genderCheckContainer}>
+                <CheckBox
+                    center
+                    title='Nam'
+                    textStyle = {styles.checkerTextStyle}
+                    checkedColor = {Colors.WHITE}
+                    checkedIcon='dot-circle-o'
+                    uncheckedIcon='circle-o'
+                    checked={male}
+                    containerStyle = {styles.checkboxBackground}
+                    onPress={() => onSetChecker()}
+                />
+
+                <CheckBox
+                    center
+                    title='Nữ'
+                    textStyle = {styles.checkerTextStyle}
+                    checkedColor = {Colors.WHITE}
+                    checkedIcon='dot-circle-o'
+                    uncheckedIcon='circle-o'
+                    checked={female}
+                    containerStyle = {styles.checkboxBackground}
+                    onPress={() => onSetChecker()}
+                />
+
+            </View>
+
+            {/* <ImageBackground
                 source={require('../../../../../Media/Provisioning/inputBackground.png')}
                 style = {styles.textInput}>
                     <Image
@@ -88,7 +123,7 @@ export const RenderUpdateInfo = ({
                         onChangeText = {onChangeCMND}
                         value = {CMND}
                     />
-            </ImageBackground>
+            </ImageBackground> */}
 
             <TouchableOpacity 
                     style= {styles.loginBtn}

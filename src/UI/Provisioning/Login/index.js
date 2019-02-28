@@ -57,8 +57,20 @@ class Login extends Component {
 
   onLogin(){
       const {phone, pass, deviceId, os_id} = this.state
-      const hashPass  = md5(pass)
-      this.props.loginDefault(this, phone, hashPass, deviceId, os_id)
+      if (phone === '' || pass === ''){
+        Alert.alert(
+          Strings.WARRING,
+          Strings.NULL_IN_USER_PASS_REPASS
+        )
+      }else if(pass.length < 6 ){
+          Alert.alert(
+            Strings.WARRING,
+            Strings.MIN_LENGTH_OF_PASS
+          )
+        }else{
+        const hashPass = md5(md5(pass))
+        this.props.loginDefault(this, phone, hashPass, deviceId, os_id)
+    }
   }
 
   onFBLogin(){

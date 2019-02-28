@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { View, SafeAreaView } from 'react-native';
 import { RenderInfo } from './render';
 import { areaStyles } from '../../../../Util/Component Util/SafeAreaStyle';
+import { CheckNetwork } from '../../../../Util/UtilFunction/CheckNetworkConnection';
+
+import {Loading} from '../../../../Util/Component Util/LoadingScreen';
+import { LogOut } from '../../../../Network/ProvisioningAPI';
+import { getAccessToken } from '../../../../Util/UtilFunction/asyncStorage';
+
 var GameRouter 
     
 export default class Info extends Component {
@@ -9,12 +15,13 @@ export default class Info extends Component {
     super(props);
     GameRouter = this.props.navigation.getParam('router')
     this.state = {
+      isLoading :false,
       avatarUrl: null,
       userName: null,
-      pointValue: null,
-      rankValue: null,
-      gameValue: null,
-      r_gValue: null,
+      pointValue: 0,
+      rankValue: 0,
+      gameValue: 0,
+      r_gValue: 0,
       birthdayValue: null,
       phonenumberValue:null
     };
@@ -47,8 +54,28 @@ export default class Info extends Component {
     this.props.navigation.navigate('ChangePassword')
   }
 
+  async onLogout(){
+    const token = await getAccessToken()
+
+    CheckNetwork().then(connection => {
+      if (connection.type === 'none'){
+        alert(Strings.FAIL, 
+              Strings.INTERNET_NOT_CONNECTED  , 
+                () => console.log("please connect"))
+    }else{
+        this.setState({isLoading: true})
+        LogOut(token).then(res => {
+          console.log(res)
+          this.props.navigation.navigate('Login')})
+        .catch(err => console.log(err))
+        this.setState({isLoading:false})
+    }
+    })
+  }
+
   render() {
-    const {avatarUrl, userName, pointValue, gameValue, rankValue, r_gValue, birthdayValue, phonenumberValue} = this.state
+    const {isLoading,avatarUrl, userName, pointValue, gameValue, rankValue, r_gValue, birthdayValue, phonenumberValue} = this.state
+    if (isLoading) return <Loading/>
     return (
       <SafeAreaView style={areaStyles.area}>
       <RenderInfo
@@ -57,6 +84,7 @@ export default class Info extends Component {
           onGoHistoryGame = {() => this.onGoHistoryGame()}
           onGoHistoryChangeGift = {() => this.onGoHistoryChangeGift()}
           onGoChangePassword = {() => this.onGoChangePassword()}
+          onLogout = {() => this.onLogout()}
           avartarUrl = {avatarUrl}
           userName = {userName}
           pointValue = {pointValue}

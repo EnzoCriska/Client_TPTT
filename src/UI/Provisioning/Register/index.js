@@ -45,14 +45,26 @@ class Register extends Component {
   onRegister(){
     // Call API Register
     const {deviceId, os_id, password, rePassword, userName} = this.state
-    if (password !== rePassword){
+    if (userName === '' || password === '' || rePassword === ''){
+      Alert.alert(
+        Strings.WARRING,
+        Strings.NULL_IN_USER_PASS_REPASS
+      )
+    }else if (password !== rePassword){
       Alert.alert(
         Strings.WARRING,
         Strings.INVALID_PASSWORD
       )
     }else {
-      const hashPass = md5(password)
+      if(password.length < 6 ){
+        Alert.alert(
+          Strings.WARRING,
+          Strings.MIN_LENGTH_OF_PASS
+        )
+      }else{
+      const hashPass = md5(md5(password))
       this.props.registerDefault(this,userName, hashPass, deviceId, os_id)
+      }
     }
   }
 
@@ -71,7 +83,7 @@ class Register extends Component {
 
   render() {
     const {userName, password, rePassword} = this.state
-    console.log(this.props)
+
     if(this.props.data.isRegisting) return <Loading/>
 
     return (

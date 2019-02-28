@@ -12,6 +12,7 @@ import * as IMG from '../../../../Util/Common/Image';
     onGoHistoryGame = () => {},
     onGoHistoryChangeGift = () => {},
     onGoChangePassword = () => {},
+    onLogout = () => {},
     avartarUrl = '',
     userName = '',
     pointValue = '',
@@ -147,7 +148,9 @@ import * as IMG from '../../../../Util/Common/Image';
                         />
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.selectMore}>
+                    <TouchableOpacity 
+                        onPress = {() => onLogout()}
+                        style={styles.selectMore}>
                         <Text style ={styles.textData}>{Strings.SIGN_OUT}</Text>
                         <Text style ={styles.textData}></Text>
                     </TouchableOpacity>

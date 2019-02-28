@@ -4,6 +4,9 @@ import {
  } from 'react-native';
 import { styles } from './style';
 
+import * as IMG from '../../../../Util/Common/Image';
+import Strings from '../../../../Util/Common/Strings';
+
  export const RenderHistoryGame = ({
     onGoBack = () => {},
     listHistoryGame = []
@@ -11,28 +14,28 @@ import { styles } from './style';
      return (
          <ImageBackground
             style = {styles.rootContainer}
-            source = {require('../../../../../Media/background.png')}>
+            source = {IMG.BACKGROUND_IMG}>
 
             <ImageBackground 
                 style = {styles.headerBackground}
-                source = {require('../../../../../Media/Home/HeaderBG.png')}
+                source = {IMG.HEADER_PROFILE_BACKGROUND_IMG}
             >
                 <TouchableOpacity
                     onPress = {() => onGoBack()}>
                     <Image
                         style = {styles.leftArrowIcon}
-                        source = {require('../../../../../Media/Profile/leftArrow.png')}
+                        source = {IMG.LEFT_ARROW_ICON_IMG}
                     />
                 </TouchableOpacity>
 
                 <View style = {styles.titleContainer}>
-                    <Text style = {styles.titleText}>Lịch sử chơi</Text>
+                    <Text style = {styles.titleText}>{Strings.GAME_HISTORY}</Text>
                 </View>
             </ImageBackground>
 
             <View style = {styles.bodyContainer}>
                 <ImageBackground
-                    source = {require('../../../../../Media/Profile/historyBackground.png')}
+                    source = {IMG.HISTORY_BACKGROUND_IMG}
                     style = {styles.historyBackground}
                     // resizeMode = 'center'
                     >
@@ -40,15 +43,15 @@ import { styles } from './style';
                     <View style  = {styles.titleTableContainer}>
 
                         <View style = {styles.outColumnContainer}>
-                            <Text style = {styles.titleTableText}>Thời gian chơi</Text>
+                            <Text style = {styles.titleTableText}>{Strings.TIME_PLAY_GAME}</Text>
                         </View>
 
                         <View style = {styles.midColumnContainer}>
-                            <Text style = {styles.titleTableText}>Trả lời đúng</Text>
+                            <Text style = {styles.titleTableText}>{Strings.RIGHT_ANSWER_GAME}</Text>
                         </View>
 
                         <View style = {styles.outColumnContainer}>
-                            <Text style = {styles.titleTableText}>Điểm tích lũy</Text>
+                            <Text style = {styles.titleTableText}>{Strings.SCORE_ACCUMULATION}</Text>
                         </View>
 
                     </View>

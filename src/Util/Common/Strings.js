@@ -1,5 +1,7 @@
 export default {
     WARRING : "WARRING",
+    NULL_IN_USER_PASS_REPASS: 'Vui lòng nhập đủ các trường',
+    MIN_LENGTH_OF_PASS: 'Mật khẩu phải có tối thiểu 6 ký tự',
     INVALID_PASSWORD : "Re password is not same your password!",
     SIGN_UP: "ĐĂNG KÝ",
     SIGN_OUT: 'Đăng xuất',
@@ -42,18 +44,27 @@ export default {
     FAIL : 'FAIL!',
     INTERNET_NOT_CONNECTED: "Bạn không có kết nối internet, vui lòng kết nối để thử lại",
     NEWS_VI : "Tin tức",
-    CHANGE_PASSWORD: 'Đổi mật khẩu', 
+    CHANGE_PASSWORD: 'Đổi mật khẩu',
+
     GIFT_HISTORY: 'Lịch sử đổi quà',
     GAME_HISTORY:'Lịch sử chơi',
+    TIME_CHANGE_GIFT: 'Thời gian đổi',
+    TIME_PLAY_GAME: 'Thời gian chơi',
+    RIGHT_ANSWER_GAME: 'Trả lời đúng',
+    SCORE_CHANGE_GIFT: 'Số điểm đổi',
+    GIFT_CHANGED: 'Quà đã đổi',
     BIRTH_DAY: 'Ngày sinh',
     GAME: 'Game',
     RANK: 'Rank',
     PROFILE: 'Profile',
+
     OLD_PASSWORD: 'Mật khẩu cũ',
     NEW_PASSWORD: 'Mật khẩu mới',
     RE_NEW_PASSWORD: 'Nhập lại mật khẩu mới',
 
-
+    DISPLAY_NAME: 'Tên hiển thị',
+    UPDATE_AVATAR: 'Cập nhật Avatar',
+    ADDRESS: 'Địa chỉ',
 
     CENTER: 'center',
     STRETCH: 'stretch',

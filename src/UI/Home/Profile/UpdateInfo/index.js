@@ -4,6 +4,8 @@ import { RenderUpdateInfo } from './render';
 import {CheckCameraPermission, CheckStoragePermission} from '../../../../Util/UtilFunction/CheckPermission';
 import { picker } from '../../../../Util/UtilFunction/ImagePicker';
 import { areaStyles } from '../../../../Util/Component Util/SafeAreaStyle';
+import { getAccessToken } from '../../../../Util/UtilFunction/asyncStorage';
+import { UpdateProfile } from '../../../../Network/ProvisioningAPI';
 
 
 export default class UpdateInfo extends Component {
@@ -13,9 +15,10 @@ export default class UpdateInfo extends Component {
         phone:'',
         pass:'',
         avatar:null,
-        userName:'',
-        birthDay:'',
-        CMND:'',
+        displayName:'',
+        address:'',
+        male: true,
+        female:false,
         data: null 
     };
   }
@@ -24,9 +27,25 @@ export default class UpdateInfo extends Component {
     
   }
 
-  onUpdate(){
+  async onUpdate(){
+    const {displayName, address, male, female} = this.state
+    const token = await getAccessToken()
     // Call API Update
+    var gender
+    if(male){
+      gender = 0
+    }else{
+      gender = 1
+    }
 
+    console.log(gender +" "+ token)
+    UpdateProfile(displayName, address,gender, token).then(res => {
+      console.log(res._bodyText)
+      const body = JSON.parse(res._bodyText)
+      if (body.code === 200){
+        this.props.navigation.navigate('bottomTabStack')
+      }
+    })
   }
 
   async onChangeAva(){
@@ -48,32 +67,39 @@ export default class UpdateInfo extends Component {
       }))
   }
 
-  onChangeUserName(text){
-    this.setState({userName:text})
+  onChangeDisplayName(text){
+    this.setState({displayName:text})
   }
   
-  onChangeBirthDay(text){
-    this.setState({birthDay:text})
+  onChangeAddress(text){
+    this.setState({address:text})
   }
 
-  onChangeCMND(text){
-    this.setState({CMND:text})
+  onSetChecker(){
+    this.setState({
+      male: !this.state.male,
+      female: !this.state.female
+    })
   }
   
 
   render() {
-    const {avatar, userName, birthDay, CMND} = this.state
+    const {avatar, displayName, address, male, female} = this.state
     return (
       <SafeAreaView style={areaStyles.area}>
       <RenderUpdateInfo
         avatar = {avatar}
-        userName = {userName}
-        birthDay = {birthDay}
-        CMND = {CMND}
+        displayName = {displayName}
+        address = {address}
+        male = {male}
+        female = {female}
+        // CMND = {CMND}
         onChangeAva = {()=> this.onChangeAva()}
-        onChangeUserName = {(text)=> this.onChangeUserName(text)}
-        onChangeBirthDay = {(text)=> this.onChangeBirthDay(text)}
-        onChangeCMND = {(text)=> this.onChangeCMND(text)}
+        onChangeDisplayName = {(text)=> this.onChangeDisplayName(text)}
+        onChangeAddress = {(text)=> this.onChangeAddress(text)}
+        onSetChecker = {() => this.onSetChecker()}
+
+        // onChangeCMND = {(text)=> this.onChangeCMND(text)}
         onUpdate = {()=> this.onUpdate()}
       />
       </SafeAreaView>

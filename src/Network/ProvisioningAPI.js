@@ -6,7 +6,11 @@ import {
     NORMAL, 
     AUTHORIZATION, 
     PASSWORD, 
-    CHANGE_PASS 
+    CHANGE_PASS, 
+    LOGOUT,
+    PROVISIONING,
+    UPDATE_PROFILE,
+    APP_API
 } from "../Util/Constanst";
 
 import {getAccessToken} from '../Util/UtilFunction/asyncStorage';
@@ -22,32 +26,6 @@ const HEADER = {
     'Content-Type': 'application/json',
   }
 
-// const token = getAccessToken()
-//   console.log(token)
-// const TOKEN_HEADER = {
-//     ...HEADER,
-//     Authorization: token
-// }
-
-// export function SigUp(userName, password, device_id, os_id){
-//     return fetch(BASE_URL.url + '/' + AUTH_API + '/' + SIGN_UP, {
-//         method: 'POST',
-//         headers: HEADER,
-//         body: JSON.stringify({
-//             username: userName,
-//             password: password,
-//             device_id: device_id,
-//             os_id: os_id
-//           }),
-//         })
-//         .then(res =>
-//            res
-//         )
-//         .catch(err => {
-//             console.error(err)
-//         });
-// }
-
 export function SigUp(username, password, device_id, os_id){
     const body = JSON.stringify({
         username: username,
@@ -60,59 +38,28 @@ export function SigUp(username, password, device_id, os_id){
                 .then(res=> res)
 }
 
-
 export function SigIn(username, password, device_id, os_id){
-    return fetch(BASE_URL.url + '/' + AUTH_API + '/' + LOGIN + '/' + NORMAL, {
-        method: 'POST',
-        headers: HEADER,
-        body: JSON.stringify({
-            username: username,
-            password: password,
-            device_id: device_id,
-            os_id:os_id
-          }),
-        })
-        .then(res =>
-            res
-        )
-        .catch(err => {
-            console.error(err)
-        });
+    const body = JSON.stringify({
+        username: username,
+        password: password,
+        device_id: device_id,
+        os_id:os_id
+    })
+    return fetchAPI(BASE_URL.url + '/' + AUTH_API + '/' + LOGIN + '/' + NORMAL,
+                    POST, body, null)
+                    .then(res => res)
 }
 
 export function RefreshToken(device_id, username, token){
-    return fetch(BASE_URL.url + '/' + AUTH_API + '/' + AUTHORIZATION,{
-        method: 'POST',
-        headers: HEADER,
-        body: JSON.stringify({
-            device_id: device_id,
-            username: username,
-            token: token
-        }),
+    const body = JSON.stringify({
+        device_id: device_id,
+        username: username,
+        token: token
     })
-    .then(res => res)
-    .catch(err => {
-        console.log(err)
-    });
-}
 
-// export function ChangePasswordAPI(old_password, new_password, token){
-//     return fetch(BASE_URL.url + '/' + AUTH_API + '/' + PASSWORD + '/' + CHANGE_PASS,{
-//         method:'POST',
-//         headers: {
-//             ...HEADER,
-//             token: token
-//         },
-//         body: JSON.stringify({
-//             old_password:old_password,
-//             new_password:new_password
-//         }),
-//     })
-//     .then(res => res)
-//     .catch(err => {
-//         console.log(err)
-//     })
-// }
+    return fetchAPI(BASE_URL.url + '/' + AUTH_API + '/' + AUTHORIZATION,POST,body, null)
+                    .then(res => res)
+}
 
 export function ChangePasswordAPI(old_password,new_password, token){
     const body = JSON.stringify({
@@ -122,6 +69,29 @@ export function ChangePasswordAPI(old_password,new_password, token){
     return fetchAPI(BASE_URL.url + '/' + AUTH_API + '/' + PASSWORD + '/' + CHANGE_PASS,
         POST, body, token).then(res => res)
 }
+
+export function LogOut(token){
+    const body = JSON.stringify({})
+    return fetchAPI(BASE_URL.url + '/'+ AUTH_API + '/' + LOGOUT, POST, body, token )
+                    .then(res => res)
+}
+
+export function UpdateProfile(displayName, address, gender, token){
+    const body = JSON.stringify({
+        display_name: displayName,
+        address: address,
+        gender: gender
+    })
+
+    return fetchAPI(BASE_URL.url + '/' +APP_API + '/'+ PROVISIONING + '/' + UPDATE_PROFILE, PUT, body, token)
+                    .then(res => res)
+}
+
+
+
+
+
+
 
 export function testURL(){
     return fetch('https://vnexpress.net/', {

@@ -1,3 +1,4 @@
+import { CheckNetwork } from "../Util/UtilFunction/CheckNetworkConnection";
 
 export function fetchAPI(URL, method, body, token){
     var HEADER;
@@ -13,6 +14,18 @@ export function fetchAPI(URL, method, body, token){
             'Content-Type': 'application/json',
         }
     }
+
+    // CheckNetwork().then(connection => {
+    //     if (connection.type === 'none'){
+    //         alert(Strings.FAIL, 
+    //               Strings.INTERNET_NOT_CONNECTED  , 
+    //                 () => console.log("please connect"))
+    //     }else{
+        
+        
+    //     }
+
+    // })
 
     return fetch(URL, {
         method: method,

@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { pointX, pointY } from '../../../../Util/Constanst';
+import Strings from '../../../../Util/Common/Strings';
+import Colors from '../../../../Util/Common/Colors';
 
 export const styles = StyleSheet.create({
     container:{
@@ -36,6 +38,18 @@ export const styles = StyleSheet.create({
         height:19 * pointY,
         width:11.88 * pointX,
         marginLeft: 51.13* pointX,
+    },
+    genderCheckContainer:{
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    checkboxBackground:{
+        backgroundColor: Strings.TRANSPARENT,
+        borderColor:Strings.TRANSPARENT
+    },
+    checkerTextStyle:{
+        color: Colors.WHITE
     },
     loginBtn:{
         width:'80%',

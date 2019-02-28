@@ -35,12 +35,12 @@ export function loginFail(error){
 export function loginDefault(self, username, hashPass, device_id, os_id) {
 
     return (dispatch) => {
-        CheckNetwork().then(connection => {
-            if (connection.type === 'none'){
-                alert(Strings.FAIL, 
-                      Strings.INTERNET_NOT_CONNECTED  , 
-                        () => console.log("please connect"))
-            }else{
+        // CheckNetwork().then(connection => {
+        //     if (connection.type === 'none'){
+        //         alert(Strings.FAIL, 
+        //               Strings.INTERNET_NOT_CONNECTED  , 
+        //                 () => console.log("please connect"))
+        //     }else{
                 dispatch(login());
                 // Call API 
                 testURL()
@@ -66,7 +66,7 @@ export function loginDefault(self, username, hashPass, device_id, os_id) {
                 })
                     .catch((error) => dispatch(loginFail(error)))
             }
-        })
+    //     })
         
-    }
+    // }
 }
