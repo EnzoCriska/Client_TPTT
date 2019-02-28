@@ -7,7 +7,7 @@ import { ItemNews } from './itemNews';
 import { styles } from './style';
 import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
 
-import * as IMG from '../../../../Util/Image';
+import * as IMG from '../../../../Util/Common/Image';
  export const RenderScrollNew = ({
     listNews = [],
     onRenderItem = () => {},

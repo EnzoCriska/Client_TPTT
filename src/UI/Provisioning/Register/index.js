@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { SafeAreaView, Alert, Platform } from 'react-native';
 import { RenderRegister } from './render';
 import { areaStyles } from '../../../Util/Component Util/SafeAreaStyle';
-import Strings from '../../../Util/Strings';
+import Strings from '../../../Util/Common/Strings';
 import md5 from 'md5';
 import DeviceInfo from 'react-native-device-info';
 

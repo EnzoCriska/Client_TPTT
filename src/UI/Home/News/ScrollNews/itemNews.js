@@ -3,8 +3,8 @@ import {
     View, Text, TouchableOpacity, Image, ImageBackground, StyleSheet
  } from 'react-native';
 
- import * as IMG from '../../../../Util/Image';
-import Strings from '../../../../Util/Strings';
+ import * as IMG from '../../../../Util/Common/Image';
+import Strings from '../../../../Util/Common/Strings';
 
  export const ItemNews = ({
     urlImage = '',

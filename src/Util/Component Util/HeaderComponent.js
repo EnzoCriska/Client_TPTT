@@ -13,8 +13,8 @@ import { pointY, pointX } from "../Constanst";
 import {connect} from 'react-redux';
 import {loginDefault} from '../../actions/loginAction';
 
-import * as IMG from '../../Util/Image';
-import { getStatusLogin } from "../asyncStorage";
+import * as IMG from '../../Util/Common/Image';
+import { getStatusLogin } from "../UtilFunction/asyncStorage";
 
 
 class HeaderComponent extends React.Component{

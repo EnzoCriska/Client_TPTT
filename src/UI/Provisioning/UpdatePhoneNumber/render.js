@@ -11,9 +11,9 @@ import {
   Keyboard
 } from "react-native";
 import { styles } from "./style";
-import * as IMG from "../../../Util/Image";
-import Strings from "../../../Util/Strings";
-import Colors from "../../../Util/Colors";
+import * as IMG from "../../../Util/Common/Image";
+import Strings from "../../../Util/Common/Strings";
+import Colors from "../../../Util/Common/Colors";
 
 export const RenderUpdatePhoneNumber = ({
   phone = "",

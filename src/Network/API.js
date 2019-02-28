@@ -1,5 +1,5 @@
 
-export function fetch(URL, method, body, token){
+export function fetchAPI(URL, method, body, token){
     var HEADER;
     if (token){
         HEADER = {

@@ -5,8 +5,8 @@ import {
 import { styles } from './style';
 import { HeaderComponent } from '../../../../Util/Component Util/HeaderComponent';
 
-import * as IMG from '../../../../Util/Image';
-import Strings from '../../../../Util/Strings';
+import * as IMG from '../../../../Util/Common/Image';
+import Strings from '../../../../Util/Common/Strings';
 
 export const RenderDetailNews = ({
     urlImage= '',

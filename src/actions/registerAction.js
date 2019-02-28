@@ -1,9 +1,9 @@
 import {REGISTER_FAIL, START_REGISTER, REGISTER_OK} from './types';
 import {SigUp} from '../Network/ProvisioningAPI';
 import alertMsgErrorCallApi from '../Util/Component Util/alertMsgErrorCallApi';
-import { CheckNetwork } from '../Util/CheckNetworkConnection';
+import { CheckNetwork } from '../Util/UtilFunction/CheckNetworkConnection';
 import {alert} from '../Util/Component Util/alert';
-import Strings from '../Util/Strings';
+import Strings from '../Util/Common/Strings';
 
 export function startRegister(){
     return {
@@ -38,7 +38,7 @@ export function registerDefault(self, userName, hashPass, device_id, os_id){
                 // CALL API
                 SigUp(userName, hashPass, device_id, os_id).then((data) => {
                     var body = JSON.parse(data._bodyText)
-                    
+                    console.log(body)
                     if(body.code === 200){
                         dispatch(registerSuccess(data._bodyText))
                         self.props.navigation.navigate('Login')

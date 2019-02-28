@@ -11,7 +11,7 @@ import ListFriend from './listFriend/indexListFriend';
 import ListWaitFriend from './listWaitFriend/indexListWaitFriend';
 import { HeaderComponent } from '../../../../Util/Component Util/HeaderComponent';
 
-import * as IMG from '../../../../Util/Image';
+import * as IMG from '../../../../Util/Common/Image';
 
 const tabStack = createMaterialTopTabNavigator(
     {

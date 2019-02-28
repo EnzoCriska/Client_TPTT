@@ -10,9 +10,9 @@ import {
     Keyboard
 } from 'react-native';
 import { styles } from './style';
-import * as IMG from '../../../Util/Image';
-import Colors from '../../../Util/Colors';
-import Strings from '../../../Util/Strings';
+import * as IMG from '../../../Util/Common/Image';
+import Colors from '../../../Util/Common/Colors';
+import Strings from '../../../Util/Common/Strings';
 
 export const RenderRegister = ({
     userName ='',

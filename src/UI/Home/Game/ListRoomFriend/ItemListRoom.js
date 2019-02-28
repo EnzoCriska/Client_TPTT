@@ -2,8 +2,8 @@ import React from "react";
 import { View, Text, Image, ImageBackground } from "react-native";
 import { styles } from "./style";
 
-import * as IMG from '../../../../Util/Image'
-import Strings from "../../../../Util/Strings";
+import * as IMG from '../../../../Util/Common/Image'
+import Strings from "../../../../Util/Common/Strings";
 export const ItemRoomList = ({ item = {} }) => {
   return (
     <View style={styles.containerItem}>

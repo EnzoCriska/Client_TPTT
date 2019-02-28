@@ -14,6 +14,7 @@ export default (state = DEFAULT_STATE, action) => {
     switch(action.type){
 
         case PASSWORD_CHANGING:
+            console.log("Changing...")
             return {
                 ...state,
                 isChanging: true,

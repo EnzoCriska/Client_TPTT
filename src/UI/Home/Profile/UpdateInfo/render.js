@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { styles } from './style';
 
-import * as IMG from '../../../../Util/Image';
+import * as IMG from '../../../../Util/Common/Image';
 
 export const RenderUpdateInfo = ({
     avatar = '',

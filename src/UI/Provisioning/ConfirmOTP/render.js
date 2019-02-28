@@ -11,9 +11,9 @@ import {
   Keyboard
 } from "react-native";
 import { styles } from "./style";
-import Strings from "../../../Util/Strings";
-import * as IMG from "../../../Util/Image";
-import Colors from "../../../Util/Colors";
+import Strings from "../../../Util/Common/Strings";
+import * as IMG from "../../../Util/Common/Image";
+import Colors from "../../../Util/Common/Colors";
 
 export const RenderConfirmOTP = ({
   OTP = "",

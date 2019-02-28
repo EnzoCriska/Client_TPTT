@@ -1,10 +1,10 @@
 import {
     LOGING, LOGIN_FAIL, LOGIN_OK
 } from './types';
-import { SigIn } from '../Network/ProvisioningAPI';
-import { CheckNetwork } from '../Util/CheckNetworkConnection';
+import { SigIn, testURL } from '../Network/ProvisioningAPI';
+import { CheckNetwork } from '../Util/UtilFunction/CheckNetworkConnection';
 import alertMsgErrorCallApi from '../Util/Component Util/alertMsgErrorCallApi';
-import { saveAccessToken, getAccessToken, saveStatusLogin } from '../Util/asyncStorage';
+import { saveAccessToken, getAccessToken, saveStatusLogin } from '../Util/UtilFunction/asyncStorage';
 
 
 
@@ -43,6 +43,7 @@ export function loginDefault(self, username, hashPass, device_id, os_id) {
             }else{
                 dispatch(login());
                 // Call API 
+                testURL()
                 SigIn(username, hashPass, device_id, os_id).then((data) => {
                     var body = JSON.parse(data._bodyText)
                     console.log(body)

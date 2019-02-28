@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView, Platform } from 'react-native';
 import { RenderUpdateInfo } from './render';
-import {CheckCameraPermission, CheckStoragePermission} from '../../../../Util/CheckPermission';
-import { picker } from '../../../../Util/ImagePicker';
+import {CheckCameraPermission, CheckStoragePermission} from '../../../../Util/UtilFunction/CheckPermission';
+import { picker } from '../../../../Util/UtilFunction/ImagePicker';
 import { areaStyles } from '../../../../Util/Component Util/SafeAreaStyle';
 
 

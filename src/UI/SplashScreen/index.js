@@ -4,7 +4,7 @@ import { RenderSplash } from './render';
 
 import { connect } from 'react-redux';
 import {exchangeAccessToken} from '../../actions/splashAction';
-import { getStatusLogin } from '../../Util/asyncStorage';
+// import { getStatusLogin } from '../../Util/asyncStorage';
 
 
 

@@ -15,7 +15,6 @@ export default (state = DEFAULT_STATE, action) => {
                 ...state,
                 isLogin: true,
                 data : [],
-                // ...state
             };
         case LOGIN_OK:
             return {

@@ -10,11 +10,11 @@ import {
 } from "../Util/Constanst";
 
 import {getAccessToken} from '../Util/UtilFunction/asyncStorage';
-import { fetch } from "./API";
+import { fetchAPI } from "./API";
 
-const POST = 'post',
-const GET = 'get',
-const PUT = 'PUT',
+const POST = 'post'
+const GET = 'get'
+const PUT = 'PUT'
 const DELETE = 'delete'
 
 const HEADER = {
@@ -29,24 +29,37 @@ const HEADER = {
 //     Authorization: token
 // }
 
-export function SigUp(userName, password, device_id, os_id){
-    return fetch(BASE_URL.url + '/' + AUTH_API + '/' + SIGN_UP, {
-        method: 'POST',
-        headers: HEADER,
-        body: JSON.stringify({
-            username: userName,
-            password: password,
-            device_id: device_id,
-            os_id: os_id
-          }),
-        })
-        .then(res =>
-           res
-        )
-        .catch(err => {
-            console.error(err)
-        });
+// export function SigUp(userName, password, device_id, os_id){
+//     return fetch(BASE_URL.url + '/' + AUTH_API + '/' + SIGN_UP, {
+//         method: 'POST',
+//         headers: HEADER,
+//         body: JSON.stringify({
+//             username: userName,
+//             password: password,
+//             device_id: device_id,
+//             os_id: os_id
+//           }),
+//         })
+//         .then(res =>
+//            res
+//         )
+//         .catch(err => {
+//             console.error(err)
+//         });
+// }
+
+export function SigUp(username, password, device_id, os_id){
+    const body = JSON.stringify({
+        username: username,
+        password: password,
+        device_id: device_id,
+        os_id:os_id
+    })
+
+    return fetchAPI(BASE_URL.url + '/' + AUTH_API + '/' + SIGN_UP, POST, body, null)
+                .then(res=> res)
 }
+
 
 export function SigIn(username, password, device_id, os_id){
     return fetch(BASE_URL.url + '/' + AUTH_API + '/' + LOGIN + '/' + NORMAL, {
@@ -106,6 +119,14 @@ export function ChangePasswordAPI(old_password,new_password, token){
         old_password:old_password,
         new_password:new_password
     })
-    return fetch(BASE_URL.url + '/' + AUTH_API + '/' + PASSWORD + '/' + CHANGE_PASS,
+    return fetchAPI(BASE_URL.url + '/' + AUTH_API + '/' + PASSWORD + '/' + CHANGE_PASS,
         POST, body, token).then(res => res)
+}
+
+export function testURL(){
+    return fetch('https://vnexpress.net/', {
+        method: 'GET'
+    }).then(res => {
+        console.log(res.status)
+    })
 }

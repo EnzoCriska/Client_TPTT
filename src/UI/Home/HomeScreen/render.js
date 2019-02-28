@@ -7,8 +7,8 @@ import Carousel from 'react-native-snap-carousel';
 import  HeaderComponent  from '../../../Util/Component Util/HeaderComponent';
 import { pointX } from '../../../Util/Constanst';
 
-import * as IMG from '../../../Util/Image';
-import Strings from '../../../Util/Strings';
+import * as IMG from '../../../Util/Common/Image';
+import Strings from '../../../Util/Common/Strings';
 
 const {width, height} = Dimensions.get('window')
 

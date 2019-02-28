@@ -10,9 +10,9 @@ import Modal from 'react-native-modal';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
 
-import * as IMG from '../../../../Util/Image';
-import Strings from '../../../../Util/Strings';
-import Colors from '../../../../Util/Colors';
+import * as IMG from '../../../../Util/Common/Image';
+import Strings from '../../../../Util/Common/Strings';
+import Colors from '../../../../Util/Common/Colors';
  export const RenderListRoom = ({
     listRoom = [],
     goBack = () => {},

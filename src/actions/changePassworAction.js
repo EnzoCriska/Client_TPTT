@@ -30,6 +30,7 @@ export function changePasswordFail(error){
 
 
 export function changePassword(self, oldPassword, newPassword, token){
+    
     return (dispatch) => {
         CheckNetwork().then(connection => {
             if (connection.type === 'none'){
@@ -38,9 +39,11 @@ export function changePassword(self, oldPassword, newPassword, token){
                         () => console.log("please connect"))
             }else{
                 dispatch(changingPassword())
+
                 ChangePasswordAPI(oldPassword, newPassword, token).then((data) =>{
                     const body = JSON.parse(data._bodyText)
                     if(body.code === 200){
+                        
                         saveAccessToken(body.token)
                         dispatch(changePasswordSuccess(body))
                         self.props.navigation.navigate("Info")

@@ -3,8 +3,8 @@ import {
     View, Text, TouchableOpacity, Image, ImageBackground, FlatList
  } from 'react-native';
 import { styles } from './style';
-import * as IMG from '../../../../../Util/Image';
-import Strings from '../../../../../Util/Strings';
+import * as IMG from '../../../../../Util/Common/Image';
+import Strings from '../../../../../Util/Common/Strings';
 
  export const RenderWaitListFriend = ({
      parentState = {},

@@ -13,9 +13,9 @@ import {
 import { styles } from './style';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import  HeaderComponent  from '../../../../Util/Component Util/HeaderComponent';
-import * as IMG from '../../../../Util/Image';
-import Strings from '../../../../Util/Strings';
-import Colors from '../../../../Util/Colors';
+import * as IMG from '../../../../Util/Common/Image';
+import Strings from '../../../../Util/Common/Strings';
+import Colors from '../../../../Util/Common/Colors';
 
 export const RenderWaitGame = ({
     onGoProfile = () => {},
