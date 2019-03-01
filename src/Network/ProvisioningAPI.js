@@ -10,7 +10,8 @@ import {
     LOGOUT,
     PROVISIONING,
     UPDATE_PROFILE,
-    APP_API
+    APP_API,
+    UPDATE_AVATAR
 } from "../Util/Constanst";
 
 import {getAccessToken} from '../Util/UtilFunction/asyncStorage';
@@ -18,7 +19,7 @@ import { fetchAPI } from "./API";
 
 const POST = 'post'
 const GET = 'get'
-const PUT = 'PUT'
+const PUT = 'put'
 const DELETE = 'delete'
 
 const HEADER = {
@@ -83,11 +84,23 @@ export function UpdateProfile(displayName, address, gender, token){
         gender: gender
     })
 
+     console.log(body)
+
     return fetchAPI(BASE_URL.url + '/' +APP_API + '/'+ PROVISIONING + '/' + UPDATE_PROFILE, PUT, body, token)
                     .then(res => res)
 }
 
+export function UploadImageAPI(avatarUrl, type, token){
+    const body = JSON.stringify({
+        image_url: avatarUrl,
+        type: type
+    })
 
+
+    return fetchAPI(BASE_URL.url+'/' + APP_API + '/' + PROVISIONING + '/' + UPDATE_AVATAR,
+                    PUT, body, token).then(res => res)
+
+}
 
 
 

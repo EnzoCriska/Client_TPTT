@@ -8,9 +8,12 @@ import {Loading} from '../../../../Util/Component Util/LoadingScreen';
 import { LogOut } from '../../../../Network/ProvisioningAPI';
 import { getAccessToken } from '../../../../Util/UtilFunction/asyncStorage';
 
-var GameRouter 
-    
-export default class Info extends Component {
+var GameRouter
+import {connect} from 'react-redux'
+import {loadInfoAction} from '../../../../actions/InfoAction'
+
+
+class Info extends Component {
   constructor(props) {
     super(props);
     GameRouter = this.props.navigation.getParam('router')
@@ -27,8 +30,18 @@ export default class Info extends Component {
     };
   }
 
-  componentDidMount(){
+  async  componentWillMount(){
     // Call API
+    const pre = {
+      userName: null,
+      point: null
+    }
+
+    const token = await getAccessToken()
+
+    await this.props.loadInfoAction(this, pre, token)
+
+    
   }
 
   onGoBack(){
@@ -38,7 +51,7 @@ export default class Info extends Component {
 
   onGoEdit(){
     console.log("Edit")
-    this.props.navigation.navigate('Edit')
+    this.props.navigation.navigate('Edit', {router: 'goBack'})
   }
 
   onGoHistoryGame(){
@@ -75,7 +88,10 @@ export default class Info extends Component {
 
   render() {
     const {isLoading,avatarUrl, userName, pointValue, gameValue, rankValue, r_gValue, birthdayValue, phonenumberValue} = this.state
-    if (isLoading) return <Loading/>
+    
+    console.log(this.props)
+    if (this.props.data.isLoading) return <Loading/>
+    const {display_name, money, point, system_point, total_trans, phone, address, avatar} = this.props.data.info
     return (
       <SafeAreaView style={areaStyles.area}>
       <RenderInfo
@@ -85,16 +101,24 @@ export default class Info extends Component {
           onGoHistoryChangeGift = {() => this.onGoHistoryChangeGift()}
           onGoChangePassword = {() => this.onGoChangePassword()}
           onLogout = {() => this.onLogout()}
-          avartarUrl = {avatarUrl}
-          userName = {userName}
-          pointValue = {pointValue}
+          avartarUrl = {avatar}
+          userName = {display_name}
+          pointValue = {point}
           gameValue = {gameValue}
-          rankValue = {rankValue}
+          rankValue = {system_point}
           r_gValue = {r_gValue}
-          birthdayValue = {birthdayValue}
-          phonenumberValue = {phonenumberValue}
+          birthdayValue = {address}
+          phonenumberValue = {phone}
       />
       </SafeAreaView>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+      data: state.loadInfoReducer,
+  }
+};
+
+export default connect (mapStateToProps, {loadInfoAction})(Info)

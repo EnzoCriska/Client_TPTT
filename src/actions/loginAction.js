@@ -53,7 +53,7 @@ export function loginDefault(self, username, hashPass, device_id, os_id) {
                         saveStatusLogin(body.user_info)
                         dispatch(loginSuccess(body))
                         if(body.login_first_time){
-                            self.props.navigation.navigate('updateProfile')
+                            self.props.navigation.navigate('updateProfile', {router: 'toHome'})
                         }else{
                             self.props.navigation.navigate('bottomTabStack')
                         }

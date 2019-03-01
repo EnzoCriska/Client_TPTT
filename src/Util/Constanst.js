@@ -12,6 +12,8 @@ export const NORMAL = 'normal'
 export const AUTHORIZATION = 'authorization'
 export const PASSWORD = 'password'
 export const CHANGE_PASS = 'change-pass'
+export const DETAIL_PROFILE_USER = 'detail-profile-user'
+export const UPDATE_AVATAR = 'update-avatar'
 
 export const APP_API = 'app-api'
 export const PROVISIONING = 'provisioning'
