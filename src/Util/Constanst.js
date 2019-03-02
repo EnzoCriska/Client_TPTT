@@ -18,6 +18,7 @@ export const UPDATE_AVATAR = 'update-avatar'
 export const APP_API = 'app-api'
 export const PROVISIONING = 'provisioning'
 export const UPDATE_PROFILE = 'update-profile'
+export const PHONE = 'phone'
 
 export {pointX, pointY, width, height}
 

@@ -44,6 +44,12 @@ class Info extends Component {
     
   }
 
+  componentDidMount = () => {
+    console.log("This is Info")
+    console.log(this.props)
+  };
+  
+
   onGoBack(){
     console.log("goBack")
     GameRouter.pop()
@@ -86,6 +92,10 @@ class Info extends Component {
     })
   }
 
+  onChangePhone(){
+    this.props.navigation.navigate('UpdatePhone',{router:'fromInfo'})
+  }
+
   render() {
     const {isLoading,avatarUrl, userName, pointValue, gameValue, rankValue, r_gValue, birthdayValue, phonenumberValue} = this.state
     
@@ -97,6 +107,7 @@ class Info extends Component {
       <RenderInfo
           onGoBack = {()=> this.onGoBack()}
           onGoEdit = {() => this.onGoEdit()}
+          onChangePhone = {() => this.onChangePhone()}
           onGoHistoryGame = {() => this.onGoHistoryGame()}
           onGoHistoryChangeGift = {() => this.onGoHistoryChangeGift()}
           onGoChangePassword = {() => this.onGoChangePassword()}

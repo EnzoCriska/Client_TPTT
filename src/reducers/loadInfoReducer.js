@@ -1,4 +1,4 @@
-import {INFO_LOADING, INFO_LOAD_FAIL, INFO_LOAD_SUCCESS, UPDATING_INFO, UPDATE_INFO_SUCCESS, UPDATE_INFO_FAIL, UPLOADING_AVATAR, UPLOAD_AVATAR_SUCCESS, UPLOAD_AVATAR_FAIL} from '../actions/types';
+import {INFO_LOADING, INFO_LOAD_FAIL, INFO_LOAD_SUCCESS, UPDATING_INFO, UPDATE_INFO_SUCCESS, UPDATE_INFO_FAIL, UPLOADING_AVATAR, UPLOAD_AVATAR_SUCCESS, UPLOAD_AVATAR_FAIL, UPDATE_PHONE_NUMBER_SUCCESS_INFO} from '../actions/types';
 
 const DEFAULT_STATE = {
     info : [],
@@ -59,6 +59,18 @@ export default (state = DEFAULT_STATE, action) => {
                 ...state,
                 error: action.error
             }
+        case UPDATE_PHONE_NUMBER_SUCCESS_INFO:
+            const oldState = action.oldState
+            const info = oldState.info
+            const newInfo = {
+                ...info,
+                phone: action.payload
+            }
+            return {
+                ...oldState,
+                info: newInfo
+            }
+
 
         default: 
             return state;

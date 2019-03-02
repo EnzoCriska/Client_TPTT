@@ -9,6 +9,7 @@ import * as IMG from '../../../../Util/Common/Image';
  export const RenderInfo = ({
     onGoBack = () => {},
     onGoEdit = () => {},
+    onChangePhone = () => {},
     onGoHistoryGame = () => {},
     onGoHistoryChangeGift = () => {},
     onGoChangePassword = () => {},
@@ -110,7 +111,9 @@ import * as IMG from '../../../../Util/Common/Image';
                         <Text style ={styles.textData}>{birthdayValue}</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.selectMore}>
+                    <TouchableOpacity 
+                        onPress = {() => onChangePhone()}
+                        style={styles.selectMore}>
                         <Text style ={styles.textData}>{Strings.PHONE_NUMBER_VI}</Text>
                         <Text style ={styles.textData}>{phonenumberValue}</Text>
                     </TouchableOpacity>

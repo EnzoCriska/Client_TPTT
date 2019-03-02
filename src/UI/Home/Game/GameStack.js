@@ -11,7 +11,8 @@ import Info from '../Profile/Info/index.js';
 import WaitFriendRoom from './WaitFriendRoom/index.js';
 import InviteJoinRoom from './InviteJoinRoom/index.js';
 import { StackProfile } from '../Profile/StackProfile.js';
-
+import UpdatePhoneNumber from '../../Provisioning/UpdatePhoneNumber/index.js';
+import ConfirmOTP from '../../Provisioning/ConfirmOTP/index';
 const GameStack = createStackNavigator({
     HomeScreen:HomeScreen,
     WaitScreen: WaitScreen,
@@ -20,6 +21,8 @@ const GameStack = createStackNavigator({
     WaitFriendRoom: WaitFriendRoom,
     InviteJoin: InviteJoinRoom,
     Profile: StackProfile,
+    UpdatePhone: UpdatePhoneNumber,
+    OTPConfirm: ConfirmOTP
 },{
     headerMode: "none"
 })

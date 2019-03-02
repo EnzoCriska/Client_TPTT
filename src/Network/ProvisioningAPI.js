@@ -11,7 +11,8 @@ import {
     PROVISIONING,
     UPDATE_PROFILE,
     APP_API,
-    UPDATE_AVATAR
+    UPDATE_AVATAR,
+    PHONE
 } from "../Util/Constanst";
 
 import {getAccessToken} from '../Util/UtilFunction/asyncStorage';
@@ -96,12 +97,29 @@ export function UploadImageAPI(avatarUrl, type, token){
         type: type
     })
 
-
     return fetchAPI(BASE_URL.url+'/' + APP_API + '/' + PROVISIONING + '/' + UPDATE_AVATAR,
                     PUT, body, token).then(res => res)
 
 }
 
+export function UpdatePhoneNumberAPI(phone, token){
+    const body = JSON.stringify({
+        phone: phone
+    })
+
+    return fetchAPI(BASE_URL.url + '/' + APP_API + '/' + PROVISIONING + '/' + PHONE,
+                    PUT, body, token).then(res => res)
+}
+
+export function ConfirmOTPAPI(phone, otp, token){
+    const body = JSON.stringify({
+        phone: phone,
+        otp: otp
+    })
+    
+    return fetchAPI(BASE_URL.url + '/' + APP_API + '/' + PROVISIONING + '/' + 'otp',
+                    PUT, body, token).then(res => res)
+}
 
 
 

@@ -7,6 +7,7 @@ import HistoryGame from './historyGame';
 import HistoryChangeGift from './historyChangeGift';
 import UpdateInfo from './UpdateInfo';
 import ChangePassword from './ChangePassword';
+import UpdatePhoneNumber from '../../Provisioning/UpdatePhoneNumber';
 
 
 export const StackProfile = createStackNavigator({
@@ -14,6 +15,7 @@ export const StackProfile = createStackNavigator({
     HistoryGame: HistoryGame,
     HistoryChangeGift: HistoryChangeGift,
     Edit: UpdateInfo,
-    ChangePassword: ChangePassword
+    ChangePassword: ChangePassword,
+    UpdatePhone: UpdatePhoneNumber
 
 }, {headerMode: 'none'})

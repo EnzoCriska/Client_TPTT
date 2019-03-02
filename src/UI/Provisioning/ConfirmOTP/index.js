@@ -3,10 +3,15 @@ import { View, SafeAreaView } from 'react-native';
 import { RenderConfirmOTP } from './render';
 import { areaStyles } from '../../../Util/Component Util/SafeAreaStyle';
 
-export default class ConfirmOTP extends Component {
+import {connect} from 'react-redux'
+import {updatePhoneNumberActions} from '../../../actions/updatePhoneNumber'
+import { getAccessToken } from '../../../Util/UtilFunction/asyncStorage';
+
+class ConfirmOTP extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        phone: this.props.navigation.getParam('phone'),
         OTP :''
     };
   }
@@ -15,8 +20,13 @@ export default class ConfirmOTP extends Component {
       this.setState({OTP:text})
   }
 
-  onConfirm(){
+  async onConfirm(){
+    const {phone, OTP} = this.state
+    const token  = await getAccessToken()
+    const from = this.props.navigation.getParam('router')
+    const state = this.props
 
+    this.props.updatePhoneNumberActions(this, from, state, phone, OTP, token)
   }
 
   render() {
@@ -32,3 +42,13 @@ export default class ConfirmOTP extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+      data: state.loginReducer,
+      loadInfo: state.loadInfoReducer
+  }
+};
+
+export default connect (mapStateToProps, {updatePhoneNumberActions})(ConfirmOTP)
+

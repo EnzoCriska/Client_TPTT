@@ -9,7 +9,7 @@ import { areaStyles } from '../../../Util/Component Util/SafeAreaStyle';
 
 import {connect} from 'react-redux';
 import {loginDefault} from '../../../actions/loginAction';
-
+import {alert} from '../../../Util/Component Util/alert'
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -68,8 +68,11 @@ class HomeScreen extends Component {
   }
 
   onSystemRoom(){
+    const {phone} = this.props.data.data.user_info
+    if(phone === ''){
+      alert("THÔNG BÁO", "Vui lòng cập nhật sđt vinaphone trước", () => this.props.navigation.navigate('UpdatePhone', {router:'fromHome'}))
+    }else
     this.props.navigation.navigate('GamePlay')
-    console.log("System Room")
   }
 
   onFriendsRoom(){

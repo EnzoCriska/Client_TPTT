@@ -3,7 +3,14 @@ import { View, SafeAreaView } from 'react-native';
 import { RenderUpdatePhoneNumber } from './render';
 import { areaStyles } from '../../../Util/Component Util/SafeAreaStyle';
 
-export default class UpdatePhoneNumber extends Component {
+import {connect} from 'react-redux'
+import {updatePhoneNumberActions} from '../../../actions/updatePhoneNumber'
+import { getAccessToken } from '../../../Util/UtilFunction/asyncStorage';
+import { UpdatePhoneNumberAPI } from '../../../Network/ProvisioningAPI';
+import { alert } from '../../../Util/Component Util/alert';
+
+
+class UpdatePhoneNumber extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,9 +22,26 @@ export default class UpdatePhoneNumber extends Component {
       this.setState({phone: text})
   }
 
-  onUpdate(){
+  async onUpdate(){
+    const {phone} = this.state
+    const token  = await getAccessToken()
+    UpdatePhoneNumberAPI(phone,token).then(res=>{
+      const body =JSON.parse(res._bodyText)
+      if(body.code === 200){
+        const from = this.props.navigation.getParam('router')
+        this.props.navigation.navigate('OTPConfirm', {router: from, phone: this.state.phone})
+      }else{
+        alert("WARRING", "Lỗi, vui lòng thử lại", () => {this.setState({phone: ''})})
+      }
+    })
+    
+    // console.log(this.props)
+    
+    
+    // const state = this.props
 
-  }
+    // this.props.updatePhoneNumberActions(this, from, state, phone, token)
+ }
 
   render() {
     const {phone} = this.state
@@ -32,3 +56,12 @@ export default class UpdatePhoneNumber extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+      data: state.loginReducer,
+      loadInfo: state.loadInfoReducer
+  }
+};
+
+export default connect (mapStateToProps, {updatePhoneNumberActions})(UpdatePhoneNumber)
