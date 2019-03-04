@@ -26,8 +26,8 @@ class UpdatePhoneNumber extends Component {
     const {phone} = this.state
     const token  = await getAccessToken()
     UpdatePhoneNumberAPI(phone,token).then(res=>{
-      const body =JSON.parse(res._bodyText)
-      if(body.code === 200){
+    const body =JSON.parse(res._bodyText)
+    if(body.code === 200){
         const from = this.props.navigation.getParam('router')
         this.props.navigation.navigate('OTPConfirm', {router: from, phone: this.state.phone})
       }else{
@@ -35,12 +35,7 @@ class UpdatePhoneNumber extends Component {
       }
     })
     
-    // console.log(this.props)
-    
-    
-    // const state = this.props
 
-    // this.props.updatePhoneNumberActions(this, from, state, phone, token)
  }
 
   render() {

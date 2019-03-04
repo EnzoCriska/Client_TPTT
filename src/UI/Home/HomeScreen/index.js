@@ -36,7 +36,7 @@ class HomeScreen extends Component {
 
   componentDidMount() {
     var date = new Date().getDate()    
-    startTime = new Date(2019, 1, date, 20, 0, 0)
+    startTime = new Date(2019, 2, date, 20, 0, 0)
      console.log(startTime)
     setInterval( () => {
         var time = new Date()
@@ -70,7 +70,8 @@ class HomeScreen extends Component {
   onSystemRoom(){
     const {phone} = this.props.data.data.user_info
     if(phone === ''){
-      alert("THÔNG BÁO", "Vui lòng cập nhật sđt vinaphone trước", () => this.props.navigation.navigate('UpdatePhone', {router:'fromHome'}))
+      alert("THÔNG BÁO", "Vui lòng cập nhật sđt vinaphone trước", 
+            () => this.props.navigation.navigate('UpdatePhone', {router:'fromHome'}))
     }else
     this.props.navigation.navigate('GamePlay')
   }

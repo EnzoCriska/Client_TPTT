@@ -5,6 +5,6 @@ import Colors from '../Common/Colors';
 export const areaStyles = StyleSheet.create({
     area : {
         flex:1,
-        backgroundColor: Colors.WHITE,
+        backgroundColor: Colors.areaContainer,
     }
 })

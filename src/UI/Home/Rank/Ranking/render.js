@@ -4,7 +4,7 @@ import { Avatar } from "react-native-elements";
 import { styles } from './style';
 import { ItemRank } from './itemRank';
 import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
-import { HeaderComponent } from '../../../../Util/Component Util/HeaderComponent';
+import  HeaderComponent  from '../../../../Util/Component Util/HeaderComponent';
 
 export const RenderRank = ({
     thisRank = '',

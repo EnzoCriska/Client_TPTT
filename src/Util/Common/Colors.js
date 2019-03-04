@@ -4,5 +4,6 @@ export default {
     RED : 'red',
     GREEN: 'green',
     CIRCULAR_PROGRESS_BACKGROUND:'#B2FF2A',
-    CIRCULAR_PROGRESS_TINT_COLOR: "#3d5875"
+    CIRCULAR_PROGRESS_TINT_COLOR: "#3d5875",
+    areaContainer: '#061B60'
 }

@@ -107,7 +107,7 @@ import * as IMG from '../../../../Util/Common/Image';
                 <View style = {styles.moreInfo}>
 
                     <TouchableOpacity style={styles.selectMore}>
-                        <Text style ={styles.textData}>{Strings.BIRTH_DAY}</Text>
+                        <Text style ={styles.textData}>{Strings.ADDRESS}</Text>
                         <Text style ={styles.textData}>{birthdayValue}</Text>
                     </TouchableOpacity>
 
