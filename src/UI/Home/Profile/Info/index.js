@@ -46,7 +46,6 @@ class Info extends Component {
 
   componentDidMount = () => {
     console.log("This is Info")
-    console.log(this.props)
   };
   
 
@@ -101,7 +100,7 @@ class Info extends Component {
     
     console.log(this.props)
     if (this.props.data.isLoading) return <Loading/>
-    const {display_name, money, point, system_point, total_trans, phone, address, avatar} = this.props.data.info
+    const {display_name, money, point, system_point, total_trans, phone, address, avatar} = this.props.data.user_info
     return (
       <SafeAreaView style={areaStyles.area}>
       <RenderInfo
@@ -128,7 +127,7 @@ class Info extends Component {
 
 const mapStateToProps = (state) => {
   return {
-      data: state.loadInfoReducer,
+      data: state.loginReducer,
   }
 };
 

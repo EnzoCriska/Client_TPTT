@@ -16,11 +16,12 @@ export function login(){
     }
 }
 
-export function loginSuccess(data){
+export function loginSuccess(user_info, token){
     
     return {
         type:LOGIN_OK,
-        payload:data
+        user_info:user_info,
+        token:token
     }
 }
 
@@ -35,23 +36,19 @@ export function loginFail(error){
 export function loginDefault(self, username, hashPass, device_id, os_id) {
 
     return (dispatch) => {
-        // CheckNetwork().then(connection => {
-        //     if (connection.type === 'none'){
-        //         alert(Strings.FAIL, 
-        //               Strings.INTERNET_NOT_CONNECTED  , 
-        //                 () => console.log("please connect"))
-        //     }else{
                 dispatch(login());
                 // Call API 
                 testURL()
                 SigIn(username, hashPass, device_id, os_id).then((data) => {
                     var body = JSON.parse(data._bodyText)
                     console.log(body)
+
                     if(body.code === 200){
 
                         saveAccessToken(body.token)
                         saveStatusLogin(body.user_info)
-                        dispatch(loginSuccess(body))
+                        dispatch(loginSuccess(body.user_info, body.token))
+                        
                         if(body.login_first_time){
                             self.props.navigation.navigate('updateProfile', {router: 'toHome'})
                         }else{

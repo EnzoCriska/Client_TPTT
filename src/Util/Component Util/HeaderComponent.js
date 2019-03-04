@@ -29,7 +29,7 @@ class HeaderComponent extends React.Component{
 
   onGoProfile = this.props.onGoProfile
   render(){
-    const {username, avatar, point} = this.props.data.data.user_info
+    const {username, avatar, point} = this.props.data.user_info
 
     let img = avatar == null ? 
         <Image
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent:'space-between',
-        marginTop: Platform.OS === 'android' ? 25 : 0,
+        // marginTop: Platform.OS === 'android' ? 25 : 0,
    },
    leftHeader:{
        flexDirection:'row',

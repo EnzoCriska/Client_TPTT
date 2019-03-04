@@ -10,11 +10,10 @@ import { LoadInfoAPI } from '../Network/LoadDataAPI';
 
 
 
-export function loadingInfo(infoState){
+export function loadingInfo(){
     
     return{
         type:INFO_LOADING,
-        preData: infoState
     }
 }
 
@@ -43,7 +42,7 @@ export function loadInfoAction(self, preInfo, token) {
                       Strings.INTERNET_NOT_CONNECTED  , 
                         () => console.log("please connect"))
             }else{
-                dispatch(loadingInfo(preInfo));
+                dispatch(loadingInfo());
                 // Call API 
 
                 LoadInfoAPI(token).then((data) => {

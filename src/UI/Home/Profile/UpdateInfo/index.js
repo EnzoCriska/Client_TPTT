@@ -6,7 +6,7 @@ import { picker } from '../../../../Util/UtilFunction/ImagePicker';
 import { areaStyles } from '../../../../Util/Component Util/SafeAreaStyle';
 import { getAccessToken } from '../../../../Util/UtilFunction/asyncStorage';
 import { UpdateProfile } from '../../../../Network/ProvisioningAPI';
-import { Loading } from '../../../../Util/Component Util/LoadingScreen';
+import {Loading}  from '../../../../Util/Component Util/LoadingScreen';
 import alertMsgErrorCallApi from '../../../../Util/Component Util/alertMsgErrorCallApi';
 
 import {connect} from 'react-redux';
@@ -49,14 +49,14 @@ class UpdateInfo extends Component {
     }else{
       if (displayName === ''){
         console.log(">>>>>>>>.")
-        console.log(this.props.data.info)
-        const oldName = this.props.data.info.display_name
-        this.props.InfoUpdateAction(this, this.props.data.info, oldName, address, gender, token)
+        console.log(this.props.data.user_info)
+        const oldName = this.props.data.user_info.display_name
+        this.props.InfoUpdateAction(this, this.props.data.user_info, oldName, address, gender, token)
       }else if (address === ''){
-        const oldAddress = this.props.data.info.address
-        this.props.InfoUpdateAction(this, this.props.data.info, displayName, oldAddress, gender, token)
+        const oldAddress = this.props.data.user_info.address
+        this.props.InfoUpdateAction(this, this.props.data.user_info, displayName, oldAddress, gender, token)
       }else if(displayName !== '' && address !== '' ){
-        this.props.InfoUpdateAction(this, this.props.data.info, displayName, address, gender, token)
+        this.props.InfoUpdateAction(this, this.props.data.user_info, displayName, address, gender, token)
       }
     }
   }
@@ -105,7 +105,7 @@ class UpdateInfo extends Component {
 
   render() {
     const {avatar, displayName, address, male, female, isLoading} = this.state
-
+    console.log(this.props.data)
     if(this.props.data.isLoading) return <Loading/>
     
     return (
@@ -130,7 +130,7 @@ class UpdateInfo extends Component {
 
 const mapStateToProps = (state) => {
   return {
-      data: state.loadInfoReducer,
+      data: state.loginReducer,
   }
 };
 

@@ -25,3 +25,11 @@ export {pointX, pointY, width, height}
 export const BASE_URL = {
     url : "http://54.255.151.248:55891"
 }
+
+export const APP_STATE = {
+    isLoading: false,
+    token: '',
+    user_info: '',
+    error: '',
+
+}

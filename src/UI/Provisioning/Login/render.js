@@ -36,7 +36,7 @@ export const RenderLogin =  ({
                 source = {IMG.BACKGROUND_IMG}
                 style = {styles.container}>
 
-                <StatusBar backgroundColor = {Strings.TRANSPARENT} translucent = {true}/>
+                <StatusBar backgroundColor = {Colors.GREY} translucent = {false}/>
 
                 <View style= {styles.LogoContainer}>
                     <Image

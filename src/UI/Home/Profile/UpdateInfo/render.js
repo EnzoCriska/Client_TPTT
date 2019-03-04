@@ -41,11 +41,10 @@ export const RenderUpdateInfo = ({
             source ={IMG.BACKGROUND_IMG}
             style= {styles.container}>
             
-            <TouchableOpacity onPress = {onChangeAva}>
-                {img}
-            </TouchableOpacity>
-
-            <Text style = {styles.textAva}>{Strings.UPDATE_AVATAR}</Text>
+            <Image
+                source = {IMG.LOGO_APP_IMG}
+                style = {styles.logoStyle}
+            />
 
             <ImageBackground
                 source={IMG.INPUT_BACKGROUND_IMG}
@@ -80,50 +79,40 @@ export const RenderUpdateInfo = ({
                     />
             </ImageBackground>
 
-            <View style = {styles.genderCheckContainer}>
-                <CheckBox
-                    center
-                    title='Nam'
-                    textStyle = {styles.checkerTextStyle}
-                    checkedColor = {Colors.WHITE}
-                    checkedIcon='dot-circle-o'
-                    uncheckedIcon='circle-o'
-                    checked={male}
-                    containerStyle = {styles.checkboxBackground}
-                    onPress={() => onSetChecker()}
-                />
-
-                <CheckBox
-                    center
-                    title='Nữ'
-                    textStyle = {styles.checkerTextStyle}
-                    checkedColor = {Colors.WHITE}
-                    checkedIcon='dot-circle-o'
-                    uncheckedIcon='circle-o'
-                    checked={female}
-                    containerStyle = {styles.checkboxBackground}
-                    onPress={() => onSetChecker()}
-                />
-
-            </View>
-
-            {/* <ImageBackground
-                source={require('../../../../../Media/Provisioning/inputBackground.png')}
+            <ImageBackground
+                source={IMG.INPUT_BACKGROUND_IMG}
                 style = {styles.textInput}>
                     <Image
-                        source = {require('../../../../../Media/Provisioning/lock.png')}
+                        source = {require('../../../../../Media/Provisioning/calendar.png')}
                         style = {styles.iconTextInput}
-                        resizeMode = 'center'
+                        resizeMode = {Strings.CENTER}
                     />
-                    <TextInput
-                        style = {styles.input}
-                        keyboardType = 'numeric'
-                        placeholder = "Số CMND"
-                        placeholderTextColor = "grey"
-                        onChangeText = {onChangeCMND}
-                        value = {CMND}
+                    <Text style = {styles.textGender}>{Strings.GENDER}</Text>
+
+                    <CheckBox
+                        center
+                        title='Nam'
+                        textStyle = {styles.checkerTextStyle}
+                        checkedColor = {Colors.WHITE}
+                        checkedIcon='dot-circle-o'
+                        uncheckedIcon='circle-o'
+                        checked={male}
+                        containerStyle = {styles.checkboxBackground}
+                        onPress={() => onSetChecker()}
                     />
-            </ImageBackground> */}
+
+                    <CheckBox
+                        center
+                        title='Nữ'
+                        textStyle = {styles.checkerTextStyle}
+                        checkedColor = {Colors.WHITE}
+                        checkedIcon='dot-circle-o'
+                        uncheckedIcon='circle-o'
+                        checked={female}
+                        containerStyle = {styles.checkboxBackground}
+                        onPress={() => onSetChecker()}
+                    />
+            </ImageBackground>
 
             <TouchableOpacity 
                     style= {styles.loginBtn}

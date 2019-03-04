@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
         flex:1
     },
     headerContainer:{
-        marginTop: 25 * pointX,
+        // marginTop: 25 * pointX,
         width:'100%',
         height:45.75 * pointY,
         alignItems: 'center',
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
     body:{
         flex:1,
         width:'100%',
-        marginTop: 20,
+        marginTop: 10,
         alignItems:'center'
     },
     avatarStyle:{
@@ -50,12 +50,12 @@ export const styles = StyleSheet.create({
         borderColor: "grey",
         borderWidth: 3,
         borderRadius: 75,
-        margin:10
+        // margin:10
     },
     Parameter:{
         marginHorizontal:25,
         flexDirection:'row',
-        marginVertical: 20,
+        marginVertical: 10,
     },
     dataParameter:{
         flex:1,

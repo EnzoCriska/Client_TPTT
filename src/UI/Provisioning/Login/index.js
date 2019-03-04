@@ -89,7 +89,7 @@ class Login extends Component {
 
   render() {
     const {phone, pass, isLoading} = this.state;
-    if (this.props.data.isLogin) return (<Loading/>)
+    if (this.props.data.isLoading) return (<Loading/>)
     
     return (
         <SafeAreaView style={areaStyles.area}>

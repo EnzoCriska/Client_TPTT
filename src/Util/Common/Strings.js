@@ -70,7 +70,7 @@ export default {
     STRETCH: 'stretch',
     COVER: 'cover',
     NOTIFICATION: 'Thông Báo',
-    MISSING_DATA: "Dữ liệu gửi thiếu"
+    MISSING_DATA: "Dữ liệu gửi thiếu",
 
-
+    GENDER: 'Giới tính'
 }

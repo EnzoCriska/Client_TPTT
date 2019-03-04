@@ -17,6 +17,11 @@ export const styles = StyleSheet.create({
         borderColor:"#fff",
         borderWidth:0.5
     },
+    logoStyle:{
+        width:'50%',
+        height:'50%',
+        resizeMode:"center",
+    },
     textAva:{
         color:'#fff',
         margin: 10,
@@ -67,4 +72,8 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold'
     },
+    textGender:{
+        color: Colors.WHITE,
+        marginLeft: 20
+    }
 })
