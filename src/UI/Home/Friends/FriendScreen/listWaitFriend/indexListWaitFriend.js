@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { RenderWaitListFriend } from './renderWaitListFriend';
 
-export default class ListWaitFriend extends Component {
+import {connect} from 'react-redux'
+import {loadWaitFriend} from '../../../../../actions/loadWaitAcceptFriend';
+
+class ListWaitFriend extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,6 +14,7 @@ export default class ListWaitFriend extends Component {
   }
 
   componentDidMount = () => {
+    this.props.loadWaitFriend(this, 'refresh', this.props.data.token, 0, 10)
     var list = [
         {
             avatar: 'https://images.kienthuc.net.vn/zoomh/500/uploaded/manhtu/2017_06_12/3/gai-xinh-dong-nai-khien-dan-mang-chao-dao.jpg',
@@ -78,14 +82,24 @@ export default class ListWaitFriend extends Component {
   }
   
   render() {
-      const {listWaitFriend} = this.state
+      // const {listWaitFriend} = this.state
+      const {wait_friend} = this.props.data
+      console.log(this.props)
     return (
       <RenderWaitListFriend
         parentState = {this.state}
-        listWaitFriend = {listWaitFriend}
+        listWaitFriend = {wait_friend}
         acceptFriend = {(item) => this.acceptFriend(item)}
         dismissFriend = {(item) => this.dismissFriend(item)}
       />
     );
   }
 }
+
+const mapStateToProps = (state) =>{
+  return {
+    data: state.loginReducer
+  }
+}
+
+export default connect(mapStateToProps, {loadWaitFriend})(ListWaitFriend)

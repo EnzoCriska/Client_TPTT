@@ -10,33 +10,27 @@ import { areaStyles } from '../../../Util/Component Util/SafeAreaStyle';
 import {connect} from 'react-redux';
 import {loginDefault} from '../../../actions/loginAction';
 import {alert} from '../../../Util/Component Util/alert'
+import { LoadAdvertisement, LoadNextGame } from '../../../Network/LoadDataAPI';
 
 class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: false,
-      listSlide: [{
-        uriImage:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQheIi0r-k7dbFxbpD1-40LzbhZ2tdzpOWSelMhbfJb5W60j-Tj',
-        title: 'Supper Mario',
-        description:'supper league'
-      },{
-        uriImage:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSFF9TWtTDJ86p47eVym1tNS4kF1httkO52ic-ShOGGCm3iot-',
-        title: 'Supper Mario 2',
-        description:'supper league'
-      },{
-        uriImage:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq4uGjMj9L8vRacfMmIjU3YvQ7Vr3utRzbfrhrwdpQULjYL7cR',
-        title: 'Supper Mario 3',
-        description:'supper league'
-      },
-
-    ]
+      listSlide: [],
+      time_start: '',
+      countUser:''
     };
   }
 
-  componentDidMount() {
-    var date = new Date().getDate()    
-    startTime = new Date(2019, 2, date, 20, 0, 0)
+   async componentDidMount() {
+
+    this.loadAdd()
+
+    await this.loadTimeNextGame()
+
+    var date = new Date().getDate() 
+    startTime = new Date(parseInt(this.state.time_start))  
      console.log(startTime)
     setInterval( () => {
         var time = new Date()
@@ -52,6 +46,27 @@ class HomeScreen extends Component {
     
   }
 
+  async loadTimeNextGame(){
+    await LoadNextGame(this.props.data.token).then(res => {
+      const body = JSON.parse(res._bodyText)
+      console.log(body)
+      //set state
+      this.setState({
+        time_start: body.rows[0].frame_time,
+        countUser: body.rows[0].count_user
+      })
+    })
+  }
+
+  loadAdd(){
+    LoadAdvertisement(this.props.data.token).then(res => {
+      const body = JSON.parse(res._bodyText)
+      this.setState({
+        listSlide:body.rows
+      })
+    })
+  }
+
   onGoProfile(){
     this.props.navigation.navigate('Profile', {router:this.props.navigation})
   }
@@ -60,11 +75,11 @@ class HomeScreen extends Component {
     console.log("Join now")
     this.setState({isLoading:true})
     // Call API get System Room
-    JoinNowGame(Global.currentUser).then(res => {
-      this.setState({isLoading:false})
+    // JoinNowGame(Global.currentUser).then(res => {
+    //   this.setState({isLoading:false})
       // Goto Wait Screen
-      this.props.navigation.navigate('WaitScreen')
-    })
+    //   this.props.navigation.navigate('WaitScreen')
+    // })
   }
 
   onSystemRoom(){
@@ -82,6 +97,7 @@ class HomeScreen extends Component {
 
   onTrainingRoom(){
     console.log("Training")
+    this.props.navigation.navigate('TrainPlay')
   }
 
   render() {

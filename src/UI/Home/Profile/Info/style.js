@@ -52,6 +52,15 @@ export const styles = StyleSheet.create({
         borderRadius: 75,
         // margin:10
     },
+    touchableCameraIcon:{
+        marginLeft: 80 * pointX,
+        marginTop: -25 * pointY,
+    },
+    iconCamera:{
+        width: 25 * pointX,
+        height: 25 * pointY,
+        
+    },
     Parameter:{
         marginHorizontal:25,
         flexDirection:'row',

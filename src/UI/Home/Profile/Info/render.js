@@ -7,6 +7,7 @@ import Strings from '../../../../Util/Common/Strings';
 import * as IMG from '../../../../Util/Common/Image';
 
  export const RenderInfo = ({
+    onChangeAva = () => {},
     onGoBack = () => {},
     onGoEdit = () => {},
     onChangePhone = () => {},
@@ -16,6 +17,7 @@ import * as IMG from '../../../../Util/Common/Image';
     onLogout = () => {},
     avartarUrl = '',
     userName = '',
+    display_name = '',
     pointValue = '',
     rankValue = '',
     gameValue = '',
@@ -73,6 +75,15 @@ import * as IMG from '../../../../Util/Common/Image';
 
             <View style = {styles.body}>
                 {img}
+                
+                <TouchableOpacity
+                    onPress = {() => onChangeAva()}
+                    style = {styles.touchableCameraIcon}>
+                    <Image
+                        source = {IMG.CAMERA_ICON_IMG}
+                        style = {styles.iconCamera}
+                    />
+                </TouchableOpacity>
 
                 <Text style={styles.titleHeader}>{userName}</Text>
 
@@ -107,8 +118,8 @@ import * as IMG from '../../../../Util/Common/Image';
                 <View style = {styles.moreInfo}>
 
                     <TouchableOpacity style={styles.selectMore}>
-                        <Text style ={styles.textData}>{Strings.ADDRESS}</Text>
-                        <Text style ={styles.textData}>{birthdayValue}</Text>
+                        <Text style ={styles.textData}>{Strings.DISPLAY_NAME}</Text>
+                        <Text style ={styles.textData}>{display_name}</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.selectMore}>

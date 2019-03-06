@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { RenderListFriend } from './renderListFriend';
+import { connect } from 'react-redux';
+import { listFriendActions } from '../../../../../actions/loadListFriendAction';
 
-export default class ListFriend extends Component {
+class ListFriend extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,6 +13,7 @@ export default class ListFriend extends Component {
   }
 
   componentDidMount(){
+    this.props.listFriendActions(this, 'refresh', this.props.data.token, 0, 10)
     var list = [
             {
                 avatar: 'https://images.kienthuc.net.vn/zoomh/500/uploaded/manhtu/2017_06_12/3/gai-xinh-dong-nai-khien-dan-mang-chao-dao.jpg',
@@ -67,14 +70,31 @@ selectItemToDelete(item){
     this.setState({listFriend:tmpList})
 }
 
+onLoadMore(){
+  // console.log("loadmore")
+  // this.props.listFriendActions(this, 'loadMore', this.props.data.token, this.props.data.user_info.length-1, 10)
+}
+
   render() {
-      const {listFriend} = this.state
+      // const {listFriend} = this.state
+      const {list_friend, isLoading} = this.props.data
+      // console.log(this.props.data)
     return (
       <RenderListFriend
+            isLoading = {isLoading}
             parentState = {this.state}
-            listFriend = {listFriend}
+            listFriend = {list_friend}
             selectItemToDelete = {(item) => this.selectItemToDelete(item)}
+            onLoadMore = {() => this.onLoadMore()}
       />
     );
   }
 }
+
+const mapStateToProps = (state) =>{
+  return {
+    data: state.loginReducer
+  }
+}
+
+export default connect(mapStateToProps, {listFriendActions})(ListFriend)

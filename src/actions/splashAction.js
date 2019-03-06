@@ -14,11 +14,11 @@ export function startGetAccessToken(){
     }
 }
 
-export function getAccessTokenSuccess(token, refreshToken){
+export function getAccessTokenSuccess(token, user_info){
     return {
         type: GET_ACCESS_TOKEN_SUCCESS,
         token: token,
-        refreshToken: refreshToken
+        user_info: user_info
     }
 }
 
@@ -29,24 +29,15 @@ export function getAccessTokenFail(){
 }
 
 
-export function exchangeAccessToken(self){
+export function exchangeAccessToken(self, token, user_info){
 
     return (dispatch) => {
-
-        getRefreshToken()
-            .then(refreshToken => {
-                console.log(">>>>>>>"+refreshToken)
-                if (refreshToken === ''){
-                    self.props.navigation.navigate('Login')
-                }
-                //Else feth token by refreshToken
-                else{
-                    dispatch(startGetAccessToken())
-                    // API get access Token
-                    dispatch(getAccessTokenSuccess("abc", "bca"))
-                    // seft.props.navigation.navigate('Login')
-                }
-            })
-
+        console.log(user_info)
+        if(user_info){
+            dispatch(getAccessTokenSuccess(token, user_info))
+            self.props.navigation.navigate('bottomTabStack')
+        }else{
+            self.props.navigation.navigate('Login')
+        }
     }
 }

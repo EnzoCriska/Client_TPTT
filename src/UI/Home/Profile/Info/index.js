@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView } from 'react-native';
+import { View, SafeAreaView , Platform} from 'react-native';
 import { RenderInfo } from './render';
 import { areaStyles } from '../../../../Util/Component Util/SafeAreaStyle';
 import { CheckNetwork } from '../../../../Util/UtilFunction/CheckNetworkConnection';
 
 import {Loading} from '../../../../Util/Component Util/LoadingScreen';
 import { LogOut } from '../../../../Network/ProvisioningAPI';
-import { getAccessToken } from '../../../../Util/UtilFunction/asyncStorage';
+import { getAccessToken, deleteStatusLogin } from '../../../../Util/UtilFunction/asyncStorage';
 
 var GameRouter
 import {connect} from 'react-redux'
 import {loadInfoAction} from '../../../../actions/InfoAction'
+import { CheckCameraPermission, CheckStoragePermission } from '../../../../Util/UtilFunction/CheckPermission';
+import { picker } from '../../../../Util/UtilFunction/ImagePicker';
+import {uploadAvatar} from '../../../../actions/uploadAvatarAction'
 
 
 class Info extends Component {
@@ -47,6 +50,32 @@ class Info extends Component {
   componentDidMount = () => {
     console.log("This is Info")
   };
+
+  async onChangeAva(){
+    console.log("Change Ava")
+    const token = await getAccessToken()
+
+    if(Platform.OS === 'android'){
+      await CheckCameraPermission((result)=> {
+        console.log(result)
+        
+      })
+      await CheckStoragePermission((result) => {
+        console.log(result)
+        
+      })
+    }
+    await picker((source, data) =>
+      {
+        this.setState({
+          avatar: source,
+          data : data
+      })
+
+      var url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEL9z7grn7WN-lomPJalJCRB9kAMnjiHLYP5smMH3JPNezbe_4sA" 
+      this.props.uploadAvatar(this, this.props.data.user_info, url, 1, token)
+    })
+  }
   
 
   onGoBack(){
@@ -84,6 +113,7 @@ class Info extends Component {
         this.setState({isLoading: true})
         LogOut(token).then(res => {
           console.log(res)
+          deleteStatusLogin()
           this.props.navigation.navigate('Login')})
         .catch(err => console.log(err))
         this.setState({isLoading:false})
@@ -100,10 +130,11 @@ class Info extends Component {
     
     console.log(this.props)
     if (this.props.data.isLoading) return <Loading/>
-    const {display_name, money, point, system_point, total_trans, phone, address, avatar} = this.props.data.user_info
+    const {display_name, username, point, system_point, total_trans, phone, address, avatar} = this.props.data.user_info
     return (
       <SafeAreaView style={areaStyles.area}>
       <RenderInfo
+          onChangeAva = {() => this.onChangeAva()}
           onGoBack = {()=> this.onGoBack()}
           onGoEdit = {() => this.onGoEdit()}
           onChangePhone = {() => this.onChangePhone()}
@@ -112,11 +143,12 @@ class Info extends Component {
           onGoChangePassword = {() => this.onGoChangePassword()}
           onLogout = {() => this.onLogout()}
           avartarUrl = {avatar}
-          userName = {display_name}
+          userName = {username}
           pointValue = {point}
           gameValue = {gameValue}
           rankValue = {system_point}
           r_gValue = {r_gValue}
+          display_name = {display_name}
           birthdayValue = {address}
           phonenumberValue = {phone}
       />
@@ -131,4 +163,4 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect (mapStateToProps, {loadInfoAction})(Info)
+export default connect (mapStateToProps, {loadInfoAction, uploadAvatar})(Info)

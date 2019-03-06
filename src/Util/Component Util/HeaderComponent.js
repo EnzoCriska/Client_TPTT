@@ -23,7 +23,7 @@ class HeaderComponent extends React.Component{
   }
 
   componentDidMount(){
-    getStatusLogin().then(status => console.log(JSON.parse(status)))
+    // getStatusLogin().then(status => console.log(JSON.parse(status)))
   }
   
 

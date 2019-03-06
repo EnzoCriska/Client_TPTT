@@ -49,6 +49,8 @@ export const HEADER_PROFILE_BACKGROUND_IMG = require('../../../Media/Home/Header
 export const EDIT_PROFILE_ICON_IMG = require('../../../Media/Profile/editProfile.png')
 export const RIGHT_ARROW_ICON_IMG = require('../../../Media/Profile/rightArrow.png')
 export const HISTORY_BACKGROUND_IMG = require('../../../Media/Profile/historyBackground.png')
+export const CAMERA_ICON_IMG = require('../../../Media/Profile/path.png')
+export const AVATAR_DEFAULT_IMG = require('../../../Media/Profile/ic_avatar_default.png')
 
 // News
 export const NEWS_BACKGROUND_ITEM_IMG = require('../../../Media/News/backgroundItem.png')

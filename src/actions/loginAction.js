@@ -52,6 +52,7 @@ export function loginDefault(self, username, hashPass, device_id, os_id) {
                         if(body.login_first_time){
                             self.props.navigation.navigate('updateProfile', {router: 'toHome'})
                         }else{
+                            console.log("To Home")
                             self.props.navigation.navigate('bottomTabStack')
                         }
                         

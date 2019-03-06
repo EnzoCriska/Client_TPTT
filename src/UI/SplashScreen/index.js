@@ -4,7 +4,9 @@ import { RenderSplash } from './render';
 
 import { connect } from 'react-redux';
 import {exchangeAccessToken} from '../../actions/splashAction';
-// import { getStatusLogin } from '../../Util/asyncStorage';
+import { getStatusLogin, getAccessToken } from '../../Util/UtilFunction/asyncStorage';
+// import { ws } from '../../Util/WS/connector';
+
 
 
 
@@ -15,22 +17,21 @@ class SplashScreen extends Component {
     super(props);
     this.state = {
     };
+    
   }
 
-  componentDidMount = () => {
+  async componentDidMount(){
+    // ws.onopen = () => ws.send(JSON.stringify({type: 'greet', payload: 'Hello Mr. Server!'}));
+    // ws.onmessage = ({data}) =>  console.log(data)
     
-    setTimeout(() => {
-      // getStatusLogin().then(status => {
-      //   if (status){
-      //     this.props.navigation.navigate('bottomTabStack')
-      //   }else{
-      //     this.props.navigation.navigate('Login')
-      //   }
-      // })
-      this.props.exchangeAccessToken(this)
+    const token = await getAccessToken()
+    const status = await getStatusLogin()
+    const user_info = JSON.parse(status)
+
+    setTimeout(() => {      
+      this.props.exchangeAccessToken(this, token, user_info)
     }, 3000)
-    
-  };
+}
   
   goToLogin(){
       this.props.navigation.navigate('Login')

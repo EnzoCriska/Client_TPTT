@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     },
     descriptionItemSlide:{
         color:'#fff',
-        fontSize:16,
+        fontSize:14,
         marginLeft:10,
         marginBottom:10
     },

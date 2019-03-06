@@ -19,16 +19,26 @@ export const saveAccessToken = async (token = '') => {
 
 export const saveStatusLogin = async (userInfo = {}) => {
     try{
-        await AsyncStorage.setItem('status_login', userInfo.toString())
+        await AsyncStorage.setItem('status_login', JSON.stringify(userInfo))
     } catch(e){
         console.log(e)
     }
 }
 
 export const getStatusLogin = async () => {
+    
     try{
         const status = await AsyncStorage.getItem('status_login')
         return status
+    } catch (e){
+        console.log(e)
+    }
+}
+
+export const deleteStatusLogin = async () => {
+    
+    try{
+    await AsyncStorage.removeItem('status_login')
     } catch (e){
         console.log(e)
     }

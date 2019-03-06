@@ -57,6 +57,8 @@ export default {
     GAME: 'Game',
     RANK: 'Rank',
     PROFILE: 'Profile',
+    GENDER: 'Giới tính',
+    DISPLAY_NAME: 'Tên hiển thị',
 
     OLD_PASSWORD: 'Mật khẩu cũ',
     NEW_PASSWORD: 'Mật khẩu mới',
@@ -72,5 +74,5 @@ export default {
     NOTIFICATION: 'Thông Báo',
     MISSING_DATA: "Dữ liệu gửi thiếu",
 
-    GENDER: 'Giới tính'
+    
 }

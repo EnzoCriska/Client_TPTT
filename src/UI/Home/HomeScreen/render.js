@@ -1,6 +1,6 @@
 import React from 'react'
 import { 
-    View, Text, TouchableOpacity, Image, ImageBackground, Dimensions, StyleSheet
+    View, Text, TouchableOpacity, Image, ImageBackground, Dimensions, StyleSheet, ActivityIndicator,
  } from 'react-native';
 import { styles } from './style';
 import Carousel from 'react-native-snap-carousel';
@@ -22,7 +22,34 @@ const {width, height} = Dimensions.get('window')
     onFriendsRoom = () => {},
     onTrainingRoom = () => {}
  }) => {
-     
+     let carousel = listSlide.length > 0 ? 
+            <Carousel
+                data={listSlide}
+                sliderWidth={width}
+                itemWidth={275.32 * pointX}
+                inactiveSlideOpacity={0.6}
+                inactiveSlideScale={0.8}
+                loop = {true}
+                autoplay = {true}
+                renderItem={({item, index}) => (
+                    <ImageBackground
+                        source = {{uri:item.image}}
+                        style = {styles.slideItemBG}
+                        imageStyle = {{borderRadius:5}}>
+
+                        <Text style = {styles.slideItemTitle}>{item.title}</Text>
+                        <Text style = {styles.descriptionItemSlide}>{item.short_content}</Text>
+                    </ImageBackground>
+                )}
+            />
+            :
+            <View style = {{width: width, height: '100%', justifyContent: 'center'}}>
+                <ActivityIndicator
+                    size="large" color="#0000ff"
+                />
+            </View>
+
+
      return(
          <ImageBackground
             source={IMG.BACKGROUND_IMG}
@@ -35,25 +62,8 @@ const {width, height} = Dimensions.get('window')
                 
                 <View style = {styles.slideContainer}>
                     <View style= {styles.slideView}>
-                        <Carousel
-                            data={listSlide}
-                            sliderWidth={width}
-                            itemWidth={275.32 * pointX}
-                            inactiveSlideOpacity={0.6}
-                            inactiveSlideScale={0.8}
-                            loop = {true}
-                            autoplay = {true}
-                            renderItem={({item, index}) => (
-                                <ImageBackground
-                                    source = {{uri:item.uriImage}}
-                                    style = {styles.slideItemBG}
-                                    imageStyle = {{borderRadius:5}}>
-
-                                    <Text style = {styles.slideItemTitle}>{item.title}</Text>
-                                    <Text style = {styles.descriptionItemSlide}>{item.description}</Text>
-                                </ImageBackground>
-                            )}
-                        />
+                        {carousel}
+                        
                     </View>
                 </View>
 

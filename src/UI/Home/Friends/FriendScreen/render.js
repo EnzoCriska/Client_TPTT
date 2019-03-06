@@ -9,7 +9,7 @@ import { styles } from './style';
 import { pointX, pointY } from '../../../../Util/Constanst';
 import ListFriend from './listFriend/indexListFriend';
 import ListWaitFriend from './listWaitFriend/indexListWaitFriend';
-import { HeaderComponent } from '../../../../Util/Component Util/HeaderComponent';
+import HeaderComponent from '../../../../Util/Component Util/HeaderComponent';
 
 import * as IMG from '../../../../Util/Common/Image';
 
